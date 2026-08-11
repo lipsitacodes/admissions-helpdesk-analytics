@@ -1,0 +1,100 @@
+query,intent,language,topic,expected_document
+How do I apply for the next semester?,admission_process,English,admission_process,admission_process.txt
+What is the admission application process?,admission_process,English,admission_process,admission_process.txt
+Can I submit the admission form online?,admission_process,English,admission_process,admission_process.txt
+When will I know if my application is accepted?,admission_process,English,admission_process,admission_process.txt
+What are the steps after I complete the admission form?,admission_process,English,admission_process,admission_process.txt
+How do I start the admission procedure?,admission_process,English,admission_process,admission_process.txt
+Do I need to create an account before applying?,admission_process,English,admission_process,admission_process.txt
+What is the process for getting admission approval?,admission_process,English,admission_process,admission_process.txt
+How do I find out what admission steps I need to take?,admission_process,English,admission_process,admission_process.txt
+Who is eligible to apply for the program?,eligibility,English,eligibility,eligibility.txt
+What are the minimum eligibility criteria?,eligibility,English,eligibility,eligibility.txt
+Do I qualify with my current grades?,eligibility,English,eligibility,eligibility.txt
+Are there special eligibility rules for international students?,eligibility,English,eligibility,eligibility.txt
+What qualifications are required to be eligible?,eligibility,English,eligibility,eligibility.txt
+How do I know if I am eligible for admission?,eligibility,English,eligibility,eligibility.txt
+Does the program require specific course prerequisites?,eligibility,English,eligibility,eligibility.txt
+Is there an age limit for eligibility?,eligibility,English,eligibility,eligibility.txt
+What makes an applicant eligible for the program?,eligibility,English,eligibility,eligibility.txt
+What are the tuition fees for the program?,fee_structure,English,fee_structure,fee_structure.txt
+How much does the semester fee cost?,fee_structure,English,fee_structure,fee_structure.txt
+Can I pay fees in installments?,fee_structure,English,fee_structure,fee_structure.txt
+What does the fee structure include?,fee_structure,English,fee_structure,fee_structure.txt
+Are there separate fees for labs and libraries?,fee_structure,English,fee_structure,fee_structure.txt
+How is the total fee amount calculated?,fee_structure,English,fee_structure,fee_structure.txt
+When is the first fee installment due?,fee_structure,English,fee_structure,fee_structure.txt
+Does the fee plan include hostel charges?,fee_structure,English,fee_structure,fee_structure.txt
+What are the payment options for tuition fees?,fee_structure,English,fee_structure,fee_structure.txt
+Who can apply for scholarships?,scholarship,English,scholarship,scholarship.txt
+What scholarship options are available?,scholarship,English,scholarship,scholarship.txt
+How do I apply for a merit scholarship?,scholarship,English,scholarship,scholarship.txt
+What are the scholarship eligibility requirements?,scholarship,English,scholarship,scholarship.txt
+Can scholarships cover tuition fees?,scholarship,English,scholarship,scholarship.txt
+Is there a scholarship application deadline?,scholarship,English,scholarship,scholarship.txt
+Do I need to submit a scholarship essay?,scholarship,English,scholarship,scholarship.txt
+Are need-based scholarships available?,scholarship,English,scholarship,scholarship.txt
+How do I check if I qualify for financial aid?,scholarship,English,scholarship,scholarship.txt
+How do I apply for a hostel room?,hostel,English,hostel,hostel.txt
+What facilities are available in the hostel?,hostel,English,hostel,hostel.txt
+Are single rooms available in the hostel?,hostel,English,hostel,hostel.txt
+How are hostel rooms assigned?,hostel,English,hostel,hostel.txt
+Can I change my hostel room after move-in?,hostel,English,hostel,hostel.txt
+What are the hostel rules for residents?,hostel,English,hostel,hostel.txt
+Does the hostel offer laundry service?,hostel,English,hostel,hostel.txt
+When can I submit the hostel application?,hostel,English,hostel,hostel.txt
+How much is the hostel deposit?,hostel,English,hostel,hostel.txt
+What courses are offered in the program?,course_information,English,course_information,admission_process.txt
+How long does the course last?,course_information,English,course_information,admission_process.txt
+What subjects are covered in the first year?,course_information,English,course_information,admission_process.txt
+Is this course available for new applicants?,course_information,English,course_information,admission_process.txt
+Can I see the course duration and structure?,course_information,English,course_information,admission_process.txt
+What is the program syllabus like?,course_information,English,course_information,admission_process.txt
+Do I need to choose a specialization?,course_information,English,course_information,admission_process.txt
+What are the main topics taught in the course?,course_information,English,course_information,admission_process.txt
+How many credits does the program have?,course_information,English,course_information,admission_process.txt
+What documents are needed for admission?,documents_required,English,documents_required,admission_process.txt
+Which papers do I have to submit?,documents_required,English,documents_required,admission_process.txt
+Do I need to upload transcript copies?,documents_required,English,documents_required,admission_process.txt
+Is a passport photo required with my application?,documents_required,English,documents_required,admission_process.txt
+What proof of identity is required?,documents_required,English,documents_required,admission_process.txt
+Are recommendation letters needed?,documents_required,English,documents_required,admission_process.txt
+Do I need to submit my previous degree certificate?,documents_required,English,documents_required,admission_process.txt
+Is a language score report required?,documents_required,English,documents_required,admission_process.txt
+What documentation must be attached to the form?,documents_required,English,documents_required,admission_process.txt
+What is the application deadline?,application_deadline,English,application_deadline,deadlines.txt
+When does the admission application close?,application_deadline,English,application_deadline,deadlines.txt
+How much time do I have to submit the form?,application_deadline,English,application_deadline,deadlines.txt
+What is the last date for the application?,application_deadline,English,application_deadline,deadlines.txt
+Is there a deadline for fee payment?,application_deadline,English,application_deadline,deadlines.txt
+When is the final date to submit documents?,application_deadline,English,application_deadline,deadlines.txt
+Are late applications accepted?,application_deadline,English,application_deadline,deadlines.txt
+What is the deadline for the scholarship application?,application_deadline,English,application_deadline,deadlines.txt
+When should I complete the admission process?,application_deadline,English,application_deadline,deadlines.txt
+What is the refund policy for a withdrawal?,refund,English,refund,fee_structure.txt
+Can I get a refund if I cancel admission?,refund,English,refund,fee_structure.txt
+How do I request a refund?,refund,English,refund,fee_structure.txt
+What fees are refundable?,refund,English,refund,fee_structure.txt
+When will I receive a refund?,refund,English,refund,fee_structure.txt
+Does the fee structure include refund rules?,refund,English,refund,fee_structure.txt
+Is there a refund deadline?,refund,English,refund,fee_structure.txt
+What happens if I leave before the semester starts?,refund,English,refund,fee_structure.txt
+Are hostel fees refundable on withdrawal?,refund,English,refund,fee_structure.txt
+How can I contact the admissions office?,contact_admission,English,contact_admission,admission_process.txt
+Who do I reach for admission questions?,contact_admission,English,contact_admission,admission_process.txt
+What is the email for admissions support?,contact_admission,English,contact_admission,admission_process.txt
+Can I call the admission help desk?,contact_admission,English,contact_admission,admission_process.txt
+Where do I send my admission queries?,contact_admission,English,contact_admission,admission_process.txt
+Who should I contact about application status?,contact_admission,English,contact_admission,admission_process.txt
+How can I get help with the admission form?,contact_admission,English,contact_admission,admission_process.txt
+Is there a phone number for admissions?,contact_admission,English,contact_admission,admission_process.txt
+Where can I find admission support contact details?,contact_admission,English,contact_admission,admission_process.txt
+Can I apply for a student ID number?,other,English,other,
+How do I change my course after admission?,other,English,other,
+What campus events are available?,other,English,other,
+Can I request extra academic counseling?,other,English,other,
+How do I access the student portal?,other,English,other,
+What are the library hours?,other,English,other,
+Is there a campus transportation service?,other,English,other,
+Can I speak with a counselor about housing?,other,English,other,
+How do I find the campus map?,other,English,other,

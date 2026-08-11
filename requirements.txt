@@ -1,0 +1,10 @@
+﻿pandas
+scikit-learn
+langdetect
+sentence-transformers
+faiss-cpu
+Flask
+requests
+python-dotenv
+pytest
+jupyter

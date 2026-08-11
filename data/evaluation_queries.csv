@@ -1,0 +1,23 @@
+query,intent,language,topic,expected_document
+What is the admission procedure?,admission_process,English,admission_process,admission_process.txt
+How can I begin my application?,admission_process,English,admission_process,admission_process.txt
+Am I eligible with my current qualifications?,eligibility,English,eligibility,eligibility.txt
+What are the admission requirements?,eligibility,English,eligibility,eligibility.txt
+Can I pay tuition fees in two payments?,fee_structure,English,fee_structure,fee_structure.txt
+What does the fee schedule include?,fee_structure,English,fee_structure,fee_structure.txt
+How do I qualify for financial aid?,scholarship,English,scholarship,scholarship.txt
+Is there a scholarship for high-achieving students?,scholarship,English,scholarship,scholarship.txt
+What are the hostel living arrangements?,hostel,English,hostel,hostel.txt
+How do I apply for campus housing?,hostel,English,hostel,hostel.txt
+Which program courses are offered?,course_information,English,course_information,admission_process.txt
+How long is the degree program?,course_information,English,course_information,admission_process.txt
+What documents must I upload?,documents_required,English,documents_required,admission_process.txt
+Are copies of my certificates required?,documents_required,English,documents_required,admission_process.txt
+When is the final application deadline?,application_deadline,English,application_deadline,deadlines.txt
+What is the deadline for submitting the application form?,application_deadline,English,application_deadline,deadlines.txt
+Can I get a refund if I withdraw early?,refund,English,refund,fee_structure.txt
+What is the cancellation refund policy?,refund,English,refund,fee_structure.txt
+How do I contact admissions for help?,contact_admission,English,contact_admission,admission_process.txt
+Who should I email about admission questions?,contact_admission,English,contact_admission,admission_process.txt
+What student services are available?,other,English,other,
+How can I find the library schedule?,other,English,other,

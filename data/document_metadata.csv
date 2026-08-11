@@ -1,0 +1,7 @@
+document_id,title,category,source_file,topic_tags,summary
+admission-001,Admission Process,admission_process,admission_process.txt,admission_process;documents_required;contact_admission,Overview of the application process, required steps, and admissions support information.
+deadlines-001,Application Deadlines,application_deadline,deadlines.txt,application_deadline;deadlines;submission,Details on application deadlines, payment windows, and late-submission guidance.
+eligibility-001,Eligibility Requirements,eligibility,eligibility.txt,eligibility;requirements;qualifications,Requirements for admission eligibility, program prerequisites, and document review.
+fees-001,Fee Structure,fee_structure,fee_structure.txt,fee_structure;payment;refund,Explanation of tuition payments, fee components, refund rules, and payment options.
+hostel-001,Hostel Accommodation,hostel,hostel.txt,hostel;housing;residence,Information on hostel applications, room assignment, facilities, and resident policies.
+scholarship-001,Scholarship Programs,scholarship,scholarship.txt,scholarship;financial aid;awards,Description of scholarship options, application criteria, and award eligibility.
