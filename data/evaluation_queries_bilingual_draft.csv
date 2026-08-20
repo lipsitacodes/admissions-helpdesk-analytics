@@ -1,0 +1,78 @@
+query,intent,language,topic,expected_document
+Can you walk me through getting admitted?,admission_process,English,admission_process,admission_process.txt
+Where is the new-student application started?,admission_process,English,admission_process,admission_process.txt
+Mujhe college mein entry ke liye kya karna padega?,admission_process,Hinglish,admission_process,admission_process.txt
+Portal wala form bharne ka order kya hai?,admission_process,Hinglish,admission_process,admission_process.txt
+Do applications need an in-person visit?,admission_process,English,admission_process,admission_process.txt
+Can I complete the joining formalities remotely?,admission_process,English,admission_process,admission_process.txt
+Account banane ke baad next step kya hai?,admission_process,Hinglish,admission_process,admission_process.txt
+My 12th score is 68 percent. Can I seek a seat?,eligibility,English,eligibility,eligibility.txt
+Are students from another board accepted?,eligibility,English,eligibility,eligibility.txt
+Age limit apply hoti hai kya?,eligibility,Hinglish,eligibility,eligibility.txt
+Diploma wale yahan aa sakte hain?,eligibility,Hinglish,eligibility,eligibility.txt
+Is a science stream mandatory for this option?,eligibility,English,eligibility,eligibility.txt
+Does a previous gap affect selection?,eligibility,English,eligibility,eligibility.txt
+12th pass hona enough hai kya?,eligibility,Hinglish,eligibility,eligibility.txt
+What would I pay for a complete semester?,fee_structure,English,fee_structure,fee_structure.txt
+Is the registration amount included in the course charges?,fee_structure,English,fee_structure,fee_structure.txt
+Mujhe total charges ka idea chahiye.,fee_structure,Hinglish,fee_structure,fee_structure.txt
+Semester payment ek baar mein dena hai?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+Are there charges for the admission kit?,fee_structure,English,fee_structure,fee_structure.txt
+Does the first payment include any deposit?,fee_structure,English,fee_structure,fee_structure.txt
+Course ka annual amount bata do.,fee_structure,Hinglish,fee_structure,fee_structure.txt
+Are fee waivers available for deserving learners?,scholarship,English,scholarship,scholarship.txt
+How do I know whether I qualify for financial aid?,scholarship,English,scholarship,scholarship.txt
+Padhai ke kharche mein koi help milti hai?,scholarship,Hinglish,scholarship,scholarship.txt
+Merit ke basis par discount ka form kahan milega?,scholarship,Hinglish,scholarship,scholarship.txt
+Can I apply for financial aid after joining?,scholarship,English,scholarship,scholarship.txt
+Is an income-based benefit offered?,scholarship,English,scholarship,scholarship.txt
+Scholarship renew karne ke liye kya karna hai?,scholarship,Hinglish,scholarship,scholarship.txt
+Do students have residential accommodation?,hostel,English,hostel,hostel.txt
+Can I stay in college during the semester?,hostel,English,hostel,hostel.txt
+Campus stay ke liye room kaise milega?,hostel,Hinglish,hostel,hostel.txt
+Campus accommodation mein room location choose kar sakte hain kya?,hostel,Hinglish,hostel,hostel.txt
+Are meals served to residents?,hostel,English,hostel,hostel.txt
+Can accommodation be arranged after classes begin?,hostel,English,hostel,hostel.txt
+Girls residence ke rules kya hain?,hostel,Hinglish,hostel,hostel.txt
+Which department teaches Mechanical Engineering?,course_information,English,course_information,admission_process.txt
+Can you show the subjects for Data Science?,course_information,English,course_information,admission_process.txt
+Yahan kaun kaunse programmes chalte hain?,course_information,Hinglish,course_information,admission_process.txt
+Electronics mein kya padhaya jata hai?,course_information,Hinglish,course_information,admission_process.txt
+Is there a branch focused on Artificial Intelligence?,course_information,English,course_information,admission_process.txt
+How many years does the B.Tech take?,course_information,English,course_information,admission_process.txt
+Mechanical ka syllabus mil sakta hai?,course_information,Hinglish,course_information,admission_process.txt
+Which certificates will the verification desk check?,documents_required,English,documents_required,admission_process.txt
+Do I need a character certificate from my school?,documents_required,English,documents_required,admission_process.txt
+ID proof mein kya acceptable hai?,documents_required,Hinglish,documents_required,admission_process.txt
+Joining ke time photos bhi le jane hain?,documents_required,Hinglish,documents_required,admission_process.txt
+Is a transfer certificate part of the checklist?,documents_required,English,documents_required,admission_process.txt
+Can the portal accept PDF copies of marksheets?,documents_required,English,documents_required,admission_process.txt
+Kaunse certificate original dikhane padenge?,documents_required,Hinglish,documents_required,admission_process.txt
+When is the portal's final submission day?,application_deadline,English,application_deadline,deadlines.txt
+Is the form window still active?,application_deadline,English,application_deadline,deadlines.txt
+Apply karne ka time khatam kab hoga?,application_deadline,Hinglish,application_deadline,deadlines.txt
+Lateral-entry applicants ke liye deadline alag hai kya?,application_deadline,Hinglish,application_deadline,deadlines.txt
+When will registrations begin for the session?,application_deadline,English,application_deadline,deadlines.txt
+Does the form close at midnight on the last date?,application_deadline,English,application_deadline,deadlines.txt
+Registration shuru kab hogi?,application_deadline,Hinglish,application_deadline,deadlines.txt
+I am giving up my seat. Can the payment be returned?,refund,English,refund,fee_structure.txt
+What is the process to reclaim an accidental payment?,refund,English,refund,fee_structure.txt
+Seat nahi chahiye to paise ka kya hoga?,refund,Hinglish,refund,fee_structure.txt
+Refund ke liye bank account details deni padengi kya?,refund,Hinglish,refund,fee_structure.txt
+Is there a cancellation charge before the term starts?,refund,English,refund,fee_structure.txt
+Must I submit a written request for a return?,refund,English,refund,fee_structure.txt
+Withdrawal ke baad deduction hoti hai kya?,refund,Hinglish,refund,fee_structure.txt
+How can I reach a person handling admissions?,contact_admission,English,contact_admission,admission_process.txt
+Is there an enquiry email for applicants?,contact_admission,English,contact_admission,admission_process.txt
+College admission desk se contact kaise hoga?,contact_admission,Hinglish,contact_admission,admission_process.txt
+Admission representative ka number de do.,contact_admission,Hinglish,contact_admission,admission_process.txt
+Where can applicants get official guidance?,contact_admission,English,contact_admission,admission_process.txt
+Can I email the admission cell directly?,contact_admission,English,contact_admission,admission_process.txt
+Helpdesk ka contact number kya hai?,contact_admission,Hinglish,contact_admission,admission_process.txt
+Are there student societies for music?,other,English,other,
+What time does the campus gate close?,other,English,other,
+College mein fest kab hota hai?,other,Hinglish,other,
+Bus pass kaise banega?,other,Hinglish,other,
+Does the campus organise technical events?,other,English,other,
+Is there a common room for students?,other,English,other,
+College ke paas stationery shop hai kya?,other,Hinglish,other,
