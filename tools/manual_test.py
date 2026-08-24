@@ -9,7 +9,7 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from app.main import run_query_pipeline
+from backend.main import run_query_pipeline
 
 
 def display_result(result: dict) -> None:

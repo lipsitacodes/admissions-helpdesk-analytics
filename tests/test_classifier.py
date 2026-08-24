@@ -1,6 +1,6 @@
 import pytest
 
-from app.main import get_classifier_artifacts
+from backend.main import get_classifier_artifacts
 from preprocessing.clean_text import clean_text
 
 

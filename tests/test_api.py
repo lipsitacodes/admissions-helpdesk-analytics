@@ -3,7 +3,7 @@ import sqlite3
 
 import pytest
 
-from app import logger, main
+from backend import logger, main
 from rag.generate_answer import UNAVAILABLE_MESSAGE
 
 
