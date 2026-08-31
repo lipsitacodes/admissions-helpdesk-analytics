@@ -6,5 +6,6 @@ faiss-cpu
 Flask
 requests
 python-dotenv
+pymongo==4.11.3
 pytest
 jupyter
