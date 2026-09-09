@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Student Helpdesk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#query"><span class="logo">🎓</span><span>AI Student<br>Helpdesk</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <button class="nav-link active" data-view="query"><span>▢</span> New Query</button>
+      <button class="nav-link" data-view="dashboard"><span>▥</span> Dashboard</button>
+      <button class="nav-link" data-view="history"><span>◷</span> History</button>
+      <button class="nav-link" data-view="analytics"><span>⌁</span> Analytics</button>
+      <button class="nav-link" data-view="documents"><span>▱</span> Documents</button>
+      <button class="nav-link" data-view="settings"><span>⚙</span> Settings</button>
+    </nav>
+    <div class="profile"><span class="avatar">B</span><span><b>Binit</b><small>Member 3</small></span><span class="chevron">⌄</span></div>
+  </aside>
+  <main class="main">
+    <section class="view active" id="query">
+      <div class="welcome">
+        <h1>👋 Hello! How can I help you today?</h1>
+        <p>Ask any question related to admissions, fees, scholarships, hostel,<br>or any other information.</p>
+      </div>
+      <form id="query-form" class="question-box">
+        <textarea id="question" aria-label="Your question" placeholder="Type your question here..." required></textarea>
+        <button class="send" type="submit">↗ <span>Send</span></button>
+      </form>
+      <div id="query-error" class="error" role="alert"></div>
+      <section class="examples"><h3>Try these examples</h3><div class="example-grid">
+        <button data-question="What is the fee structure?">💸 <span>What is the fee<br>structure?</span></button>
+        <button data-question="Scholarship eligibility kya hai?">♻️ <span>Scholarship eligibility<br>kya hai?</span></button>
+        <button data-question="Hostel accommodation facilities?">▣ <span>Hostel accommodation<br>facilities?</span></button>
+        <button data-question="Admission process kya hai?">♙ <span>Admission process<br>kya hai?</span></button>
+        <button data-question="application_deadline?">📅 <span>What is the application<br>deadline?</span></button>
+        <button data-question="contact_admission?">📞 <span>How to contact<br>admission?</span></button>
+        <button data-question="course_information?">📚 <span>Course information<br>available?</span></button>"
+      </div></section>
+    </section>
+
+    <section class="view" id="answer">
+      <header class="page-header"><button class="back" data-view="query">←</button><h2>New Query</h2></header>
+      <div class="conversation"><div class="user-message"><span id="asked-question"></span><small id="asked-time"></small></div></div>
+      <article class="answer-card">
+        <div class="answer-title"><span class="bot">✦</span><strong>AI Answer</strong><time id="answer-time"></time></div>
+        <p id="answer-text"></p>
+        <div class="tags"><span class="tag grounded" id="grounded-tag">✓ Grounded</span><span class="tag escalated" id="escalated-tag">⚠ Escalated</span><span class="tag confidence" id="confidence-tag"></span><span class="tag similarity" id="similarity-tag"></span></div>
+        <div class="details"><h4>Details</h4><div class="detail-grid">
+          <div><small>Intent</small><b id="intent"></b></div><div><small>Source Document</small><b id="source"></b></div><div><small>Classifier Confidence</small><b id="confidence"></b></div><div><small>Retrieval Similarity</small><b id="similarity"></b></div>
+          <div><small>Escalated</small><b id="escalated"></b></div><div><small>Escalation Reasons</small><b id="reasons"></b></div><div><small>Grounded</small><b id="grounded"></b></div><div><small>Cleaned Query</small><b id="cleaned-query"></b></div>
+        </div></div>
+        <div class="feedback">Was this answer helpful? <button>♧</button><button>♧</button></div>
+      </article>
+    </section>
+
+    <section class="view" id="dashboard"><header class="topline"><h2>Analytics Dashboard</h2><button class="date">07 Jun 2025 - 14 Jun 2025　▣</button></header><div class="stat-grid">
+      <div class="stat"><small>Total Interactions</small><b>1,248</b><em>↗ 12.5% <i>vs last 7 days</i></em></div><div class="stat"><small>Grounded Responses</small><b>892</b><em>↗ 71.5% <i>of total</i></em></div><div class="stat"><small>Escalated Queries</small><b>356</b><em class="red">↗ 28.5% <i>of total</i></em></div><div class="stat"><small>Avg. Confidence</small><b>0.42</b><em>↗ 8.3% <i>vs last 7 days</i></em></div>
+    </div><div class="chart-grid"><article class="chart"><h3>Intent Distribution</h3><div class="donut"></div><ul class="legend"><li>● Scholarship <span>28% (349)</span></li><li>● Fees <span>24% (299)</span></li><li>● Hostel <span>20% (249)</span></li><li>● Admission <span>15% (187)</span></li></ul></article><article class="chart"><h3>Interactions Over Time</h3><div class="line-chart"><svg viewBox="0 0 400 210" preserveAspectRatio="none"><polyline points="10,168 65,120 115,104 165,132 215,72 265,128 315,84 385,108" /></svg><div class="x-axis">07 Jun　08 Jun　09 Jun　10 Jun　11 Jun　12 Jun　13 Jun　14 Jun</div></div></article><article class="chart"><h3>Grounded vs Escalated</h3><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article><article class="chart"><h3>Average Confidence Trend</h3><div class="line-chart small"><svg viewBox="0 0 400 210" preserveAspectRatio="none"><polyline points="10,80 65,95 115,145 165,132 215,100 265,135 315,103 385,135" /></svg></div></article></div></section>
+
+    <section class="view" id="history"><header class="topline"><h2>Interaction History</h2><button class="date">07 Jun 2025 - 14 Jun 2025　▣</button></header><div class="filters"><input placeholder="Search queries..."><button>All Intents　⌄</button><button>All Status　⌄</button></div><div class="table-wrap"><table><thead><tr><th>Query</th><th>Intent</th><th>Confidence</th><th>Source</th><th>Grounded</th><th>Escalated</th><th>Time</th></tr></thead><tbody id="history-body"></tbody></table></div><div class="pagination" id="history-count">Showing 0 entries</div></section>
+    <section class="view placeholder" id="documents"><h2>Documents</h2><p>Your institutional knowledge-base documents will appear here.</p></section><section class="view placeholder" id="settings"><h2>Settings</h2><p>Helpdesk preferences and account settings.</p></section>
+  </main><script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
