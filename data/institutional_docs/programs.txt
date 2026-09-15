@@ -1,0 +1,25 @@
+SYNTHETIC DEVELOPMENT DATA — NOT ACTUAL UNIVERSITY POLICY
+
+B.Tech Programs
+
+This document summarizes demo coverage for ten possible undergraduate engineering programs. The exact program list, approvals, curriculum, duration, and admissions route must be verified from the current official prospectus.
+
+Computer Science and Engineering (CSE): four-year undergraduate B.Tech coverage for programming, algorithms, databases, operating systems, networks, software engineering, and introductory AI. Career areas include software, testing, data, cloud, and cybersecurity.
+
+Mechanical Engineering: four-year undergraduate B.Tech coverage for mechanics, thermodynamics, fluids, manufacturing, machine design, materials, and industrial engineering. Career areas include manufacturing, design, maintenance, production, automotive, and energy.
+
+Civil Engineering: four-year undergraduate B.Tech coverage for structures, surveying, construction materials, geotechnical engineering, transportation, hydraulics, and environmental engineering. Career areas include construction, infrastructure, surveying, public works, and consulting.
+
+Electronics and Communication Engineering (ECE): four-year undergraduate B.Tech coverage for circuits, digital systems, signals, communications, microprocessors, embedded systems, and programming. Career areas include embedded systems, telecommunications, automation, and electronics testing.
+
+Electrical and Electronics Engineering (EEE): four-year undergraduate B.Tech coverage for circuits, machines, power systems, control systems, electronics, measurements, and renewable-energy fundamentals. Career areas include power, maintenance, automation, energy, and electronics.
+
+Computer Science and Engineering - Artificial Intelligence and Machine Learning (CSE AI/ML): four-year undergraduate B.Tech coverage for computer science, statistics, data, machine learning, deep learning, responsible AI, and software development. Exact program title and approval are subject to official verification.
+
+Dairy Technology / Dairy Engineering: demo coverage for milk processing, dairy microbiology, food safety, refrigeration, dairy plant equipment, packaging, and quality control. Availability must be confirmed officially.
+
+Drone Technology / related B.Tech Drone program: demo coverage for unmanned systems, flight fundamentals, sensors, embedded control, mapping, data processing, and safety. Availability and approval are UNKNOWN until officially verified.
+
+Agricultural Engineering / B.Tech Agriculture-related program: demo coverage for farm machinery, irrigation, soil and water conservation, agricultural processing, renewable energy, and precision agriculture. Availability and approval are UNKNOWN until officially verified.
+
+Aeronautical / Aeronautical Engineering: demo coverage for aerodynamics, aircraft structures, propulsion, materials, flight mechanics, and maintenance fundamentals. Availability and approval are UNKNOWN until officially verified.

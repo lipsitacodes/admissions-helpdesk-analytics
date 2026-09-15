@@ -1,3 +1,4 @@
+import json
 import pickle
 from pathlib import Path
 
@@ -5,6 +6,7 @@ from sentence_transformers import SentenceTransformer
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DOCS_DIR = ROOT_DIR / "data" / "institutional_docs"
+RECORDS_FILE = ROOT_DIR / "data" / "knowledge_base_records.json"
 OUTPUT_FILE = ROOT_DIR / "rag" / "document_embeddings.pkl"
 MODEL_NAME = "all-MiniLM-L6-v2"
 
@@ -34,13 +36,68 @@ def create_chunks(doc_paths):
     return chunks
 
 
+def create_record_chunks(records_path: Path):
+    """Create one semantically focused chunk per structured knowledge record."""
+    payload = json.loads(records_path.read_text(encoding="utf-8"))
+    records = payload.get("records")
+    if not isinstance(records, list) or not records:
+        raise ValueError("Knowledge-base records must be a non-empty list.")
+
+    chunks = []
+    for chunk_id, record in enumerate(records):
+        required = {"id", "domain", "branch", "topic", "source_status", "source_document", "information"}
+        missing = required - record.keys()
+        if missing:
+            raise ValueError(f"Knowledge record is missing fields: {sorted(missing)}")
+
+        details = [
+            f"Source status: {record['source_status']}.",
+            f"Domain: {record['domain']}. Branch: {record['branch']}. Topic: {record['topic']}.",
+            record["information"],
+        ]
+        for key in (
+            "program",
+            "fee_category",
+            "subcategory",
+            "eligibility",
+            "admission_route",
+            "amount",
+            "frequency",
+            "applicability",
+            "source_note",
+        ):
+            if record.get(key):
+                details.append(f"{key.title()}: {record[key]}.")
+        chunks.append({
+            "document": record["source_document"],
+            "chunk_id": chunk_id,
+            "record_id": record["id"],
+            "domain": record["domain"],
+            "branch": record["branch"],
+            "topic": record["topic"],
+            "source_status": record["source_status"],
+            "program": record.get("program"),
+            "fee_category": record.get("fee_category"),
+            "subcategory": record.get("subcategory"),
+            "amount": record.get("amount"),
+            "frequency": record.get("frequency"),
+            "applicability": record.get("applicability"),
+            "question_variations": record.get("question_variations", []),
+            "text": " ".join(details),
+        })
+    return chunks
+
+
 def main():
     doc_paths = sorted(DOCS_DIR.glob("*.txt"))
     if not doc_paths:
         raise FileNotFoundError(f"No document files found in {DOCS_DIR}")
 
-    chunks = create_chunks(doc_paths)
-    texts = [chunk["text"] for chunk in chunks]
+    chunks = create_record_chunks(RECORDS_FILE) if RECORDS_FILE.exists() else create_chunks(doc_paths)
+    texts = [
+        chunk["text"] + " Common questions: " + " | ".join(chunk["question_variations"])
+        for chunk in chunks
+    ]
 
     print("Loading embedding model:", MODEL_NAME)
     model = SentenceTransformer(MODEL_NAME)

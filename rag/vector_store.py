@@ -68,6 +68,15 @@ class FaissVectorStore:
 				"text": self.metadata[position]["text"],
 				"similarity_score": score,
 				"index_position": position,
+				**{
+					key: self.metadata[position][key]
+					for key in (
+						"record_id", "domain", "branch", "topic", "source_status",
+						"program", "fee_category", "subcategory", "amount", "frequency",
+						"applicability", "question_variations",
+					)
+					if key in self.metadata[position]
+				},
 			}
 			for position, score in positions_and_scores
 		]

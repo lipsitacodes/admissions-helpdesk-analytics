@@ -2,9 +2,17 @@ SYNTHETIC DEVELOPMENT DATA — NOT ACTUAL UNIVERSITY POLICY
 
 Fee Structure
 
-The fee structure includes tuition, registration fees, and additional charges for laboratories, library access, and campus facilities. Fees vary by program and registration status.
+IMPORTANT: Every amount in this document is SYNTHETIC_DEMO data created for project demonstration. It is not an official fee notice and must not be treated as the fee of any particular university.
 
-Hostel charges are calculated separately from tuition. Students living on campus pay a fixed room rate plus a mess fee and utility surcharge.
+Synthetic annual academic fee examples: CSE INR 160,000; CSE AI/ML INR 175,000; ECE INR 145,000; EEE INR 140,000; Mechanical INR 125,000; Civil INR 120,000; Dairy Technology INR 115,000; Drone Technology INR 155,000; Agricultural Engineering INR 110,000; and Aeronautical Engineering INR 170,000. Each is payable as two equal synthetic semester amounts.
+
+Academic components are separated into tuition, development/infrastructure, laboratory, library, technology/computer, student activity/welfare, and registration. Examination fees are separate. The branch-specific structured records contain the component breakdown and the program association.
+
+Synthetic one-time charges total INR 20,000: admission processing INR 5,000, university registration INR 2,000, ID card and student services INR 1,000, documentation INR 2,000, and refundable caution/security deposit INR 10,000.
+
+Synthetic hostel accommodation is INR 90,000 per year with a refundable hostel security deposit of INR 10,000. Synthetic mess charges are approximately INR 4,000 per month or INR 48,000 per year. Synthetic transport is approximately INR 24,000 per year and can vary by route.
+
+For this demonstration, a CSE day-scholar first-year estimate is INR 180,000: INR 160,000 academic plus INR 20,000 one-time charges. A CSE hosteller estimate is INR 318,000 before the hostel deposit, or approximately INR 328,000 including that refundable deposit. These are synthetic calculations, not official totals.
 
 Payment is accepted in full or as a two-installment plan. The first installment is due with the admission confirmation, and the second installment is due before the midterm deadline.
 

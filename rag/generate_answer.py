@@ -10,6 +10,11 @@ UNAVAILABLE_MESSAGE = (
 	"documents to answer this query accurately."
 )
 DISCLAIMER_PREFIX = "SYNTHETIC DEVELOPMENT DATA"
+STRUCTURED_METADATA_PREFIXES = (
+	"Source status:", "Domain:", "Branch:", "Topic:", "Program:",
+	"Fee_Category:", "Subcategory:", "Amount:", "Frequency:",
+	"Applicability:", "Source_Note:",
+)
 DOCUMENT_HEADINGS = {
 	"Admission Process",
 	"Application Deadlines",
@@ -46,7 +51,11 @@ def _sentences(chunks: Iterable[Dict[str, Any]]) -> List[str]:
 				if sentence.startswith(heading + " "):
 					sentence = sentence[len(heading):].strip()
 					break
-			if not sentence or sentence.upper().startswith(DISCLAIMER_PREFIX):
+			if (
+				not sentence
+				or sentence.upper().startswith(DISCLAIMER_PREFIX)
+				or sentence.startswith(STRUCTURED_METADATA_PREFIXES)
+			):
 				continue
 			if sentence not in seen:
 				seen.add(sentence)

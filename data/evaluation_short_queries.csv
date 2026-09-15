@@ -1,0 +1,21 @@
+query,intent,language,topic,expected_document
+Tell me about the computer science branch,course_information,English,course_information,admission_process.txt
+ECE ka overview batao,course_information,Hinglish,course_information,admission_process.txt
+Mechanical branch kya hoti hai?,course_information,Hinglish,course_information,admission_process.txt
+What does the AI ML program cover?,course_information,English,course_information,admission_process.txt
+Drone branch ka basic idea kya hai?,course_information,Hinglish,course_information,admission_process.txt
+How much does the annual B.Tech fee cost?,fee_structure,English,fee_structure,fee_structure.txt
+CSE tuition ka estimate kya hai?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+When can I submit the admission application?,admission_process,English,admission_process,admission_process.txt
+Form submission kaise hoti hai?,admission_process,Hinglish,admission_process,admission_process.txt
+What subjects do I need for engineering?,eligibility,English,eligibility,eligibility.txt
+Diploma ke baad admission possible hai?,eligibility,Hinglish,eligibility,eligibility.txt
+Can students live on campus?,hostel,English,hostel,hostel.txt
+Hostel room kaise allot hota hai?,hostel,Hinglish,hostel,hostel.txt
+Is financial assistance offered?,scholarship,English,scholarship,scholarship.txt
+Scholarship form kab bharna hai?,scholarship,Hinglish,scholarship,scholarship.txt
+What day does the application window close?,application_deadline,English,application_deadline,deadlines.txt
+Registration ki closing date kya hai?,application_deadline,Hinglish,application_deadline,deadlines.txt
+Which certificates should I upload?,documents_required,English,documents_required,admission_process.txt
+Seat cancel karne par paise milenge?,refund,Hinglish,refund,fee_structure.txt
+Is there a music club?,other,English,other,

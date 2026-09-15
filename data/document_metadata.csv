@@ -5,3 +5,7 @@ eligibility-001,Eligibility Requirements,eligibility,eligibility.txt,eligibility
 fees-001,Fee Structure,fee_structure,fee_structure.txt,fee_structure;payment;refund,Explanation of tuition payments, fee components, refund rules, and payment options.
 hostel-001,Hostel Accommodation,hostel,hostel.txt,hostel;housing;residence,Information on hostel applications, room assignment, facilities, and resident policies.
 scholarship-001,Scholarship Programs,scholarship,scholarship.txt,scholarship;financial aid;awards,Description of scholarship options, application criteria, and award eligibility.
+programs-001,B.Tech Programs,course_information,programs.txt,program;branches;course;career,Branch-specific demo overviews, topics, duration, and career areas for ten possible B.Tech programs.
+documents-001,Admission Documents,documents_required,admission_documents.txt,documents;marksheet;certificate,Common and conditional admission document categories with explicit demo status.
+academic-001,Academic Information,course_information,academic_information.txt,academic;semester;assessment,Demo B.Tech duration, semester structure, assessment, and registration coverage.
+examination-001,Examination and Academic Fees,fee_structure,examination_fees.txt,examination;backlog;fees,Examination workflow and explicit unknown status for unverified examination charges.

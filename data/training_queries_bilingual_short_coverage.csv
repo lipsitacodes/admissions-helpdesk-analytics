@@ -1,0 +1,236 @@
+query,intent,language,topic,expected_document
+What is CSE?,course_information,English,course_information,admission_process.txt
+CSE kya hai?,course_information,Hinglish,course_information,admission_process.txt
+What is ECE?,course_information,English,course_information,admission_process.txt
+ECE kya hota hai?,course_information,Hinglish,course_information,admission_process.txt
+What is EEE?,course_information,English,course_information,admission_process.txt
+EEE kya hota hai?,course_information,Hinglish,course_information,admission_process.txt
+What is Mechanical Engineering?,course_information,English,course_information,admission_process.txt
+Mechanical engineering kya hai?,course_information,Hinglish,course_information,admission_process.txt
+What is Civil Engineering?,course_information,English,course_information,admission_process.txt
+Civil engineering kya hai?,course_information,Hinglish,course_information,admission_process.txt
+What is CSE AI ML?,course_information,English,course_information,admission_process.txt
+AI ML kya hai?,course_information,Hinglish,course_information,admission_process.txt
+What is Dairy Technology?,course_information,English,course_information,admission_process.txt
+Dairy Technology kya hai?,course_information,Hinglish,course_information,admission_process.txt
+What is Drone Technology?,course_information,English,course_information,admission_process.txt
+Drone technology kya hai?,course_information,Hinglish,course_information,admission_process.txt
+What is Agricultural Engineering?,course_information,English,course_information,admission_process.txt
+Agricultural engineering kya hai?,course_information,Hinglish,course_information,admission_process.txt
+What is Aeronautical Engineering?,course_information,English,course_information,admission_process.txt
+Aeronautical engineering kya hai?,course_information,Hinglish,course_information,admission_process.txt
+Where do I start the application?,admission_process,English,admission_process,admission_process.txt
+How does admission work?,admission_process,English,admission_process,admission_process.txt
+Admission kaise hoga?,admission_process,Hinglish,admission_process,admission_process.txt
+Form bharne ka process batao,admission_process,Hinglish,admission_process,admission_process.txt
+Application steps kya hain?,admission_process,Hinglish,admission_process,admission_process.txt
+How do I submit my form?,admission_process,English,admission_process,admission_process.txt
+Portal par apply kaise karun?,admission_process,Hinglish,admission_process,admission_process.txt
+What happens after I apply?,admission_process,English,admission_process,admission_process.txt
+Admission ke baad kya hota hai?,admission_process,Hinglish,admission_process,admission_process.txt
+Can I apply online?,admission_process,English,admission_process,admission_process.txt
+Online admission kaise lete hain?,admission_process,Hinglish,admission_process,admission_process.txt
+How do I confirm my seat?,admission_process,English,admission_process,admission_process.txt
+Seat confirm kaise hogi?,admission_process,Hinglish,admission_process,admission_process.txt
+Where is the application portal?,admission_process,English,admission_process,admission_process.txt
+Application portal kahan hai?,admission_process,Hinglish,admission_process,admission_process.txt
+What is the enrollment process?,admission_process,English,admission_process,admission_process.txt
+Enrollment kaise hota hai?,admission_process,Hinglish,admission_process,admission_process.txt
+How do I register as a new student?,admission_process,English,admission_process,admission_process.txt
+Naye student ka registration kaise hoga?,admission_process,Hinglish,admission_process,admission_process.txt
+How do I fill the admission form?,admission_process,English,admission_process,admission_process.txt
+Who is eligible for B.Tech?,eligibility,English,eligibility,eligibility.txt
+Can I apply after Class 12?,eligibility,English,eligibility,eligibility.txt
+12th ke baad apply kar sakte hain?,eligibility,Hinglish,eligibility,eligibility.txt
+B.Tech ke liye kaun eligible hai?,eligibility,Hinglish,eligibility,eligibility.txt
+Is PCM required?,eligibility,English,eligibility,eligibility.txt
+PCM compulsory hai kya?,eligibility,Hinglish,eligibility,eligibility.txt
+Is Mathematics needed for engineering?,eligibility,English,eligibility,eligibility.txt
+Maths hona zaroori hai kya?,eligibility,Hinglish,eligibility,eligibility.txt
+Can a diploma student apply?,eligibility,English,eligibility,eligibility.txt
+Diploma student apply kar sakta hai?,eligibility,Hinglish,eligibility,eligibility.txt
+What marks are required in Class 12?,eligibility,English,eligibility,eligibility.txt
+12th mein kitne marks chahiye?,eligibility,Hinglish,eligibility,eligibility.txt
+Can a student awaiting results apply?,eligibility,English,eligibility,eligibility.txt
+Result pending ho to apply kar sakte hain?,eligibility,Hinglish,eligibility,eligibility.txt
+Is there an age limit?,eligibility,English,eligibility,eligibility.txt
+Age limit kya hai?,eligibility,Hinglish,eligibility,eligibility.txt
+Are equivalent qualifications accepted?,eligibility,English,eligibility,eligibility.txt
+Equivalent qualification chalegi kya?,eligibility,Hinglish,eligibility,eligibility.txt
+Can I apply without Physics?,eligibility,English,eligibility,eligibility.txt
+Physics ke bina apply kar sakte hain?,eligibility,Hinglish,eligibility,eligibility.txt
+What is the B.Tech fee?,fee_structure,English,fee_structure,fee_structure.txt
+B.Tech ki fees kitni hai?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+What is the annual tuition fee?,fee_structure,English,fee_structure,fee_structure.txt
+Annual tuition fee kitni hai?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+What is the semester fee?,fee_structure,English,fee_structure,fee_structure.txt
+Semester fee kitna hai?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+Is admission fee separate?,fee_structure,English,fee_structure,fee_structure.txt
+Admission fee alag hai kya?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+What is the registration charge?,fee_structure,English,fee_structure,fee_structure.txt
+Registration charge kitna hai?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+Is development fee included?,fee_structure,English,fee_structure,fee_structure.txt
+Development fee included hai kya?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+What is the laboratory fee?,fee_structure,English,fee_structure,fee_structure.txt
+Laboratory fee kitni hai?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+What is the library fee?,fee_structure,English,fee_structure,fee_structure.txt
+Library fee kitni hai?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+Are academic and exam fees separate?,fee_structure,English,fee_structure,fee_structure.txt
+Academic aur exam fee alag hai kya?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+Can I pay the fee in installments?,fee_structure,English,fee_structure,fee_structure.txt
+Fee installment mein de sakte hain?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+Is hostel accommodation available?,hostel,English,hostel,hostel.txt
+Hostel available hai?,hostel,Hinglish,hostel,hostel.txt
+How much is hostel accommodation?,hostel,English,hostel,hostel.txt
+Hostel ka charge kitna hai?,hostel,Hinglish,hostel,hostel.txt
+Are rooms shared?,hostel,English,hostel,hostel.txt
+Room sharing hoti hai kya?,hostel,Hinglish,hostel,hostel.txt
+Is there a girls hostel?,hostel,English,hostel,hostel.txt
+Girls hostel hai kya?,hostel,Hinglish,hostel,hostel.txt
+Is mess available?,hostel,English,hostel,hostel.txt
+Mess available hai kya?,hostel,Hinglish,hostel,hostel.txt
+Can I apply for hostel after admission?,hostel,English,hostel,hostel.txt
+Admission ke baad hostel apply kar sakte hain?,hostel,Hinglish,hostel,hostel.txt
+What hostel facilities are provided?,hostel,English,hostel,hostel.txt
+Hostel mein kya facilities milti hain?,hostel,Hinglish,hostel,hostel.txt
+Are hostel rules strict?,hostel,English,hostel,hostel.txt
+Hostel ke rules kaise hain?,hostel,Hinglish,hostel,hostel.txt
+Can parents visit hostel residents?,hostel,English,hostel,hostel.txt
+Parents hostel mein mil sakte hain?,hostel,Hinglish,hostel,hostel.txt
+Is hostel compulsory?,hostel,English,hostel,hostel.txt
+Hostel lena compulsory hai kya?,hostel,Hinglish,hostel,hostel.txt
+Is financial aid available?,scholarship,English,scholarship,scholarship.txt
+Scholarship available hai?,scholarship,Hinglish,scholarship,scholarship.txt
+How do I apply for a scholarship?,scholarship,English,scholarship,scholarship.txt
+Scholarship ke liye apply kaise karein?,scholarship,Hinglish,scholarship,scholarship.txt
+Who qualifies for financial aid?,scholarship,English,scholarship,scholarship.txt
+Scholarship ke liye kaun eligible hai?,scholarship,Hinglish,scholarship,scholarship.txt
+Is there a merit scholarship?,scholarship,English,scholarship,scholarship.txt
+Merit scholarship milti hai kya?,scholarship,Hinglish,scholarship,scholarship.txt
+Are category scholarships available?,scholarship,English,scholarship,scholarship.txt
+SC ST scholarship available hai?,scholarship,Hinglish,scholarship,scholarship.txt
+What documents are needed for scholarship?,scholarship,English,scholarship,scholarship.txt
+Scholarship ke documents kya hain?,scholarship,Hinglish,scholarship,scholarship.txt
+Can I renew my scholarship?,scholarship,English,scholarship,scholarship.txt
+Scholarship renew kaise hoti hai?,scholarship,Hinglish,scholarship,scholarship.txt
+Is an income certificate required?,scholarship,English,scholarship,scholarship.txt
+Income certificate chahiye kya?,scholarship,Hinglish,scholarship,scholarship.txt
+When is the scholarship deadline?,scholarship,English,scholarship,scholarship.txt
+Scholarship ki last date kya hai?,scholarship,Hinglish,scholarship,scholarship.txt
+Can aid cover tuition?,scholarship,English,scholarship,scholarship.txt
+Scholarship se tuition cover hoti hai?,scholarship,Hinglish,scholarship,scholarship.txt
+What documents should I submit?,documents_required,English,documents_required,admission_process.txt
+Admission documents kaunse hain?,documents_required,Hinglish,documents_required,admission_process.txt
+Do I need my Class 10 marksheet?,documents_required,English,documents_required,admission_process.txt
+10th ki marksheet chahiye kya?,documents_required,Hinglish,documents_required,admission_process.txt
+Do I need my Class 12 marksheet?,documents_required,English,documents_required,admission_process.txt
+12th ki marksheet deni hai?,documents_required,Hinglish,documents_required,admission_process.txt
+Is identity proof required?,documents_required,English,documents_required,admission_process.txt
+ID proof zaroori hai kya?,documents_required,Hinglish,documents_required,admission_process.txt
+Do I need a transfer certificate?,documents_required,English,documents_required,admission_process.txt
+Transfer certificate lagega kya?,documents_required,Hinglish,documents_required,admission_process.txt
+Is a character certificate required?,documents_required,English,documents_required,admission_process.txt
+Character certificate chahiye kya?,documents_required,Hinglish,documents_required,admission_process.txt
+Do I need a category certificate?,documents_required,English,documents_required,admission_process.txt
+Category certificate dena hai kya?,documents_required,Hinglish,documents_required,admission_process.txt
+How many photos are needed?,documents_required,English,documents_required,admission_process.txt
+Kitne photos chahiye?,documents_required,Hinglish,documents_required,admission_process.txt
+Are scanned copies accepted?,documents_required,English,documents_required,admission_process.txt
+Scanned copies upload kar sakte hain?,documents_required,Hinglish,documents_required,admission_process.txt
+Is a medical certificate needed?,documents_required,English,documents_required,admission_process.txt
+Medical certificate chahiye kya?,documents_required,Hinglish,documents_required,admission_process.txt
+When does the application open?,application_deadline,English,application_deadline,deadlines.txt
+Application kab start hoti hai?,application_deadline,Hinglish,application_deadline,deadlines.txt
+When is the application deadline?,application_deadline,English,application_deadline,deadlines.txt
+Application ki last date kab hai?,application_deadline,Hinglish,application_deadline,deadlines.txt
+Is late submission allowed?,application_deadline,English,application_deadline,deadlines.txt
+Late form submit kar sakte hain?,application_deadline,Hinglish,application_deadline,deadlines.txt
+When does registration close?,application_deadline,English,application_deadline,deadlines.txt
+Registration kab band hogi?,application_deadline,Hinglish,application_deadline,deadlines.txt
+What is the final date to apply?,application_deadline,English,application_deadline,deadlines.txt
+Apply karne ki final date kya hai?,application_deadline,Hinglish,application_deadline,deadlines.txt
+When is counselling?,application_deadline,English,application_deadline,deadlines.txt
+Counselling kab hogi?,application_deadline,Hinglish,application_deadline,deadlines.txt
+When is document verification?,application_deadline,English,application_deadline,deadlines.txt
+Document verification kab hai?,application_deadline,Hinglish,application_deadline,deadlines.txt
+When is the fee payment deadline?,application_deadline,English,application_deadline,deadlines.txt
+Fee payment ki last date kya hai?,application_deadline,Hinglish,application_deadline,deadlines.txt
+When should I report to campus?,application_deadline,English,application_deadline,deadlines.txt
+Campus reporting kab karni hai?,application_deadline,Hinglish,application_deadline,deadlines.txt
+Can the deadline be extended?,application_deadline,English,application_deadline,deadlines.txt
+Deadline extend ho sakti hai?,application_deadline,Hinglish,application_deadline,deadlines.txt
+Can I get a refund after cancellation?,refund,English,refund,fee_structure.txt
+Admission cancel karne par refund milega?,refund,Hinglish,refund,fee_structure.txt
+How do I request a refund?,refund,English,refund,fee_structure.txt
+Refund ke liye apply kaise karun?,refund,Hinglish,refund,fee_structure.txt
+Is the registration fee refundable?,refund,English,refund,fee_structure.txt
+Registration fee wapas milti hai kya?,refund,Hinglish,refund,fee_structure.txt
+When will my refund arrive?,refund,English,refund,fee_structure.txt
+Refund kab tak aayega?,refund,Hinglish,refund,fee_structure.txt
+Is there a cancellation deduction?,refund,English,refund,fee_structure.txt
+Cancellation par kitna cut hoga?,refund,Hinglish,refund,fee_structure.txt
+Can overpayment be returned?,refund,English,refund,fee_structure.txt
+Extra payment wapas milega?,refund,Hinglish,refund,fee_structure.txt
+What proof is needed for refund?,refund,English,refund,fee_structure.txt
+Refund ke liye proof kya chahiye?,refund,Hinglish,refund,fee_structure.txt
+Does withdrawal affect refund?,refund,English,refund,fee_structure.txt
+Withdrawal se refund par kya effect hoga?,refund,Hinglish,refund,fee_structure.txt
+Can I cancel online?,refund,English,refund,fee_structure.txt
+Online cancellation kar sakte hain?,refund,Hinglish,refund,fee_structure.txt
+Is a refund available before classes start?,refund,English,refund,fee_structure.txt
+Classes start hone se pehle refund milega?,refund,Hinglish,refund,fee_structure.txt
+Can I contact admissions?,contact_admission,English,contact_admission,admission_process.txt
+Admissions se contact kaise karun?,contact_admission,Hinglish,contact_admission,admission_process.txt
+What is the admissions email?,contact_admission,English,contact_admission,admission_process.txt
+Admission email kya hai?,contact_admission,Hinglish,contact_admission,admission_process.txt
+Is there an admissions helpline?,contact_admission,English,contact_admission,admission_process.txt
+Admission helpline hai kya?,contact_admission,Hinglish,contact_admission,admission_process.txt
+Who handles application issues?,contact_admission,English,contact_admission,admission_process.txt
+Form problem ke liye kisse baat karun?,contact_admission,Hinglish,contact_admission,admission_process.txt
+Where is the admission office?,contact_admission,English,contact_admission,admission_process.txt
+Admission office kahan hai?,contact_admission,Hinglish,contact_admission,admission_process.txt
+Can I call the coordinator?,contact_admission,English,contact_admission,admission_process.txt
+Coordinator ko call kar sakte hain?,contact_admission,Hinglish,contact_admission,admission_process.txt
+What are admissions office hours?,contact_admission,English,contact_admission,admission_process.txt
+Admission office kab khulta hai?,contact_admission,Hinglish,contact_admission,admission_process.txt
+Who can answer portal questions?,contact_admission,English,contact_admission,admission_process.txt
+Portal problem ke liye kisse contact karun?,contact_admission,Hinglish,contact_admission,admission_process.txt
+Can parents contact admissions?,contact_admission,English,contact_admission,admission_process.txt
+Parents admission office se baat kar sakte hain?,contact_admission,Hinglish,contact_admission,admission_process.txt
+Where can I get official admission help?,contact_admission,English,contact_admission,admission_process.txt
+Official admission help kahan milegi?,contact_admission,Hinglish,contact_admission,admission_process.txt
+What is the campus gate timing?,other,English,other,
+Campus gate kab band hota hai?,other,Hinglish,other,
+Is there a canteen?,other,English,other,
+Canteen hai kya?,other,Hinglish,other,
+Are there sports facilities?,other,English,other,
+Sports facility hai kya?,other,Hinglish,other,
+Is parking available?,other,English,other,
+Parking milti hai kya?,other,Hinglish,other,
+Where is the placement office?,other,English,other,
+Placement office kahan hai?,other,Hinglish,other,
+Are there cultural clubs?,other,English,other,
+Cultural club hai kya?,other,Hinglish,other,
+Is there a gym?,other,English,other,
+Gym use kar sakte hain?,other,Hinglish,other,
+What are library timings?,other,English,other,
+Library kab khulti hai?,other,Hinglish,other,
+Is there a bank nearby?,other,English,other,
+College ke paas bank hai kya?,other,Hinglish,other,
+Are weekend classes held?,other,English,other,
+Weekend classes hoti hain kya?,other,Hinglish,other,
+Does the academic fee include registration?,fee_structure,English,fee_structure,fee_structure.txt
+Registration aur development fee alag hain?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+What is the one-time admission charge?,fee_structure,English,fee_structure,fee_structure.txt
+One-time caution deposit kitna hai?,fee_structure,Hinglish,fee_structure,fee_structure.txt
+Is the first semester fee payable at joining?,fee_structure,English,fee_structure,fee_structure.txt
+Which admission papers are needed at reporting?,documents_required,English,documents_required,admission_process.txt
+Reporting ke time kaunse papers chahiye?,documents_required,Hinglish,documents_required,admission_process.txt
+Do I need a domicile certificate?,documents_required,English,documents_required,admission_process.txt
+Domicile proof lagega kya?,documents_required,Hinglish,documents_required,admission_process.txt
+Should I bring original certificates?,documents_required,English,documents_required,admission_process.txt
+Can scholarship help with hostel costs?,scholarship,English,scholarship,scholarship.txt
+Scholarship hostel fee cover karegi?,scholarship,Hinglish,scholarship,scholarship.txt
+What is the merit award process?,scholarship,English,scholarship,scholarship.txt
+Merit award ke liye kya karna hai?,scholarship,Hinglish,scholarship,scholarship.txt
+Is scholarship support renewed yearly?,scholarship,English,scholarship,scholarship.txt

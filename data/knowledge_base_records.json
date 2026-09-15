@@ -1,0 +1,881 @@
+{
+  "schema_version": "1.0",
+  "institution_status": "SYNTHETIC DEVELOPMENT DATA - NOT ACTUAL UNIVERSITY POLICY",
+  "records": [
+    {
+      "id": "program-cse",
+      "domain": "program",
+      "branch": "Computer Science and Engineering",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "Computer Science and Engineering (CSE) is a four-year undergraduate B.Tech program covering programming, algorithms, data structures, databases, operating systems, computer networks, software engineering, and introductory artificial intelligence. Typical career areas include software development, testing, data analysis, cloud operations, and cybersecurity. Exact curriculum and approvals must be confirmed from the current university prospectus.",
+      "question_variations": [
+        "What is CSE?",
+        "CSE me kya padhte hain?",
+        "Computer Science Engineering ka scope kya hai?",
+        "CSE duration kitni hai?"
+      ]
+    },
+    {
+      "id": "program-mechanical",
+      "domain": "program",
+      "branch": "Mechanical Engineering",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "Mechanical Engineering is a four-year undergraduate B.Tech program covering engineering mechanics, thermodynamics, fluid mechanics, manufacturing, machine design, materials, and industrial engineering. Career areas include manufacturing, design, maintenance, production, automotive, energy, and technical services. Exact curriculum must be confirmed from the current prospectus.",
+      "question_variations": [
+        "What is Mechanical Engineering?",
+        "Mechanical engineering me kya padhte hain?",
+        "Mechanical ka scope kya hai?"
+      ]
+    },
+    {
+      "id": "program-civil",
+      "domain": "program",
+      "branch": "Civil Engineering",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "Civil Engineering is a four-year undergraduate B.Tech program covering structural engineering, surveying, construction materials, geotechnical engineering, transportation, hydraulics, and environmental engineering. Career areas include construction, infrastructure, surveying, project supervision, public works, and consulting. Exact curriculum must be confirmed from the current prospectus.",
+      "question_variations": [
+        "What is Civil Engineering?",
+        "Civil engineering ka scope kya hai?",
+        "Civil me kya subjects hote hain?"
+      ]
+    },
+    {
+      "id": "program-ece",
+      "domain": "program",
+      "branch": "Electronics and Communication Engineering",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "Electronics and Communication Engineering (ECE) is a four-year undergraduate B.Tech program covering electronic circuits, digital systems, signals, communication systems, microprocessors, embedded systems, and basic programming. Career areas include embedded systems, telecommunications, electronics testing, automation, and technical support. Exact curriculum must be confirmed from the current prospectus.",
+      "question_variations": [
+        "What is ECE?",
+        "ECE me kya padhte hain?",
+        "Electronics and Communication ka scope kya hai?"
+      ]
+    },
+    {
+      "id": "program-eee",
+      "domain": "program",
+      "branch": "Electrical and Electronics Engineering",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "Electrical and Electronics Engineering (EEE) is a four-year undergraduate B.Tech program covering electrical circuits, machines, power systems, control systems, electronics, measurements, and renewable-energy fundamentals. Career areas include power systems, electrical maintenance, automation, energy, and electronics. Exact curriculum must be confirmed from the current prospectus.",
+      "question_variations": [
+        "What is EEE?",
+        "EEE me kya subjects hote hain?",
+        "Electrical engineering ka scope kya hai?"
+      ]
+    },
+    {
+      "id": "program-ai-ml",
+      "domain": "program",
+      "branch": "Computer Science and Engineering - Artificial Intelligence and Machine Learning",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "CSE AI/ML is a four-year undergraduate B.Tech program combining computer science with statistics, data handling, machine learning, deep learning, responsible AI, and software development. Career areas include data analysis, machine learning engineering, software development, and AI testing. The exact title and curriculum must be confirmed from the current prospectus.",
+      "question_variations": [
+        "What is CSE AI ML?",
+        "CSE AI/ML kya hai?",
+        "Can I study Artificial Intelligence and Machine Learning?"
+      ]
+    },
+    {
+      "id": "program-dairy",
+      "domain": "program",
+      "branch": "Dairy Technology / Dairy Engineering",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "Dairy Technology or Dairy Engineering is presented here as a four-year undergraduate B.Tech program covering milk processing, dairy microbiology, food safety, refrigeration, dairy plant equipment, packaging, and quality control. Career areas include dairy production, quality assurance, processing operations, food laboratories, and supply chains. Availability must be confirmed from the current prospectus.",
+      "question_variations": [
+        "What is Dairy Technology?",
+        "Dairy Engineering me kya padhte hain?",
+        "Dairy Technology available hai?"
+      ]
+    },
+    {
+      "id": "program-drone",
+      "domain": "program",
+      "branch": "Drone Technology / related B.Tech Drone program",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "Drone Technology is presented here as a possible undergraduate B.Tech-related program covering unmanned systems, flight fundamentals, sensors, embedded control, mapping, data processing, safety, and applications. Career areas include surveying, inspection, agriculture technology, geospatial services, and unmanned systems support. Program availability and approval are UNKNOWN and must be verified officially.",
+      "question_variations": [
+        "What is Drone Technology?",
+        "Drone technology ka B.Tech hai?",
+        "Drone program me kya padhte hain?"
+      ]
+    },
+    {
+      "id": "program-agriculture",
+      "domain": "program",
+      "branch": "Agricultural Engineering / B.Tech Agriculture-related program",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "Agricultural Engineering is presented here as a possible undergraduate B.Tech-related program covering farm machinery, irrigation, soil and water conservation, agricultural processing, renewable energy, and precision agriculture. Career areas include farm equipment, irrigation, food processing, rural technology, and agricultural services. Program availability and approval are UNKNOWN and must be verified officially.",
+      "question_variations": [
+        "What is Agricultural Engineering?",
+        "Agriculture engineering kya hai?",
+        "Agricultural Engineering ka scope kya hai?"
+      ]
+    },
+    {
+      "id": "program-aeronautical",
+      "domain": "program",
+      "branch": "Aeronautical / Aeronautical Engineering",
+      "topic": "overview",
+      "source_status": "DEMO",
+      "source_document": "programs.txt",
+      "eligibility": "See the general and PCM eligibility records; exact branch rules are UNKNOWN.",
+      "admission_route": "The active route may be merit, entrance, counselling, or a combination and is UNKNOWN.",
+      "information": "Aeronautical Engineering is presented here as a possible undergraduate B.Tech-related program covering aerodynamics, aircraft structures, propulsion, materials, flight mechanics, and maintenance fundamentals. Career areas include aerospace manufacturing, maintenance support, testing, and design assistance. Program availability and approval are UNKNOWN and must be verified officially.",
+      "question_variations": [
+        "What is Aeronautical Engineering?",
+        "Aeronautical engineering me kya padhte hain?",
+        "Aeronautical B.Tech available hai?"
+      ]
+    },
+    {
+      "id": "eligibility-general",
+      "domain": "eligibility",
+      "branch": "All listed B.Tech programs",
+      "topic": "general",
+      "source_status": "DEMO",
+      "source_document": "eligibility.txt",
+      "information": "General demo guidance: applicants normally need a recognized Class 12 or equivalent qualification with the subjects required by the chosen engineering program. The exact minimum marks, board rules, reservation rules, age rules, and entrance requirements are UNKNOWN here and must be checked in the current official prospectus.",
+      "question_variations": [
+        "Can I apply after 12th?",
+        "12th ke baad B.Tech le sakte hain?",
+        "Who can apply for B.Tech?"
+      ]
+    },
+    {
+      "id": "eligibility-pcm",
+      "domain": "eligibility",
+      "branch": "Most engineering programs",
+      "topic": "subjects",
+      "source_status": "DEMO",
+      "source_document": "eligibility.txt",
+      "information": "Physics and Mathematics are commonly required for engineering admission, and Chemistry or an approved equivalent subject may also be required depending on the route and program. Branch-specific subject rules are UNKNOWN in this demo knowledge base; applicants should verify the chosen branch requirements officially.",
+      "question_variations": [
+        "PCM compulsory hai?",
+        "Is Mathematics required for CSE?",
+        "Physics Chemistry chahiye kya?"
+      ]
+    },
+    {
+      "id": "eligibility-lateral",
+      "domain": "eligibility",
+      "branch": "Lateral entry",
+      "topic": "diploma",
+      "source_status": "DEMO",
+      "source_document": "eligibility.txt",
+      "information": "Diploma holders may be considered for lateral entry into an appropriate year where the institution and regulator permit it. Exact diploma branch, marks, entrance, seat availability, duration, and admission year rules are UNKNOWN and must be confirmed officially.",
+      "question_variations": [
+        "Can a diploma student apply?",
+        "Diploma student lateral entry le sakta hai?",
+        "Diploma ke baad direct second year milega?"
+      ]
+    },
+    {
+      "id": "eligibility-documents",
+      "domain": "eligibility",
+      "branch": "All applicants",
+      "topic": "qualification documents",
+      "source_status": "DEMO",
+      "source_document": "eligibility.txt",
+      "information": "Applicants should keep qualification marksheets, identity proof, photographs, and any category, domicile, income, entrance, or diploma documents that apply to their case. The final checklist is UNKNOWN until the current official admission notice is available.",
+      "question_variations": [
+        "Eligibility ke documents kya chahiye?",
+        "What proof is needed for eligibility?",
+        "CSE eligibility ke liye kaunse papers chahiye?"
+      ]
+    },
+    {
+      "id": "admission-steps",
+      "domain": "admission",
+      "branch": "All listed B.Tech programs",
+      "topic": "process",
+      "source_status": "DEMO",
+      "source_document": "admission_process.txt",
+      "information": "Demo admission flow: create an applicant account, select the program, complete the form, upload documents, pay the applicable application or registration charge, submit before the published deadline, complete verification or counselling if required, receive a seat decision, pay confirmation charges, and report for enrollment.",
+      "question_variations": [
+        "How can I apply?",
+        "Admission ka process kya hai?",
+        "Form kaise submit karna hai?",
+        "Admission ke baad kya karna hai?"
+      ]
+    },
+    {
+      "id": "admission-counselling",
+      "domain": "admission",
+      "branch": "All listed B.Tech programs",
+      "topic": "counselling",
+      "source_status": "DEMO",
+      "source_document": "admission_process.txt",
+      "information": "Where counselling is used, applicants may need to register, provide preferences, attend verification, and accept or decline an allocated seat within the stated window. The exact counselling authority, dates, choice rules, and seat-allocation policy are UNKNOWN and must be verified from the active notice.",
+      "question_variations": [
+        "Counselling kaise hoti hai?",
+        "How does seat allocation work?",
+        "Choice filling kaise karte hain?"
+      ]
+    },
+    {
+      "id": "admission-routes",
+      "domain": "admission",
+      "branch": "All listed B.Tech programs",
+      "topic": "routes",
+      "source_status": "UNKNOWN",
+      "source_document": "admission_process.txt",
+      "information": "The active admission route may be entrance-based, merit-based, counselling-based, direct, or a combination. This project does not contain verified route-specific institutional rules. The student should check the current official admission notice before relying on any route information.",
+      "question_variations": [
+        "Is admission entrance based?",
+        "Direct admission available hai?",
+        "Merit se admission hoga?"
+      ]
+    },
+    {
+      "id": "fee-cse-academic",
+      "record_id": "fee-cse-academic",
+      "domain": "fees",
+      "branch": "Computer Science and Engineering (CSE)",
+      "program": "CSE",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 160,000 per year; INR 80,000 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "CSE students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "CSE synthetic academic fee breakdown: tuition INR 134,000, development/infrastructure INR 8,000, laboratory INR 6,000, library INR 3,000, technology/computer INR 5,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 160,000. First-year CSE academic cost including the synthetic INR 20,000 one-time charges is approximately INR 180,000.",
+      "question_variations": [
+        "CSE ka fees kya hei?",
+        "CSE ki tuition fee kitni hai?",
+        "CSE academic fee?",
+        "CSE first year mein total kitna lagega?"
+      ]
+    },
+    {
+      "id": "fee-ai-ml-academic",
+      "record_id": "fee-ai-ml-academic",
+      "domain": "fees",
+      "branch": "Computer Science and Engineering - Artificial Intelligence and Machine Learning (CSE AI/ML)",
+      "program": "CSE AI/ML",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 175,000 per year; INR 87,500 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "CSE AI/ML students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "CSE AI/ML synthetic academic fee breakdown: tuition INR 149,000, development/infrastructure INR 8,000, laboratory INR 6,000, library INR 3,000, technology/computer INR 5,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 175,000. First-year CSE AI/ML academic cost including the synthetic INR 20,000 one-time charges is approximately INR 195,000.",
+      "question_variations": [
+        "CSE AI ML ki fees kitni hai?",
+        "AI ML ka tuition fee?",
+        "AI ML first year total?",
+        "cse ai ml ka fee kitna hai?"
+      ]
+    },
+    {
+      "id": "fee-ece-academic",
+      "record_id": "fee-ece-academic",
+      "domain": "fees",
+      "branch": "Electronics and Communication Engineering (ECE)",
+      "program": "ECE",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 145,000 per year; INR 72,500 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "ECE students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "ECE synthetic academic fee breakdown: tuition INR 119,000, development/infrastructure INR 8,000, laboratory INR 7,000, library INR 3,000, technology/computer INR 4,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 145,000. First-year ECE academic cost including the synthetic INR 20,000 one-time charges is approximately INR 165,000.",
+      "question_variations": [
+        "ECE ka fee kitna hai?",
+        "ECE ki fees kya hai?",
+        "ECE academic fee?"
+      ]
+    },
+    {
+      "id": "fee-eee-academic",
+      "record_id": "fee-eee-academic",
+      "domain": "fees",
+      "branch": "Electrical and Electronics Engineering (EEE)",
+      "program": "EEE",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 140,000 per year; INR 70,000 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "EEE students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "EEE synthetic academic fee breakdown: tuition INR 114,000, development/infrastructure INR 8,000, laboratory INR 7,000, library INR 3,000, technology/computer INR 4,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 140,000. First-year EEE academic cost including the synthetic INR 20,000 one-time charges is approximately INR 160,000.",
+      "question_variations": [
+        "EEE ki fees kya hai?",
+        "EEE academic fee?",
+        "Electrical engineering ka fee kitna hai?"
+      ]
+    },
+    {
+      "id": "fee-mechanical-academic",
+      "record_id": "fee-mechanical-academic",
+      "domain": "fees",
+      "branch": "Mechanical Engineering",
+      "program": "Mechanical",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 125,000 per year; INR 62,500 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "Mechanical Engineering students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Mechanical synthetic academic fee breakdown: tuition INR 99,000, development/infrastructure INR 8,000, laboratory INR 9,000, library INR 3,000, technology/computer INR 2,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 125,000. First-year Mechanical academic cost including the synthetic INR 20,000 one-time charges is approximately INR 145,000.",
+      "question_variations": [
+        "Mechanical ki fees kitni hai?",
+        "Mechanical engineering ki fees?",
+        "Mechanical academic fee?"
+      ]
+    },
+    {
+      "id": "fee-civil-academic",
+      "record_id": "fee-civil-academic",
+      "domain": "fees",
+      "branch": "Civil Engineering",
+      "program": "Civil",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 120,000 per year; INR 60,000 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "Civil Engineering students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Civil synthetic academic fee breakdown: tuition INR 94,000, development/infrastructure INR 8,000, laboratory INR 8,000, library INR 3,000, technology/computer INR 3,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 120,000. First-year Civil academic cost including the synthetic INR 20,000 one-time charges is approximately INR 140,000.",
+      "question_variations": [
+        "Civil ka fee kitna hai?",
+        "Civil engineering ki fees?",
+        "Civil academic fee?"
+      ]
+    },
+    {
+      "id": "fee-dairy-academic",
+      "record_id": "fee-dairy-academic",
+      "domain": "fees",
+      "branch": "Dairy Technology / Dairy Engineering",
+      "program": "Dairy Technology",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 115,000 per year; INR 57,500 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "Dairy Technology students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Dairy Technology synthetic academic fee breakdown: tuition INR 89,000, development/infrastructure INR 8,000, laboratory INR 9,000, library INR 3,000, technology/computer INR 2,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 115,000. First-year Dairy Technology academic cost including the synthetic INR 20,000 one-time charges is approximately INR 135,000.",
+      "question_variations": [
+        "Dairy technology ka fee?",
+        "Dairy Technology ki fees kitni hai?",
+        "Dairy Engineering academic fee?"
+      ]
+    },
+    {
+      "id": "fee-drone-academic",
+      "record_id": "fee-drone-academic",
+      "domain": "fees",
+      "branch": "Drone Technology / related B.Tech Drone program",
+      "program": "Drone Technology",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 155,000 per year; INR 77,500 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "Drone Technology students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Drone Technology synthetic academic fee breakdown: tuition INR 129,000, development/infrastructure INR 8,000, laboratory INR 7,000, library INR 3,000, technology/computer INR 4,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 155,000. First-year Drone Technology academic cost including the synthetic INR 20,000 one-time charges is approximately INR 175,000.",
+      "question_variations": [
+        "Drone technology ka fee?",
+        "Drone Technology ki fees kitni hai?",
+        "Drone B.Tech academic fee?"
+      ]
+    },
+    {
+      "id": "fee-agriculture-academic",
+      "record_id": "fee-agriculture-academic",
+      "domain": "fees",
+      "branch": "Agricultural Engineering / B.Tech Agriculture-related program",
+      "program": "Agricultural Engineering",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 110,000 per year; INR 55,000 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "Agricultural Engineering students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Agricultural Engineering synthetic academic fee breakdown: tuition INR 84,000, development/infrastructure INR 8,000, laboratory INR 8,000, library INR 3,000, technology/computer INR 3,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 110,000. First-year Agricultural Engineering academic cost including the synthetic INR 20,000 one-time charges is approximately INR 130,000.",
+      "question_variations": [
+        "Agricultural engineering ki fees?",
+        "Agriculture B.Tech ka fee?",
+        "Agricultural academic fee?"
+      ]
+    },
+    {
+      "id": "fee-aeronautical-academic",
+      "record_id": "fee-aeronautical-academic",
+      "domain": "fees",
+      "branch": "Aeronautical / Aeronautical Engineering",
+      "program": "Aeronautical Engineering",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "tuition and recurring academic charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 170,000 per year; INR 85,000 per semester",
+      "frequency": "annual and two equal semesters",
+      "applicability": "Aeronautical Engineering students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Aeronautical synthetic academic fee breakdown: tuition INR 144,000, development/infrastructure INR 8,000, laboratory INR 7,000, library INR 3,000, technology/computer INR 4,000, student activity/welfare INR 2,000, and registration INR 2,000. Annual academic total is INR 170,000. First-year Aeronautical academic cost including the synthetic INR 20,000 one-time charges is approximately INR 190,000.",
+      "question_variations": [
+        "Aeronautical engineering ka fee?",
+        "Aeronautical ki fees kitni hai?",
+        "Aeronautical academic fee?"
+      ]
+    },
+    {
+      "id": "fee-academic",
+      "record_id": "fee-academic",
+      "domain": "fees",
+      "branch": "All listed B.Tech programs",
+      "program": "B.Tech",
+      "topic": "academic tuition",
+      "fee_category": "academic",
+      "subcategory": "general academic fee model",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 110,000 to INR 175,000 per year depending on program",
+      "frequency": "annual and two equal semesters",
+      "applicability": "All ten programs in this demonstration model",
+      "source_note": "Synthetic demonstration amounts, not an official university fee notice.",
+      "information": "The synthetic B.Tech academic model separates tuition, development/infrastructure, laboratory, library, technology/computer, student activity/welfare, registration, and examination components. Branch-specific annual academic fees range from INR 110,000 for Agricultural Engineering to INR 175,000 for CSE AI/ML. Academic fee is separate from one-time charges, hostel, mess, transport, and examination charges.",
+      "question_variations": [
+        "B.Tech fees kya hai?",
+        "What is the B.Tech fee?",
+        "B.Tech ka total academic fee kitna hai?",
+        "What is the semester fee?",
+        "Academic fee aur exam fee alag hai kya?"
+      ]
+    },
+    {
+      "id": "fee-examination",
+      "record_id": "fee-examination",
+      "domain": "fees",
+      "branch": "All listed B.Tech programs",
+      "program": "B.Tech",
+      "topic": "examination fee",
+      "fee_category": "examination",
+      "subcategory": "semester, practical, backlog and supplementary examination",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "examination_fees.txt",
+      "amount": "INR 6,000 per academic year; INR 3,000 per semester",
+      "frequency": "semester examination charge",
+      "applicability": "All listed B.Tech programs; practical examination is included in this demo amount",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Synthetic examination fee is INR 3,000 per semester, or INR 6,000 per academic year, and is separate from tuition. Practical examination processing is included. A synthetic backlog or supplementary examination fee is INR 1,500 per paper, and examination form processing is INR 300 per form.",
+      "question_variations": [
+        "Exam fee kya hei?",
+        "Exam fee kitni hai?",
+        "Semester exam fee kya hai?",
+        "Back paper ka fee?",
+        "Practical exam fee?",
+        "academic fee aur exam fee alag hai kya?"
+      ]
+    },
+    {
+      "id": "fee-hostel",
+      "record_id": "fee-hostel",
+      "domain": "fees",
+      "branch": "Hostel residents",
+      "program": "B.Tech",
+      "topic": "hostel fee",
+      "fee_category": "hostel",
+      "subcategory": "accommodation and security deposit",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "hostel.txt",
+      "amount": "INR 90,000 per year; INR 10,000 refundable security deposit",
+      "frequency": "annual accommodation charge and one-time deposit",
+      "applicability": "Hostel residents in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Synthetic hostel accommodation fee is INR 90,000 per year. A separate refundable hostel security deposit is INR 10,000. Hostel accommodation is separate from academic tuition, mess, and transport charges.",
+      "question_variations": [
+        "Hostel ka fees kitna hai?",
+        "Hostel fee kitna hai?",
+        "Hostel ka charge kya hai?",
+        "Hostel deposit kitna hai?",
+        "Hostel ke saath total cost?"
+      ]
+    },
+    {
+      "id": "fee-mess",
+      "record_id": "fee-mess",
+      "domain": "fees",
+      "branch": "Hostel residents",
+      "program": "B.Tech",
+      "topic": "mess fee",
+      "fee_category": "mess",
+      "subcategory": "food and dining",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "hostel.txt",
+      "amount": "INR 48,000 per year; approximately INR 4,000 per month",
+      "frequency": "monthly mess charge",
+      "applicability": "Hostel residents opting into the demo mess plan",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Synthetic mess or food charge is approximately INR 4,000 per month, or INR 48,000 per academic year. Mess is separate from the hostel room fee and hostel security deposit.",
+      "question_variations": [
+        "Mess ka charge kitna hai?",
+        "Mess fee included hai?",
+        "Hostel mess ka paisa alag hai?"
+      ]
+    },
+    {
+      "id": "fee-transport",
+      "record_id": "fee-transport",
+      "domain": "fees",
+      "branch": "Students using transport",
+      "program": "B.Tech",
+      "topic": "bus fee",
+      "fee_category": "transport",
+      "subcategory": "bus and route transport",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 24,000 per year; route-dependent demo estimate",
+      "frequency": "annual transport pass",
+      "applicability": "Day scholars or hostel residents using a university bus route",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Synthetic bus or transport fee is approximately INR 24,000 per year. Actual transport can vary by route and distance; transport is separate from academic, hostel, and mess charges.",
+      "question_variations": [
+        "Bus fee kitna hai?",
+        "Transportation charge kya hai?",
+        "College bus ka fee?",
+        "Transport fee kitna hai?"
+      ]
+    },
+    {
+      "id": "fee-deposits",
+      "record_id": "fee-deposits",
+      "domain": "fees",
+      "branch": "Applicable students",
+      "program": "B.Tech",
+      "topic": "one-time deposits",
+      "fee_category": "one-time",
+      "subcategory": "admission, registration, documentation and caution deposit",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "INR 20,000 one time, including INR 10,000 refundable caution deposit",
+      "frequency": "one-time at admission",
+      "applicability": "New students in this demonstration model",
+      "source_note": "Synthetic demonstration amount, not an official university fee notice.",
+      "information": "Synthetic one-time admission charges total INR 20,000: admission processing INR 5,000, university registration INR 2,000, ID card and student services INR 1,000, documentation INR 2,000, and refundable caution or security deposit INR 10,000. The caution deposit is shown separately from recurring academic fees.",
+      "question_variations": [
+        "Admission fee kya hai?",
+        "Registration fee?",
+        "Caution money kitna hai?",
+        "Security deposit kitna hai?",
+        "First year me total kitna lagega?"
+      ]
+    },
+    {
+      "id": "fee-day-scholar-total",
+      "record_id": "fee-day-scholar-total",
+      "domain": "fees",
+      "branch": "All listed B.Tech programs",
+      "program": "B.Tech",
+      "topic": "day scholar first-year total",
+      "fee_category": "total",
+      "subcategory": "academic plus one-time charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "Program-dependent; example CSE day-scholar first year INR 180,000",
+      "frequency": "first academic year",
+      "applicability": "Day scholars in this demonstration model",
+      "source_note": "Synthetic demonstration calculation, not an official university fee notice.",
+      "information": "Synthetic day-scholar first-year total equals branch annual academic fee plus INR 20,000 one-time charges. Example: CSE INR 160,000 academic fee plus INR 20,000 one-time charges equals approximately INR 180,000. Hostel, mess, and transport are excluded.",
+      "question_variations": [
+        "Day scholar ka total kitna hoga?",
+        "Day scholar first year total?",
+        "First year mein total kitna lagega?"
+      ]
+    },
+    {
+      "id": "fee-hosteller-total",
+      "record_id": "fee-hosteller-total",
+      "domain": "fees",
+      "branch": "All listed B.Tech programs",
+      "program": "B.Tech",
+      "topic": "hosteller first-year total",
+      "fee_category": "total",
+      "subcategory": "academic, one-time, hostel and mess charges",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "hostel.txt",
+      "amount": "Program-dependent; example CSE hosteller first year INR 318,000",
+      "frequency": "first academic year",
+      "applicability": "Hostellers in this demonstration model",
+      "source_note": "Synthetic demonstration calculation, not an official university fee notice.",
+      "information": "Synthetic hosteller first-year total is calculated as annual academic fee plus INR 20,000 one-time charges plus INR 90,000 hostel accommodation plus INR 48,000 mess. Example: CSE is approximately INR 318,000. The INR 10,000 refundable hostel security deposit is additional, making the initial payment approximately INR 328,000. Transport is excluded.",
+      "question_variations": [
+        "Hosteller ke liye first year mein approx kitna pay karna padega?",
+        "Hosteller ko first year mein approx kitna pay karna padega?",
+        "Academic + hostel + mess mila ke kitna hai?",
+        "Hosteller first year total?"
+      ]
+    },
+    {
+      "id": "fee-branch-comparison",
+      "record_id": "fee-branch-comparison",
+      "domain": "fees",
+      "branch": "CSE and ECE",
+      "program": "CSE versus ECE",
+      "topic": "branch fee comparison",
+      "fee_category": "comparison",
+      "subcategory": "annual academic fee comparison",
+      "source_status": "SYNTHETIC_DEMO",
+      "source_document": "fee_structure.txt",
+      "amount": "CSE INR 160,000; ECE INR 145,000 per year",
+      "frequency": "annual",
+      "applicability": "CSE and ECE comparison in this demonstration model",
+      "source_note": "Synthetic demonstration comparison, not an official university fee notice.",
+      "information": "In this synthetic model, CSE academic fee is INR 160,000 per year and ECE academic fee is INR 145,000 per year. They are not the same in this demonstration. Both exclude one-time charges, examination fees, hostel, mess, and transport.",
+      "question_variations": [
+        "CSE aur ECE ki fees same hai kya?",
+        "CSE vs ECE fees",
+        "Is CSE fee same as ECE fee?"
+      ]
+    },
+    {
+      "id": "hostel-facilities",
+      "domain": "hostel",
+      "branch": "Hostel residents",
+      "topic": "facilities",
+      "source_status": "DEMO",
+      "source_document": "hostel.txt",
+      "information": "Demo hostel facilities may include shared or single rooms, basic furniture, dining or mess access, internet, laundry, common areas, and safety procedures. Actual room types, availability, boys or girls accommodation, and amenities must be confirmed from the current hostel notice.",
+      "question_variations": [
+        "Hostel available hai?",
+        "Girls hostel hai?",
+        "Room sharing kitna hai?",
+        "What facilities are available in the hostel?"
+      ]
+    },
+    {
+      "id": "hostel-process",
+      "domain": "hostel",
+      "branch": "Hostel applicants",
+      "topic": "application",
+      "source_status": "DEMO",
+      "source_document": "hostel.txt",
+      "information": "Demo hostel process: apply after or alongside admission when the hostel form opens, submit requested identity and admission details, pay any required deposit only through the official channel, and wait for an availability-based room allotment. The hostel is not assumed to be compulsory.",
+      "question_variations": [
+        "Hostel kaise milega?",
+        "How do I apply for hostel?",
+        "Admission ke baad hostel form kab bharna hai?"
+      ]
+    },
+    {
+      "id": "hostel-rules",
+      "domain": "hostel",
+      "branch": "Hostel residents",
+      "topic": "rules",
+      "source_status": "DEMO",
+      "source_document": "hostel.txt",
+      "information": "Residents should follow accommodation conduct rules such as quiet hours, visitor controls, identification, safety procedures, cleanliness, and leave or out-pass procedures. Exact timings and penalties are UNKNOWN.",
+      "question_variations": [
+        "Hostel ke rules kya hain?",
+        "What are hostel timings?",
+        "Parents visit kar sakte hain?"
+      ]
+    },
+    {
+      "id": "scholarship-types",
+      "domain": "scholarship",
+      "branch": "Eligible applicants",
+      "topic": "types",
+      "source_status": "DEMO",
+      "source_document": "scholarship.txt",
+      "information": "Possible support categories in this demo model include merit-based awards, need-based support, category-linked government schemes, and institutional fee assistance. Specific scheme names, income limits, and award values are UNKNOWN and must be verified officially.",
+      "question_variations": [
+        "Scholarship available hai?",
+        "Merit scholarship hai?",
+        "SC ST scholarship available hai?"
+      ]
+    },
+    {
+      "id": "scholarship-process",
+      "domain": "scholarship",
+      "branch": "Scholarship applicants",
+      "topic": "application",
+      "source_status": "DEMO",
+      "source_document": "scholarship.txt",
+      "information": "Demo scholarship process: check the applicable scheme, complete the application before its deadline, submit academic and identity evidence plus category or income documents where applicable, and monitor verification or renewal status. Exact portal and rules are UNKNOWN.",
+      "question_variations": [
+        "Scholarship kaise milegi?",
+        "Scholarship ke liye documents kya chahiye?",
+        "Scholarship renew kaise karte hain?"
+      ]
+    },
+    {
+      "id": "deadlines-calendar",
+      "domain": "deadlines",
+      "branch": "All applicants",
+      "topic": "important dates",
+      "source_status": "UNKNOWN",
+      "source_document": "deadlines.txt",
+      "information": "The project does not contain verified calendar dates. The updateable deadline categories are application opening, application submission, counselling, document verification, admission confirmation, fee payment, reporting, semester registration, scholarship, and hostel application.",
+      "question_variations": [
+        "Application ki last date kya hai?",
+        "Admission deadline?",
+        "Counselling date kab hai?",
+        "Scholarship deadline?"
+      ]
+    },
+    {
+      "id": "documents-common",
+      "domain": "documents",
+      "branch": "All applicants",
+      "topic": "required for everyone",
+      "source_status": "DEMO",
+      "source_document": "admission_documents.txt",
+      "information": "Common demo checklist: Class 10 certificate or marksheet, Class 12 certificate or marksheet, identity proof, recent photographs, and the application or entrance record if applicable. The final institutional checklist may differ.",
+      "question_variations": [
+        "Documents kya chahiye?",
+        "Which documents are required for admission?",
+        "Admission ke documents kaunse hain?"
+      ]
+    },
+    {
+      "id": "documents-conditional",
+      "domain": "documents",
+      "branch": "Applicable applicants",
+      "topic": "only if applicable",
+      "source_status": "DEMO",
+      "source_document": "admission_documents.txt",
+      "information": "Conditional documents may include transfer or migration certificate, character certificate, category certificate, income certificate, domicile or residence certificate, medical certificate, entrance scorecard, and diploma or lateral-entry records. Submit only those that apply to the admission route and applicant category.",
+      "question_variations": [
+        "Category certificate chahiye?",
+        "Domicile certificate lagega?",
+        "Diploma student ke documents kya hain?"
+      ]
+    },
+    {
+      "id": "academic-structure",
+      "domain": "academic",
+      "branch": "All listed B.Tech programs",
+      "topic": "structure",
+      "source_status": "DEMO",
+      "source_document": "academic_information.txt",
+      "information": "The demo academic structure is a four-year undergraduate B.Tech degree commonly organized into eight semesters, with lectures, tutorials, practical or laboratory work, projects, internal assessment, and end-semester examinations. The official credit and semester pattern is UNKNOWN.",
+      "question_variations": [
+        "How long is B.Tech?",
+        "How many semesters are there?",
+        "B.Tech duration kitni hai?"
+      ]
+    },
+    {
+      "id": "academic-assessment",
+      "domain": "academic",
+      "branch": "All listed B.Tech programs",
+      "topic": "assessment",
+      "source_status": "DEMO",
+      "source_document": "academic_information.txt",
+      "information": "Assessment may include attendance-linked internal work, assignments, laboratory or practical examinations, projects, and end-semester examinations. Exact attendance percentage, grading scale, credit rules, backlog process, and supplementary examination rules are UNKNOWN.",
+      "question_variations": [
+        "How are B.Tech exams conducted?",
+        "Internal assessment hota hai?",
+        "Backlog exam kaise hota hai?"
+      ]
+    },
+    {
+      "id": "academic-registration",
+      "domain": "academic",
+      "branch": "All listed B.Tech programs",
+      "topic": "semester registration",
+      "source_status": "DEMO",
+      "source_document": "academic_information.txt",
+      "information": "Students generally need to complete semester registration, review their course or subject choices, clear applicable academic or examination requirements, and follow the published academic calendar. Exact registration windows and prerequisite rules are UNKNOWN.",
+      "question_variations": [
+        "Semester registration kaise hoti hai?",
+        "Subject registration kab karni hai?",
+        "Academic calendar kaha milega?"
+      ]
+    },
+    {
+      "id": "exam-forms",
+      "domain": "examination",
+      "branch": "All listed B.Tech programs",
+      "topic": "exam form",
+      "source_status": "DEMO",
+      "source_document": "examination_fees.txt",
+      "information": "Demo examination workflow: confirm registered subjects, complete the examination form through the official student channel, pay the applicable examination charge if any, check the timetable, and keep the acknowledgement. Exact form dates and payment values are UNKNOWN.",
+      "question_variations": [
+        "Exam form kaise fill karte hain?",
+        "Semester exam registration kaise hoti hai?",
+        "Exam fee pay kaise karni hai?"
+      ]
+    },
+    {
+      "id": "exam-backlog",
+      "domain": "examination",
+      "branch": "All listed B.Tech programs",
+      "topic": "backlog and supplementary",
+      "source_status": "UNKNOWN",
+      "source_document": "examination_fees.txt",
+      "information": "Backlog, supplementary, revaluation, and practical re-examination procedures and fees are not verified in this project. Students must use the current official examination notice rather than relying on an estimated amount.",
+      "question_variations": [
+        "Back paper ka fee kya hai?",
+        "Supplementary exam kab hota hai?",
+        "Revaluation fee kitni hai?"
+      ]
+    }
+  ]
+}

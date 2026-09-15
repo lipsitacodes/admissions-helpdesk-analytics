@@ -5,7 +5,7 @@ import joblib
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
@@ -13,16 +13,32 @@ if str(ROOT_DIR) not in sys.path:
 
 from preprocessing.clean_text import clean_text
 
-TRAIN_FILE = ROOT_DIR / "data" / "training_queries.csv"
-EVAL_FILE = ROOT_DIR / "data" / "evaluation_queries.csv"
-MODEL_FILE = ROOT_DIR / "models" / "intent_classifier.joblib"
-VECTORIZER_FILE = ROOT_DIR / "models" / "tfidf_vectorizer.joblib"
+TRAIN_FILE = ROOT_DIR / "data" / "training_queries_bilingual_draft.csv"
+SUPPLEMENTAL_TRAIN_FILE = ROOT_DIR / "data" / "training_queries_bilingual_short_coverage.csv"
+EVAL_FILE = ROOT_DIR / "data" / "evaluation_queries_bilingual_draft.csv"
+MODEL_FILE = ROOT_DIR / "models" / "intent_classifier_bilingual.joblib"
+VECTORIZER_FILE = ROOT_DIR / "models" / "tfidf_vectorizer_bilingual.joblib"
+REQUIRED_COLUMNS = ["query", "intent", "language", "topic", "expected_document"]
 
 
 def load_data(path: Path):
     df = pd.read_csv(path)
+    missing = [column for column in REQUIRED_COLUMNS if column not in df.columns]
+    if missing:
+        raise ValueError(f"{path.name} is missing required columns: {missing}")
+    if df["query"].isna().any() or df["intent"].isna().any():
+        raise ValueError(f"{path.name} contains missing query or intent values.")
     queries = df["query"].astype(str).tolist()
     labels = df["intent"].astype(str).tolist()
+    return queries, labels
+
+
+def load_training_data():
+    queries, labels = load_data(TRAIN_FILE)
+    if SUPPLEMENTAL_TRAIN_FILE.exists():
+        supplemental_queries, supplemental_labels = load_data(SUPPLEMENTAL_TRAIN_FILE)
+        queries.extend(supplemental_queries)
+        labels.extend(supplemental_labels)
     return queries, labels
 
 
@@ -31,7 +47,12 @@ def clean_queries(queries):
 
 
 def prepare_tfidf(queries):
-    vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer(
+        analyzer="char_wb",
+        ngram_range=(2, 5),
+        min_df=1,
+        sublinear_tf=True,
+    )
     X = vectorizer.fit_transform(queries)
     return X, vectorizer
 
@@ -48,7 +69,7 @@ def save_artifacts(model, vectorizer):
 
 
 def main():
-    train_queries, train_labels = load_data(TRAIN_FILE)
+    train_queries, train_labels = load_training_data()
     eval_queries, eval_labels = load_data(EVAL_FILE)
 
     cleaned_train = clean_queries(train_queries)
@@ -61,7 +82,8 @@ def main():
 
     predictions = model.predict(X_eval)
     accuracy = accuracy_score(eval_labels, predictions)
-    report = classification_report(eval_labels, predictions)
+    report = classification_report(eval_labels, predictions, zero_division=0)
+    labels = sorted(set(train_labels) | set(eval_labels))
 
     print("Training samples:", len(train_queries))
     print("Intent classes:", len(set(train_labels)))
@@ -70,6 +92,8 @@ def main():
     print("Evaluation accuracy:", round(accuracy, 4))
     print("Classification report:")
     print(report)
+    print("Confusion matrix labels:", labels)
+    print(confusion_matrix(eval_labels, predictions, labels=labels))
     print("TF-IDF matrix shape:", X_train.shape)
 
     print("Sample predictions:")

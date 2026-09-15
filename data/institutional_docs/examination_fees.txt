@@ -1,0 +1,13 @@
+SYNTHETIC DEVELOPMENT DATA — NOT ACTUAL UNIVERSITY POLICY
+
+Examination and Academic Fees
+
+IMPORTANT: Every amount in this document is SYNTHETIC_DEMO data created for project demonstration. It is not an official fee notice.
+
+Synthetic examination fee is INR 3,000 per semester or INR 6,000 per academic year, separate from tuition. Practical examination processing is included in this demo amount.
+
+Synthetic backlog or supplementary examination fee is INR 1,500 per paper. Synthetic examination form processing is INR 300 per form. Revaluation and other special examination charges are not modeled here.
+
+Demo examination workflow: confirm registered subjects, complete the examination form through the official student channel, pay the synthetic examination charge, check the timetable, and keep the acknowledgement. Exact official form dates remain unavailable.
+
+Students should use the current official examination notice for real amounts, deadlines, revaluation rules, supplementary rules, and payment instructions.

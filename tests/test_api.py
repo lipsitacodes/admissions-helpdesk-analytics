@@ -61,7 +61,6 @@ def test_invalid_query_payloads_return_bad_request(client, payload):
 	"query",
 	[
 		"Who can I contact for admission help?",
-		"What courses are offered?",
 		"What is the admissions phone number?",
 	],
 )
@@ -86,12 +85,13 @@ def test_other_intent_returns_safe_escalation(client):
 	assert body["escalated"] is True
 
 
-def test_exact_fee_query_does_not_invent_a_specific_amount(client):
+def test_fee_query_returns_a_clearly_synthetic_amount(client):
 	response = client.post("/query", json={"query": "How much is the exact tuition fee?"})
 	body = response.get_json()
 
 	assert response.status_code == 200
-	assert not re.search(r"(?:₹|\$|\b(?:rs|inr)\.?\s*\d)", body["answer"], re.I)
+	assert "SYNTHETIC" in body["answer"].upper()
+	assert re.search(r"\bINR\s*\d", body["answer"], re.I)
 
 
 def test_valid_request_is_logged_in_isolated_database(client, tmp_path):

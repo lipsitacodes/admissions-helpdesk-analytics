@@ -9,8 +9,8 @@ if str(ROOT_DIR) not in sys.path:
 
 from preprocessing.clean_text import clean_text
 
-VECTORIZER_PATH = ROOT_DIR / "models" / "tfidf_vectorizer.joblib"
-MODEL_PATH = ROOT_DIR / "models" / "intent_classifier.joblib"
+VECTORIZER_PATH = ROOT_DIR / "models" / "tfidf_vectorizer_bilingual.joblib"
+MODEL_PATH = ROOT_DIR / "models" / "intent_classifier_bilingual.joblib"
 
 
 def predict_intent(text: str):

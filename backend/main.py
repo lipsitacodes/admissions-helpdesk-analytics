@@ -24,16 +24,16 @@ from rag.generate_answer import UNAVAILABLE_MESSAGE, compose_answer
 from rag.retrieve import retrieve
 
 
-MODEL_PATH = ROOT_DIR / "models" / "intent_classifier_bilingual_v2.joblib"
+MODEL_PATH = ROOT_DIR / "models" / "intent_classifier_bilingual.joblib"
 
 VECTORIZER_PATH = (
-    ROOT_DIR / "models" / "tfidf_vectorizer_bilingual_v2.joblib"
+    ROOT_DIR / "models" / "tfidf_vectorizer_bilingual.joblib"
 )
 
 
 @lru_cache(maxsize=1)
 def get_classifier_artifacts():
-    """Load the approved bilingual v2 artifacts once per application process."""
+    """Load the canonical bilingual classifier and matching vectorizer."""
 
     if not MODEL_PATH.exists() or not VECTORIZER_PATH.exists():
         raise FileNotFoundError(
@@ -55,6 +55,15 @@ def _public_chunks(
             "similarity_score": round(
                 float(chunk["similarity_score"]), 4
             ),
+            **{
+                key: chunk[key]
+                for key in (
+                    "record_id", "domain", "branch", "topic", "source_status",
+                    "program", "fee_category", "subcategory", "amount", "frequency",
+                    "applicability",
+                )
+                if key in chunk
+            },
         }
         for chunk in chunks
     ]
@@ -81,7 +90,7 @@ def run_query_pipeline(query: str) -> Dict[str, Any]:
 
     try:
         retrieved_chunks = retrieve(
-            cleaned_query,
+            query,
             predicted_intent
         )
 
@@ -100,6 +109,10 @@ def run_query_pipeline(query: str) -> Dict[str, Any]:
         retrieved_chunks,
         predicted_intent,
     )
+
+    if not answer_result["grounded"]:
+        escalation["escalate"] = True
+        escalation["reason"] = escalation["reason"] or "ungrounded_answer"
 
     escalation_reasons = (
         [escalation["reason"]]
