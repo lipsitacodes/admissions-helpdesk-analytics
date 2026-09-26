@@ -1,31 +1,64 @@
-const $ = (selector) => document.querySelector(selector);
-const historyBody = $('#history-body');
-function escapeHTML(value) { return String(value ?? '').replace(/[&<>'"]/g, character => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'}[character])); }
-function formatHistoryTime(value) { const date = new Date(value); return Number.isNaN(date.getTime()) ? '—' : new Intl.DateTimeFormat('en-IN', {day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit'}).format(date); }
-function renderHistory(interactions) {
-  historyBody.innerHTML = interactions.length ? interactions.map(item => `<tr><td>${escapeHTML(item.query)}</td><td>${escapeHTML(humanIntent(item.predicted_intent))}</td><td>${item.classifier_confidence == null ? '—' : Number(item.classifier_confidence).toFixed(2)}</td><td>${escapeHTML(item.source_document || '—')}</td><td>${item.grounded == null ? '—' : (item.grounded ? 'Yes' : 'No')}</td><td class="${item.escalated ? 'yes-red' : ''}">${item.escalated ? 'Yes' : 'No'}</td><td>${formatHistoryTime(item.timestamp)}</td></tr>`).join('') : '<tr><td colspan="7">No interactions found.</td></tr>';
-  $('#history-count').textContent = `Showing ${interactions.length} ${interactions.length === 1 ? 'entry' : 'entries'}`;
-}
-async function loadHistory() {
-  historyBody.innerHTML = '<tr><td colspan="7">Loading history...</td></tr>';
-  try { const response = await fetch('/history'); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Unable to load history.'); renderHistory(data.interactions || []); }
-  catch (error) { historyBody.innerHTML = `<tr><td colspan="7">${escapeHTML(error.message)}</td></tr>`; }
-}
-function showView(name) { document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === name)); document.querySelectorAll('.nav-link').forEach(b => b.classList.toggle('active', b.dataset.view === name)); if (name === 'history') loadHistory(); window.scrollTo(0, 0); }
-document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => showView(button.dataset.view)));
-document.querySelectorAll('[data-question]').forEach(button => button.addEventListener('click', () => { $('#question').value = button.dataset.question; $('#question').focus(); }));
-function humanIntent(value) { return (value || 'other').replaceAll('_', ' '); }
-function timeNow() { return new Intl.DateTimeFormat('en-IN', {hour: '2-digit', minute: '2-digit'}).format(new Date()); }
-$('#query-form').addEventListener('submit', async (event) => {
-  event.preventDefault(); const query = $('#question').value.trim(); const error = $('#query-error'); const send = $('.send'); if (!query) return;
-  error.textContent = ''; send.disabled = true; send.innerHTML = '… <span>Sending</span>';
-  try {
-    const response = await fetch('/query', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({query})}); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Unable to process your query.');
-    const now = timeNow(); $('#asked-question').textContent = query; $('#asked-time').textContent = now; $('#answer-time').textContent = now; $('#answer-text').textContent = data.answer;
-    $('#intent').textContent = '⌁ ' + humanIntent(data.predicted_intent); $('#source').textContent = data.source_document || 'No matching document'; $('#confidence').textContent = data.classifier_confidence.toFixed(2); $('#similarity').textContent = data.retrieval_similarity ?? '—';
-    $('#escalated').textContent = data.escalated ? 'Yes' : 'No'; $('#reasons').textContent = data.escalation_reasons.join(', ') || '—'; $('#grounded').textContent = data.grounded ? 'Yes' : 'No'; $('#cleaned-query').textContent = data.cleaned_query;
-    $('#confidence-tag').textContent = '◉ Confidence: ' + data.classifier_confidence.toFixed(2); $('#similarity-tag').textContent = '◌ Similarity: ' + (data.retrieval_similarity ?? '—');
-    $('#grounded-tag').textContent = (data.grounded ? '✓ Grounded' : '× Not grounded'); $('#grounded-tag').className = 'tag ' + (data.grounded ? 'grounded' : 'escalated'); $('#escalated-tag').textContent = data.escalated ? '⚠ Escalated' : '✓ Not escalated'; $('#escalated-tag').style.display = data.escalated ? '' : 'none';
-    showView('answer');
-  } catch (err) { error.textContent = err.message; } finally { send.disabled = false; send.innerHTML = '↗ <span>Send</span>'; }
-});
+(() => {
+  'use strict';
+  const $ = s => document.querySelector(s);
+  const form = $('#query-form'), input = $('#question'), send = $('#send-button');
+  const chatArea = $('#chat-area'), welcome = $('#welcome-screen'), messages = $('#message-list');
+  const errorBox = $('#composer-error'), recent = $('#recent-list'), sidebar = $('#sidebar');
+  const overlay = $('#sidebar-overlay'), menu = $('#menu-button');
+  let busy = false, started = false, sessionQuestions = [];
+
+  const timeNow = () => new Intl.DateTimeFormat('en-IN', {hour: '2-digit', minute: '2-digit'}).format(new Date());
+  const scrollLatest = () => requestAnimationFrame(() => { chatArea.scrollTop = chatArea.scrollHeight; });
+  function resizeInput() { input.style.height = 'auto'; input.style.height = `${Math.min(input.scrollHeight, 136)}px`; }
+  function startConversation() { if (!started) { started = true; welcome.hidden = true; messages.hidden = false; } }
+  function addMessage(role, text) {
+    const item = document.createElement('article'); item.className = `message ${role}`;
+    const body = document.createElement('div'); body.className = 'message-body';
+    const content = document.createElement('p'); content.className = 'message-text'; content.textContent = text;
+    const timestamp = document.createElement('time'); timestamp.dateTime = new Date().toISOString(); timestamp.textContent = timeNow();
+    body.append(content, timestamp);
+    if (role === 'assistant') { const icon = document.createElement('span'); icon.className = 'assistant-avatar'; icon.setAttribute('aria-hidden', 'true'); icon.textContent = '✦'; item.append(icon); }
+    item.append(body); messages.append(item); scrollLatest(); return item;
+  }
+  function reasons(value) {
+    if (!value) return []; if (Array.isArray(value)) return value.flatMap(reasons);
+    if (typeof value === 'object') return Object.values(value).flatMap(reasons);
+    return [String(value).replace(/[_-]+/g, ' ').replace(/\b\w/g, letter => letter.toUpperCase())];
+  }
+  function addMetadata(item, data) {
+    const body = item.querySelector('.message-body'), metadata = document.createElement('div'); metadata.className = 'response-meta'; let visible = false;
+    if (data.grounded === true) { const tag = document.createElement('span'); tag.className = 'meta-item grounded'; tag.textContent = '✓ Based on university information'; metadata.append(tag); visible = true; }
+    if (typeof data.source_document === 'string' && data.source_document.trim()) { const tag = document.createElement('span'); tag.className = 'meta-item source'; tag.textContent = `Source: ${data.source_document}`; metadata.append(tag); visible = true; }
+    if (data.escalated === true) { const note = document.createElement('div'); note.className = 'escalation-note'; const title = document.createElement('strong'); title.textContent = '⚠ This question may require additional assistance.'; note.append(title); const values = reasons(data.escalation_reasons); if (values.length) { const detail = document.createElement('span'); detail.textContent = values.join(' • '); note.append(detail); } metadata.append(note); visible = true; }
+    if (visible) body.insertBefore(metadata, body.querySelector('time'));
+  }
+  function showTyping() { const typing = document.createElement('article'); typing.className = 'message assistant typing-message'; typing.id = 'typing-message'; typing.innerHTML = '<span class="assistant-avatar" aria-hidden="true">✦</span><div class="message-body"><div class="typing-dots" aria-label="AI is thinking"><i></i><i></i><i></i></div><span>AI is thinking...</span></div>'; messages.append(typing); scrollLatest(); }
+  const removeTyping = () => $('#typing-message')?.remove();
+  function updateRecent(query) {
+    sessionQuestions = [query, ...sessionQuestions.filter(item => item !== query)].slice(0, 6); recent.replaceChildren();
+    sessionQuestions.forEach(question => { const button = document.createElement('button'); button.type = 'button'; button.className = 'recent-item'; button.title = question; const label = document.createElement('span'); label.textContent = question; button.append(label); button.addEventListener('click', () => { input.value = question; resizeInput(); input.focus(); closeSidebar(); }); recent.append(button); });
+  }
+  function setBusy(value) { busy = value; send.disabled = value; input.disabled = value; send.classList.toggle('is-loading', value); send.setAttribute('aria-label', value ? 'Sending message' : 'Send message'); }
+  async function submitQuery(query) {
+    if (busy || !query.trim()) return;
+    errorBox.textContent = ''; startConversation(); addMessage('user', query); updateRecent(query); input.value = ''; resizeInput(); setBusy(true); showTyping();
+    try {
+      const response = await fetch('/query', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({query})});
+      const data = await response.json().catch(() => null);
+      if (!response.ok || !data || typeof data !== 'object') throw new Error(data?.error || 'The Admissions Helpdesk is unavailable right now.');
+      if (typeof data.answer !== 'string' || !data.answer.trim()) throw new Error('The Admissions Helpdesk returned an unexpected response.');
+      removeTyping(); const answer = addMessage('assistant', data.answer); addMetadata(answer, data);
+    } catch (error) { console.error('Admissions Helpdesk request failed:', error); removeTyping(); addMessage('assistant', "Sorry, I couldn't connect to the Admissions Helpdesk right now. Please try again."); errorBox.textContent = 'Your message could not be processed. Please try again.'; }
+    finally { setBusy(false); input.focus(); scrollLatest(); }
+  }
+  function closeSidebar() { sidebar.classList.remove('is-open'); overlay.hidden = true; menu.setAttribute('aria-expanded', 'false'); }
+  form.addEventListener('submit', event => { event.preventDefault(); submitQuery(input.value); });
+  input.addEventListener('input', resizeInput);
+  input.addEventListener('keydown', event => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); form.requestSubmit(); } });
+  document.querySelectorAll('[data-question]').forEach(button => button.addEventListener('click', () => submitQuery(button.dataset.question || '')));
+  $('#new-chat').addEventListener('click', () => { messages.replaceChildren(); welcome.hidden = false; messages.hidden = true; started = false; errorBox.textContent = ''; input.value = ''; resizeInput(); input.focus(); closeSidebar(); });
+  menu.addEventListener('click', () => { const opening = !sidebar.classList.contains('is-open'); sidebar.classList.toggle('is-open', opening); overlay.hidden = !opening; menu.setAttribute('aria-expanded', String(opening)); }); overlay.addEventListener('click', closeSidebar);
+  $('#theme-toggle').addEventListener('click', event => { const dark = document.body.classList.toggle('dark-theme'); event.currentTarget.textContent = dark ? '☀' : '☾'; event.currentTarget.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme'); });
+  $('#support-button').addEventListener('click', () => { errorBox.textContent = 'Support contact details are not configured in this helpdesk.'; input.focus(); });
+  resizeInput();
+})();
