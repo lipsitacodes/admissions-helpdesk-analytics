@@ -107,7 +107,7 @@ Current implementation includes:
 - `preprocessing/clean_text.py` for basic query normalization.
 - `models/train_classifier.py` for training TF-IDF vectors with Logistic Regression.
 - `models/predict.py` for loading saved model artifacts and predicting intent with confidence.
-- Saved artifacts: `models/intent_classifier.joblib`, `models/tfidf_vectorizer.joblib`.
+- Saved artifacts: `models/intent_classifier_bilingual_v2.joblib`, `models/tfidf_vectorizer_bilingual_v2.joblib`.
 
 This is a prototype stage and should be treated as an initial model rather than a finalized production classifier.
 
@@ -159,10 +159,10 @@ Query_Help_Desk_AI/
 │       └── scholarship.txt
 ├── dashboard/
 ├── models/
-│   ├── intent_classifier.joblib
+│   ├── intent_classifier_bilingual_v2.joblib
 │   ├── predict.py
 │   ├── train_classifier.py
-│   └── tfidf_vectorizer.joblib
+│   └── tfidf_vectorizer_bilingual_v2.joblib
 ├── notebooks/
 │   └── intent_classification.ipynb
 ├── preprocessing/

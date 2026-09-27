@@ -1,3 +1,5 @@
+
+
 """Deterministic, extractive answer composition for retrieved RAG context."""
 
 from __future__ import annotations
@@ -6,8 +8,8 @@ import re
 from typing import Any, Dict, Iterable, List
 
 UNAVAILABLE_MESSAGE = (
-	"I could not find enough information in the available institutional "
-	"documents to answer this query accurately."
+	"Sorry, I could not find a reliable answer in the available documents. "
+	"Please try asking your question in a different way."
 )
 DISCLAIMER_PREFIX = "SYNTHETIC DEVELOPMENT DATA"
 STRUCTURED_METADATA_PREFIXES = (
@@ -109,5 +111,8 @@ def compose_answer(
 		reverse=True,
 	)
 	selected = [sentence for _, sentence in ranked[:2]]
-	answer = " ".join(selected) + f" Source: {source}"
+	answer = "Here is the information I found:\n\n"
+	answer += "\n".join(f"- {sentence}" for sentence in selected)
+	answer += "\n\nPlease check the latest university prospectus for final details."
+	
 	return {"answer": answer, "source": source, "grounded": True}

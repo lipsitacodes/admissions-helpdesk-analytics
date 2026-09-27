@@ -11,7 +11,7 @@ if exist ".venv\Scripts\python.exe" (
         where py >nul 2>nul
         if %ERRORLEVEL% NEQ 0 (
             echo ERROR: Python was not found on this computer.
-            echo Please install Python, then run this file again.
+            echo Please install Python or set up .venv, then run this file again.
             echo.
             pause
             exit /b 1
@@ -23,19 +23,18 @@ if exist ".venv\Scripts\python.exe" (
 )
 
 echo ======================================================
-echo Starting Query_Help_Desk_AI backend application...
+echo Starting Admissions Helpdesk AI Web Server...
 echo Project root: %CD%
+echo URL: http://127.0.0.1:5000/
 echo.
-echo Running command: %PYTHON_CMD% backend\main.py
+echo Running command: %PYTHON_CMD% app\main.py
 echo ======================================================
 
-%PYTHON_CMD% backend\main.py
+%PYTHON_CMD% app\main.py
 
 if errorlevel 1 (
     echo.
-    echo The backend stopped with an error.
-    echo Please check the Python error message above.
-    echo.
+    echo The server stopped with an error.
     pause
 )
 

@@ -224,38 +224,37 @@ def create_app() -> Flask:
         static_folder=str(ROOT_DIR / "app" / "static"),
     )
 
-
     @app.get("/")
     def index():
-        """Serve the helpdesk UI from the current authoritative app."""
+        """Serve the admissions helpdesk web interface."""
         return render_template("index.html")
-
 
     @app.get("/health")
     def health():
-
-        return jsonify({
-            "status": "ok"
-        })
-
+        return jsonify({"status": "ok"})
 
     @app.get("/history")
     def history():
-        """Return recent interaction records for the UI history view."""
+        """Return recent interactions from MongoDB for the history view."""
         try:
-            records = get_database()["helpdesk_interactions"].find(
-                {},
-                {
-                    "timestamp": 1,
-                    "query": 1,
-                    "predicted_intent": 1,
-                    "classifier_confidence": 1,
-                    "source_document": 1,
-                    "retrieval_similarity": 1,
-                    "escalated": 1,
-                    "grounded": 1,
-                },
-            ).sort("timestamp", -1).limit(100)
+            records = (
+                get_database()["helpdesk_interactions"]
+                .find(
+                    {},
+                    {
+                        "timestamp": 1,
+                        "query": 1,
+                        "predicted_intent": 1,
+                        "classifier_confidence": 1,
+                        "source_document": 1,
+                        "retrieval_similarity": 1,
+                        "escalated": 1,
+                        "grounded": 1,
+                    },
+                )
+                .sort("timestamp", -1)
+                .limit(100)
+            )
             interactions = [
                 {
                     "timestamp": record.get("timestamp"),
@@ -271,8 +270,10 @@ def create_app() -> Flask:
             ]
             return jsonify({"interactions": interactions})
         except Exception:
-            return jsonify({"error": "Interaction history is temporarily unavailable."}), 503
-
+            return (
+                jsonify({"error": "Interaction history is temporarily unavailable."}),
+                503,
+            )
 
     @app.post("/query")
     def query():
@@ -287,13 +288,11 @@ def create_app() -> Flask:
                 "error": "Request body must be a JSON object."
             }), 400
 
-
         if "query" not in payload:
 
             return jsonify({
                 "error": "Missing required field: query."
             }), 400
-
 
         if (
             not isinstance(payload["query"], str)
@@ -303,7 +302,6 @@ def create_app() -> Flask:
             return jsonify({
                 "error": "Query must be a non-empty string."
             }), 400
-
 
         try:
 
@@ -335,7 +333,6 @@ def create_app() -> Flask:
 
             }), 503
 
-
     return app
 
 
@@ -343,5 +340,4 @@ app = create_app()
 
 
 if __name__ == "__main__":
-
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=False, use_reloader=False)
