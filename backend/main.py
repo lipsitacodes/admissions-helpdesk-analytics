@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 import joblib
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
@@ -18,6 +18,7 @@ if str(ROOT_DIR) not in sys.path:
 
 
 from backend.logger import log_interaction
+from database import get_database
 from preprocessing.clean_text import clean_text
 from rag.escalation import should_escalate
 from rag.generate_answer import UNAVAILABLE_MESSAGE, compose_answer
@@ -217,7 +218,17 @@ def run_query_pipeline(query: str) -> Dict[str, Any]:
 
 def create_app() -> Flask:
 
-    app = Flask(__name__)
+    app = Flask(
+        __name__,
+        template_folder=str(ROOT_DIR / "app" / "templates"),
+        static_folder=str(ROOT_DIR / "app" / "static"),
+    )
+
+
+    @app.get("/")
+    def index():
+        """Serve the helpdesk UI from the current authoritative app."""
+        return render_template("index.html")
 
 
     @app.get("/health")
@@ -226,6 +237,41 @@ def create_app() -> Flask:
         return jsonify({
             "status": "ok"
         })
+
+
+    @app.get("/history")
+    def history():
+        """Return recent interaction records for the UI history view."""
+        try:
+            records = get_database()["helpdesk_interactions"].find(
+                {},
+                {
+                    "timestamp": 1,
+                    "query": 1,
+                    "predicted_intent": 1,
+                    "classifier_confidence": 1,
+                    "source_document": 1,
+                    "retrieval_similarity": 1,
+                    "escalated": 1,
+                    "grounded": 1,
+                },
+            ).sort("timestamp", -1).limit(100)
+            interactions = [
+                {
+                    "timestamp": record.get("timestamp"),
+                    "query": record.get("query", ""),
+                    "predicted_intent": record.get("predicted_intent", "other"),
+                    "classifier_confidence": record.get("classifier_confidence"),
+                    "source_document": record.get("source_document"),
+                    "retrieval_similarity": record.get("retrieval_similarity"),
+                    "escalated": bool(record.get("escalated", False)),
+                    "grounded": record.get("grounded"),
+                }
+                for record in records
+            ]
+            return jsonify({"interactions": interactions})
+        except Exception:
+            return jsonify({"error": "Interaction history is temporarily unavailable."}), 503
 
 
     @app.post("/query")
