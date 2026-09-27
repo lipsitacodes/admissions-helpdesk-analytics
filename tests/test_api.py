@@ -64,14 +64,14 @@ def test_invalid_query_payloads_return_bad_request(client, payload):
 		"What is the admissions phone number?",
 	],
 )
-def test_unsupported_information_returns_safe_unavailable_answer(client, query):
+def test_official_admission_support_contact_is_returned(client, query):
 	response = client.post("/query", json={"query": query})
 	body = response.get_json()
 
 	assert response.status_code == 200
-	assert body["answer"] == UNAVAILABLE_MESSAGE
-	assert body["escalated"] is True
-	assert not re.search(r"(?:phone|email|@|\$|\b(?:rs|inr)\.?\s*\d)", body["answer"], re.I)
+	assert "8260077222" in body["answer"]
+	assert body["grounded"] is True
+	assert body["retrieved_chunks"][0]["record_id"] == "admission-support-contact"
 
 
 def test_other_intent_returns_safe_escalation(client):
@@ -85,13 +85,30 @@ def test_other_intent_returns_safe_escalation(client):
 	assert body["escalated"] is True
 
 
-def test_fee_query_returns_a_clearly_synthetic_amount(client):
+def test_fee_query_returns_official_academic_fee_metadata(client):
 	response = client.post("/query", json={"query": "How much is the exact tuition fee?"})
 	body = response.get_json()
 
 	assert response.status_code == 200
-	assert "SYNTHETIC" in body["answer"].upper()
+	assert body["grounded"] is True
+	assert body["retrieved_chunks"][0]["fee_type"] == "academic_programme_fee"
+	assert body["retrieved_chunks"][0]["source_status"] == "OFFICIAL_UNIVERSITY"
 	assert re.search(r"\bINR\s*\d", body["answer"], re.I)
+
+
+def test_query_api_preserves_retrieval_metadata(client):
+	response = client.post("/query", json={"query": "Bhubaneswar me CSE ka fee kitna hai?"})
+	body = response.get_json()
+	hit = body["retrieved_chunks"][0]
+
+	assert response.status_code == 200
+	assert hit["id"] == hit["record_id"] == "fee-cse-academic-bbsr"
+	assert hit["source_document"] == "fee_structure.txt"
+	assert hit["program"] == "B.Tech CSE"
+	assert hit["campus"] == "Bhubaneswar"
+	assert hit["fee_type"] == "academic_programme_fee"
+	assert hit["academic_year"] == "2025-2026 / 2026"
+	assert "ranking_features" in hit
 
 
 def test_valid_request_is_logged_in_isolated_database(client, tmp_path):

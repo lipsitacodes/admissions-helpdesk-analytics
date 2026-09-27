@@ -69,20 +69,20 @@ def create_record_chunks(records_path: Path):
             if record.get(key):
                 details.append(f"{key.title()}: {record[key]}.")
         chunks.append({
+            **record,
+            **{
+                key: record.get(key)
+                for key in (
+                    "id", "domain", "branch", "topic", "source_status",
+                    "source_document", "program", "fee_category", "subcategory",
+                    "amount", "frequency", "applicability", "question_variations",
+                    "campus", "fee_type", "academic_year",
+                )
+            },
             "document": record["source_document"],
             "chunk_id": chunk_id,
             "record_id": record["id"],
-            "domain": record["domain"],
-            "branch": record["branch"],
-            "topic": record["topic"],
-            "source_status": record["source_status"],
-            "program": record.get("program"),
-            "fee_category": record.get("fee_category"),
-            "subcategory": record.get("subcategory"),
-            "amount": record.get("amount"),
-            "frequency": record.get("frequency"),
-            "applicability": record.get("applicability"),
-            "question_variations": record.get("question_variations", []),
+            "question_variations": record.get("question_variations"),
             "text": " ".join(details),
         })
     return chunks
@@ -95,7 +95,7 @@ def main():
 
     chunks = create_record_chunks(RECORDS_FILE) if RECORDS_FILE.exists() else create_chunks(doc_paths)
     texts = [
-        chunk["text"] + " Common questions: " + " | ".join(chunk["question_variations"])
+        chunk["text"] + " Common questions: " + " | ".join(chunk.get("question_variations") or [])
         for chunk in chunks
     ]
 

@@ -51,6 +51,7 @@ def _public_chunks(
     return [
         {
             "source": chunk["source"],
+            "source_document": chunk.get("source_document", chunk["source"]),
             "chunk_id": chunk["chunk_id"],
             "text": chunk["text"],
             "similarity_score": round(
@@ -59,9 +60,11 @@ def _public_chunks(
             **{
                 key: chunk[key]
                 for key in (
-                    "record_id", "domain", "branch", "topic", "source_status",
+                    "id", "record_id", "domain", "branch", "topic", "source_status",
                     "program", "fee_category", "subcategory", "amount", "frequency",
-                    "applicability",
+                    "applicability", "question_variations", "campus", "fee_type",
+                    "academic_year", "information", "eligibility", "admission_route",
+                    "source_note", "ranking_score", "ranking_features",
                 )
                 if key in chunk
             },

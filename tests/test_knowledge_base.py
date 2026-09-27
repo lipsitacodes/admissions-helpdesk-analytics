@@ -51,8 +51,8 @@ def test_every_program_has_eligibility_and_route_fields(records):
         ("What is EEE?", "course_information", "Electrical and Electronics"),
         ("Agricultural Engineering kya hai?", "course_information", "Agricultural"),
         ("Dairy Technology kya hai?", "course_information", "Dairy"),
-        ("Drone Technology kya hai?", "course_information", "Drone"),
-        ("Aeronautical Engineering kya hai?", "course_information", "Aeronautical"),
+        ("Biotechnology kya hai?", "course_information", "Biotechnology"),
+        ("Aerospace Engineering kya hai?", "course_information", "Aerospace"),
     ],
 )
 def test_branch_queries_retrieve_branch_specific_records(query, intent, expected_branch):
@@ -60,7 +60,7 @@ def test_branch_queries_retrieve_branch_specific_records(query, intent, expected
     assert results
     assert results[0]["source"] == "programs.txt"
     assert expected_branch.lower() in results[0]["branch"].lower()
-    assert results[0]["source_status"] in {"DEMO", "UNKNOWN"}
+    assert results[0]["source_status"] == "OFFICIAL_UNIVERSITY"
 
 
 def test_fee_and_exam_queries_use_distinct_sources():
@@ -74,20 +74,99 @@ def test_fee_and_exam_queries_use_distinct_sources():
 
 
 @pytest.mark.parametrize(
-    ("query", "intent", "record_id", "amount_text"),
+    ("query", "expected_ids", "expected_amounts"),
     [
-        ("cse ka fees kya hei?", "fee_structure", "fee-cse-academic", "INR 160,000"),
-        ("cse ai ml ka fee kitna hai?", "fee_structure", "fee-ai-ml-academic", "INR 175,000"),
-        ("hostel ka fees kitna hai?", "hostel", "fee-hostel", "INR 90,000"),
-        ("exam fee kya hei?", "fee_structure", "fee-examination", "INR 3,000"),
+        (
+            "CSE ka fees kya hai?",
+            {"fee-cse-academic-bbsr", "fee-cse-academic-pkd"},
+            {"INR 185,000", "INR 150,000"},
+        ),
+        (
+            "Bhubaneswar me CSE ka fee kitna hai?",
+            {"fee-cse-academic-bbsr"},
+            {"INR 185,000"},
+        ),
+        (
+            "PKD me CSE ka fee kitna hai?",
+            {"fee-cse-academic-pkd"},
+            {"INR 150,000"},
+        ),
+        (
+            "CSE ka exam fee kitna hai?",
+            {"fee-examination"},
+            {"INR 7,000"},
+        ),
+        (
+            "CSE AIML ka fees kitna hai?",
+            {"fee-ai-ml-academic-bbsr", "fee-ai-ml-academic-pkd"},
+            {"INR 200,000", "INR 165,000"},
+        ),
+        (
+            "Bhubaneswar CSE AIML fees?",
+            {"fee-ai-ml-academic-bbsr"},
+            {"INR 200,000"},
+        ),
+        (
+            "PKD CSE AIML fees?",
+            {"fee-ai-ml-academic-pkd"},
+            {"INR 165,000"},
+        ),
+        (
+            "hostel ka fees kitna hai?",
+            {"fee-hostel"},
+            {"Campus and room-type dependent"},
+        ),
     ],
 )
-def test_synthetic_fee_records_return_demo_amounts(query, intent, record_id, amount_text):
-    results = retrieve(query, intent)
+def test_official_fee_queries_retrieve_campus_and_type_records(query, expected_ids, expected_amounts):
+    results = retrieve(query, "hostel" if "hostel" in query.lower() else "fee_structure")
+    by_id = {result["record_id"]: result for result in results}
 
-    assert results[0]["record_id"] == record_id
-    assert results[0]["source_status"] == "SYNTHETIC_DEMO"
-    assert amount_text in results[0]["amount"]
+    assert expected_ids <= by_id.keys()
+    assert all(by_id[record_id]["source_status"] == "OFFICIAL_UNIVERSITY" for record_id in expected_ids)
+    assert all(any(amount in by_id[record_id]["amount"] for record_id in expected_ids) for amount in expected_amounts)
+    assert all(by_id[record_id]["source_document"] == by_id[record_id]["source"] for record_id in expected_ids)
+    assert all("ranking_score" in by_id[record_id] for record_id in expected_ids)
+    assert all("similarity_score" in by_id[record_id] for record_id in expected_ids)
+
+    for record_id in expected_ids:
+        assert all(key in by_id[record_id] for key in (
+            "id", "domain", "branch", "topic", "source_status", "source_document",
+            "program", "fee_category", "subcategory", "amount", "frequency",
+            "applicability", "question_variations", "campus", "fee_type", "academic_year",
+        ))
+
+    if query == "CSE ka fees kya hai?":
+        assert results[0]["program"] == "B.Tech CSE"
+        assert {result["campus"] for result in results} == {"Bhubaneswar", "Paralakhemundi"}
+    if query == "CSE AIML ka fees kitna hai?":
+        assert {result["campus"] for result in results} == {"Bhubaneswar", "Paralakhemundi"}
+    if "exam" in query.lower():
+        assert by_id["fee-examination"]["fee_type"] == "examination_fee"
+        assert "INR 7,000" in by_id["fee-examination"]["amount"]
+
+
+def test_generic_cse_answer_reports_both_campuses():
+    chunks = retrieve("CSE ka fees kya hai?", "fee_structure")
+    answer = compose_answer("CSE ka fees kya hai?", "fee_structure", chunks)
+
+    assert answer["grounded"] is True
+    assert "Bhubaneswar" in answer["answer"]
+    assert "Paralakhemundi" in answer["answer"]
+    assert "INR 185,000" in answer["answer"]
+    assert "INR 150,000" in answer["answer"]
+
+
+def test_generic_aiml_answer_reports_both_campuses():
+    query = "CSE AIML ka fees kitna hai?"
+    chunks = retrieve(query, "fee_structure")
+    answer = compose_answer(query, "fee_structure", chunks)
+
+    assert answer["grounded"] is True
+    assert "Bhubaneswar" in answer["answer"]
+    assert "Paralakhemundi" in answer["answer"]
+    assert "INR 200,000" in answer["answer"]
+    assert "INR 165,000" in answer["answer"]
 
 
 def test_retrieved_context_produces_grounded_branch_answer():

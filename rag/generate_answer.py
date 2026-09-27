@@ -74,6 +74,36 @@ def _has_required_intent_evidence(predicted_intent: str, chunks: Iterable[Dict[s
 	return any(term in context for term in terms)
 
 
+def _campus_fee_sentences(query: str, chunks: List[Dict[str, Any]]) -> List[str]:
+	query_words = set(re.findall(r"[a-z0-9]+", query.lower()))
+	if query_words & {"bhubaneswar", "bbsr", "bhu", "paralakhemundi", "pkd"}:
+		return []
+
+	fee_chunks = [
+		chunk for chunk in chunks
+		if chunk.get("fee_type") == "academic_programme_fee"
+		and chunk.get("program")
+		and chunk.get("campus")
+	]
+	programs = {str(chunk["program"]).casefold() for chunk in fee_chunks}
+	campuses = {str(chunk["campus"]).casefold() for chunk in fee_chunks}
+	if len(programs) != 1 or len(campuses) < 2:
+		return []
+
+	selected = []
+	for chunk in fee_chunks:
+		sentences = _sentences([chunk])
+		if sentences:
+			selected.append(max(
+				enumerate(sentences),
+				key=lambda item: (
+					len(query_words & set(re.findall(r"[a-z0-9]+", item[1].lower()))),
+					-item[0],
+				),
+			)[1])
+	return selected
+
+
 def compose_answer(
 	query: str,
 	predicted_intent: str,
@@ -99,20 +129,22 @@ def compose_answer(
 	if not sentences:
 		return {"answer": UNAVAILABLE_MESSAGE, "source": source, "grounded": False}
 
-	query_words = {
-		word for word in re.findall(r"[a-zA-Z0-9]+", query.lower()) if word not in STOP_WORDS
-	}
-	ranked = sorted(
-		enumerate(sentences),
-		key=lambda item: (
-			len(query_words & set(re.findall(r"[a-zA-Z0-9]+", item[1].lower()))),
-			-item[0],
-		),
-		reverse=True,
-	)
-	selected = [sentence for _, sentence in ranked[:2]]
+	selected = _campus_fee_sentences(query, retrieved_chunks)
+	if not selected:
+		query_words = {
+			word for word in re.findall(r"[a-zA-Z0-9]+", query.lower()) if word not in STOP_WORDS
+		}
+		ranked = sorted(
+			enumerate(sentences),
+			key=lambda item: (
+				len(query_words & set(re.findall(r"[a-zA-Z0-9]+", item[1].lower()))),
+				-item[0],
+			),
+			reverse=True,
+		)
+		selected = [sentence for _, sentence in ranked[:2]]
 	answer = "Here is the information I found:\n\n"
 	answer += "\n".join(f"- {sentence}" for sentence in selected)
 	answer += "\n\nPlease check the latest university prospectus for final details."
-	
+
 	return {"answer": answer, "source": source, "grounded": True}
