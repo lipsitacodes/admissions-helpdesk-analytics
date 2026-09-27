@@ -13,9 +13,9 @@ if str(ROOT_DIR) not in sys.path:
 
 from preprocessing.clean_text import clean_text
 
-STRESS_FILE = ROOT_DIR / "data" / "evaluation_short_queries.csv"
-MODEL_FILE = ROOT_DIR / "models" / "intent_classifier_bilingual.joblib"
-VECTORIZER_FILE = ROOT_DIR / "models" / "tfidf_vectorizer_bilingual.joblib"
+STRESS_FILE = ROOT_DIR / "data" / "training" / "evaluation_short_queries.csv"
+MODEL_FILE = ROOT_DIR / "artifacts" / "models" / "intent_classifier_bilingual.joblib"
+VECTORIZER_FILE = ROOT_DIR / "artifacts" / "models" / "tfidf_vectorizer_bilingual.joblib"
 
 
 def main() -> int:

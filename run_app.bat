@@ -27,10 +27,10 @@ echo Starting Admissions Helpdesk AI Web Server...
 echo Project root: %CD%
 echo URL: http://127.0.0.1:5000/
 echo.
-echo Running command: %PYTHON_CMD% app\main.py
+echo Running command: %PYTHON_CMD% backend\main.py
 echo ======================================================
 
-%PYTHON_CMD% app\main.py
+%PYTHON_CMD% backend\main.py
 
 if errorlevel 1 (
     echo.

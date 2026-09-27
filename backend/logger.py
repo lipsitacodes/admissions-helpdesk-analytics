@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
-from database import get_database
+from backend.database import get_database
 
 
 def _sqlite_log_interaction(

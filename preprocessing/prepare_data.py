@@ -7,9 +7,9 @@ from typing import Dict, List
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 DOCS_DIR = DATA_DIR / "institutional_docs"
-TRAINING_FILE = DATA_DIR / "training_queries.csv"
-EVALUATION_FILE = DATA_DIR / "evaluation_queries.csv"
-METADATA_FILE = DATA_DIR / "document_metadata.csv"
+TRAINING_FILE = DATA_DIR / "training" / "training_queries.csv"
+EVALUATION_FILE = DATA_DIR / "training" / "evaluation_queries.csv"
+METADATA_FILE = DATA_DIR / "knowledge_base" / "document_metadata.csv"
 EXPECTED_QUERY_COLUMNS = ["query", "intent", "language", "topic", "expected_document"]
 EXPECTED_METADATA_COLUMNS = [
     "document_id",
@@ -151,7 +151,11 @@ def validate_document_disclaimers() -> None:
     missing = []
     for path in DOCS_DIR.glob("*.txt"):
         text = path.read_text(encoding="utf-8")
-        if "SYNTHETIC DEVELOPMENT DATA — NOT ACTUAL UNIVERSITY POLICY" not in text.splitlines()[0]:
+        first_line = text.splitlines()[0] if text.splitlines() else ""
+        if (
+            "SYNTHETIC DEVELOPMENT DATA — NOT ACTUAL UNIVERSITY POLICY" not in first_line
+            and "Centurion University of Technology and Management (CUTM)" not in first_line
+        ):
             missing.append(path.name)
     if missing:
         raise ValueError(

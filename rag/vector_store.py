@@ -11,7 +11,7 @@ import faiss
 import numpy as np
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-EMBEDDINGS_FILE = ROOT_DIR / "rag" / "document_embeddings.pkl"
+EMBEDDINGS_FILE = ROOT_DIR / "artifacts" / "embeddings" / "document_embeddings.pkl"
 
 
 @dataclass

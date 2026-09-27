@@ -6,8 +6,8 @@ from sentence_transformers import SentenceTransformer
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DOCS_DIR = ROOT_DIR / "data" / "institutional_docs"
-RECORDS_FILE = ROOT_DIR / "data" / "knowledge_base_records.json"
-OUTPUT_FILE = ROOT_DIR / "rag" / "document_embeddings.pkl"
+RECORDS_FILE = ROOT_DIR / "data" / "knowledge_base" / "knowledge_base_records.json"
+OUTPUT_FILE = ROOT_DIR / "artifacts" / "embeddings" / "document_embeddings.pkl"
 MODEL_NAME = "all-MiniLM-L6-v2"
 
 

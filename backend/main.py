@@ -18,17 +18,17 @@ if str(ROOT_DIR) not in sys.path:
 
 
 from backend.logger import log_interaction
-from database import get_database
+from backend.database import get_database
 from preprocessing.clean_text import clean_text
 from rag.escalation import should_escalate
 from rag.generate_answer import UNAVAILABLE_MESSAGE, compose_answer
 from rag.retrieve import retrieve
 
 
-MODEL_PATH = ROOT_DIR / "models" / "intent_classifier_bilingual.joblib"
+MODEL_PATH = ROOT_DIR / "artifacts" / "models" / "intent_classifier_bilingual.joblib"
 
 VECTORIZER_PATH = (
-    ROOT_DIR / "models" / "tfidf_vectorizer_bilingual.joblib"
+    ROOT_DIR / "artifacts" / "models" / "tfidf_vectorizer_bilingual.joblib"
 )
 
 
@@ -220,8 +220,8 @@ def create_app() -> Flask:
 
     app = Flask(
         __name__,
-        template_folder=str(ROOT_DIR / "app" / "templates"),
-        static_folder=str(ROOT_DIR / "app" / "static"),
+        template_folder=str(ROOT_DIR / "frontend" / "templates"),
+        static_folder=str(ROOT_DIR / "frontend" / "static"),
     )
 
     @app.get("/")

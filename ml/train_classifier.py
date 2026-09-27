@@ -13,11 +13,11 @@ if str(ROOT_DIR) not in sys.path:
 
 from preprocessing.clean_text import clean_text
 
-TRAIN_FILE = ROOT_DIR / "data" / "training_queries_bilingual_draft.csv"
-SUPPLEMENTAL_TRAIN_FILE = ROOT_DIR / "data" / "training_queries_bilingual_short_coverage.csv"
-EVAL_FILE = ROOT_DIR / "data" / "evaluation_queries_bilingual_draft.csv"
-MODEL_FILE = ROOT_DIR / "models" / "intent_classifier_bilingual.joblib"
-VECTORIZER_FILE = ROOT_DIR / "models" / "tfidf_vectorizer_bilingual.joblib"
+TRAIN_FILE = ROOT_DIR / "data" / "training" / "training_queries_bilingual.csv"
+SUPPLEMENTAL_TRAIN_FILE = ROOT_DIR / "data" / "training" / "training_queries_bilingual_short_coverage.csv"
+EVAL_FILE = ROOT_DIR / "data" / "training" / "evaluation_queries_bilingual.csv"
+MODEL_FILE = ROOT_DIR / "artifacts" / "models" / "intent_classifier_bilingual.joblib"
+VECTORIZER_FILE = ROOT_DIR / "artifacts" / "models" / "tfidf_vectorizer_bilingual.joblib"
 REQUIRED_COLUMNS = ["query", "intent", "language", "topic", "expected_document"]
 
 
