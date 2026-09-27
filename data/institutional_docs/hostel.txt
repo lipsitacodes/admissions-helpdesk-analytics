@@ -1,13 +1,19 @@
-SYNTHETIC DEVELOPMENT DATA — NOT ACTUAL UNIVERSITY POLICY
+Centurion University of Technology and Management (CUTM)
+Hostel Accommodation and Campus Living
 
-Hostel Accommodation
+HOSTEL FACILITIES AND AMENITIES:
+- Separate hostel facilities are provided for male and female students across Bhubaneswar and Paralakhemundi campuses.
+- Rooms are available in shared and single occupancy configurations, furnished with individual beds, study tables, chairs, and cupboards.
+- Campus living amenities include 24/7 high-speed Wi-Fi, round-the-clock security and CCTV surveillance, medical emergency assistance, recreational lounges, indoor/outdoor sports facilities, and backup power supply.
 
-The university hostel offers single and shared rooms with standard furnishings, a common dining hall, laundry service, and internet access.
+MESS AND DINING CHARGES:
+- Hostels feature hygienically managed dining halls serving vegetarian and non-vegetarian balanced meal plans.
+- Mess charges and hostel room rent are billed separately from academic tuition fees.
 
-IMPORTANT: Hostel and mess amounts below are SYNTHETIC_DEMO values created for project demonstration, not official university fees. Synthetic hostel accommodation is INR 90,000 per year, a refundable hostel security deposit is INR 10,000, and mess is approximately INR 4,000 per month or INR 48,000 per year.
+APPLICATION AND ALLOTMENT PROCESS:
+- Students can apply for hostel accommodation during or immediately following provisional admission confirmation.
+- Room allocation is conducted on a first-come, first-served basis subject to room type availability.
+- A refundable caution/security deposit is collected at the time of hostel room allotment.
 
-Hostel applications open after admission decisions are released. Students should submit the hostel form and pay the housing deposit by the deadline.
-
-Room assignments are based on availability and application timing. Returning students may request room renewals while new students receive assignment details before move-in day.
-
-Hostel residents must follow the code of conduct, which includes quiet hours, guest policies, and safety procedures.
+HOSTEL RULES AND CODE OF CONDUCT:
+- Residents must adhere to campus curfew hours, visitor regulations, anti-ragging mandates, and noise guidelines to foster a productive academic environment.
