@@ -102,6 +102,22 @@ def _query_campuses(query: str) -> set[str]:
 	return _campus_names(query)
 
 
+def _is_comparison_query(query: str) -> bool:
+	return bool(_tokens(query) & {"compare", "comparison", "difference", "differences", "versus", "vs", "between"})
+
+
+def _is_general_scholarship_query(query: str) -> bool:
+	tokens = _tokens(query)
+	asks = {"scholarship", "scholarships", "financial", "aid"}
+	specific = {
+		"cse", "aiml", "ai", "ml", "girl", "girls", "female", "women",
+		"sports", "sport", "defence", "defense", "army", "police", "paramilitary",
+		"renewal", "renew", "second", "cgpa", "score", "percentage", "percent",
+		"criteria", "eligibility", "conditions", "rules", "terms",
+	}
+	return bool(tokens & asks) and not bool(tokens & specific)
+
+
 def _requested_fee_type(query: str, predicted_intent: str) -> Optional[str]:
 	tokens = _tokens(query)
 	if tokens & {"exam", "examination"}:
@@ -120,6 +136,7 @@ def _rank_result(
 	existing_programs: set[frozenset[str]],
 	query_campuses: set[str],
 	requested_fee_type: Optional[str],
+	comparison_query: bool = False,
 ) -> Dict[str, Any]:
 	program = _program_terms(result.get("program"))
 	program_match_bonus = 0.0
@@ -133,7 +150,7 @@ def _rank_result(
 			program_match_bonus = PROGRAM_MATCH_BONUS * len(matched_terms) / len(query_program)
 			if program == query_program:
 				exact_program_bonus = EXACT_PROGRAM_BONUS
-			elif frozenset(query_program) in existing_programs and (
+			elif not comparison_query and frozenset(query_program) in existing_programs and (
 				program < query_program or query_program < program
 			):
 				program_specificity_adjustment = -PROGRAM_SPECIFICITY_PENALTY
@@ -220,9 +237,19 @@ def retrieve(
 	available_sources = [source for source in sources if (DOCS_DIR / source).exists()]
 	if not available_sources:
 		return []
+	result_limit = (
+		max(top_k, 2)
+		if predicted_intent == "course_information" and _is_comparison_query(query)
+		else top_k
+	)
 
 	model = embedding_model or get_embedding_model()
 	store = vector_store or get_vector_store()
+	if predicted_intent == "scholarship" and _is_general_scholarship_query(query):
+		result_limit = max(
+			result_limit,
+			sum(len(store.source_positions.get(source, [])) for source in available_sources),
+		)
 	query_embedding = model.encode([query], convert_to_numpy=True)
 	results = []
 	for source in available_sources:
@@ -237,13 +264,19 @@ def retrieve(
 	query_program, existing_programs = _query_program_terms(query, results)
 	query_campuses = _query_campuses(query)
 	requested_fee_type = _requested_fee_type(query, predicted_intent)
+	comparison_query = predicted_intent == "course_information" and _is_comparison_query(query)
 	results = [
 		_rank_result(
 			query, result, query_program, existing_programs,
-			query_campuses, requested_fee_type,
+			query_campuses, requested_fee_type, comparison_query,
 		)
 		for result in results
 	]
+	if comparison_query and query_program:
+		results = [
+			result for result in results
+			if result["ranking_features"]["program_match_bonus"] > 0
+		]
 	ranked_results = sorted(
 		results,
 		key=lambda result: (
@@ -254,5 +287,5 @@ def retrieve(
 		reverse=True,
 	)
 	return _campus_specific_alternatives(
-		ranked_results, query_program, query_campuses, requested_fee_type, top_k
+		ranked_results, query_program, query_campuses, requested_fee_type, result_limit
 	)

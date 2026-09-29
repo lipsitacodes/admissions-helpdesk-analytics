@@ -12,6 +12,7 @@ UNAVAILABLE_MESSAGE = (
 	"Please try asking your question in a different way."
 )
 DISCLAIMER_PREFIX = "SYNTHETIC DEVELOPMENT DATA"
+SENTENCE_BOUNDARY = re.compile(r"(?<=[!?])\s+|(?<!\d)\.\s+(?=[A-Z])")
 STRUCTURED_METADATA_PREFIXES = (
 	"Source status:", "Domain:", "Branch:", "Topic:", "Program:",
 	"Fee_Category:", "Subcategory:", "Amount:", "Frequency:",
@@ -47,7 +48,7 @@ def _sentences(chunks: Iterable[Dict[str, Any]]) -> List[str]:
 		lines = [line.strip() for line in text.splitlines() if line.strip()]
 		if len(lines) > 1 and len(lines[0].split()) <= 4 and not re.search(r"[.!?]$", lines[0]):
 			text = " ".join(lines[1:])
-		for sentence in re.split(r"(?<=[.!?])\s+", text):
+		for sentence in SENTENCE_BOUNDARY.split(text):
 			sentence = sentence.strip()
 			for heading in DOCUMENT_HEADINGS:
 				if sentence.startswith(heading + " "):
@@ -72,6 +73,56 @@ def _has_required_intent_evidence(predicted_intent: str, chunks: Iterable[Dict[s
 		return True
 	context = " ".join(str(chunk.get("text", "")).lower() for chunk in chunks)
 	return any(term in context for term in terms)
+
+
+def _program_comparison_sentences(query: str, chunks: List[Dict[str, Any]]) -> List[str]:
+	query_words = set(re.findall(r"[a-z0-9]+", query.lower()))
+	if not query_words & {"difference", "differences", "compare", "comparison", "versus", "vs", "between"}:
+		return []
+
+	program_chunks = [
+		chunk for chunk in chunks
+		if chunk.get("domain") == "program" and chunk.get("program")
+	]
+	if len({str(chunk["program"]).casefold() for chunk in program_chunks}) < 2:
+		return []
+
+	selected = []
+	for chunk in program_chunks:
+		sentences = _sentences([{"text": chunk.get("information") or chunk.get("text", "")}])
+		if sentences:
+			descriptive = next((sentence for sentence in sentences if " is a " in sentence.lower()), sentences[0])
+			selected.append(descriptive)
+	return selected
+
+
+def _scholarship_terms_lines(chunks: List[Dict[str, Any]]) -> List[str]:
+	for chunk in chunks:
+		information = str(chunk.get("information", "")).strip()
+		match = re.match(r"^([^:]+):\s*(\d+\.\s*.+)$", information)
+		if not match:
+			continue
+		items = re.split(r"\s+(?=\d+\.\s)", match.group(2))
+		if len(items) > 1:
+			return [f"### {match.group(1).strip()}", *[item.strip() for item in items]]
+	return []
+
+
+def _scholarship_overview_lines(chunks: List[Dict[str, Any]]) -> List[str]:
+	overview_records = [
+		chunk for chunk in chunks
+		if chunk.get("domain") == "scholarship"
+		and "terms and conditions" not in str(chunk.get("topic", "")).lower()
+	]
+	if len(overview_records) < 2:
+		return []
+
+	lines = ["### Scholarship options"]
+	for chunk in sorted(overview_records, key=lambda item: str(item.get("topic", ""))):
+		information = str(chunk.get("information", "")).strip()
+		if information:
+			lines.append(f"- {information}")
+	return lines
 
 
 def _campus_fee_sentences(query: str, chunks: List[Dict[str, Any]]) -> List[str]:
@@ -129,7 +180,15 @@ def compose_answer(
 	if not sentences:
 		return {"answer": UNAVAILABLE_MESSAGE, "source": source, "grounded": False}
 
-	selected = _campus_fee_sentences(query, retrieved_chunks)
+	selected = _program_comparison_sentences(query, retrieved_chunks)
+	if not selected and predicted_intent == "scholarship":
+		selected = _scholarship_overview_lines(retrieved_chunks)
+		if not selected:
+			selected = _scholarship_terms_lines(retrieved_chunks)
+	if not selected and predicted_intent == "admission_process":
+		selected = sentences[:4]
+	if not selected:
+		selected = _campus_fee_sentences(query, retrieved_chunks)
 	if not selected:
 		query_words = {
 			word for word in re.findall(r"[a-zA-Z0-9]+", query.lower()) if word not in STOP_WORDS
@@ -144,7 +203,12 @@ def compose_answer(
 		)
 		selected = [sentence for _, sentence in ranked[:2]]
 	answer = "Here is the information I found:\n\n"
-	answer += "\n".join(f"- {sentence}" for sentence in selected)
+	answer_lines = [
+		sentence if sentence.startswith("#") or re.match(r"^(?:[-*•]\s|\d+[.)]\s)", sentence)
+		else f"- {sentence}"
+		for sentence in selected
+	]
+	answer += "\n".join(answer_lines)
 	answer += "\n\nPlease check the latest university prospectus for final details."
 
 	return {"answer": answer, "source": source, "grounded": True}

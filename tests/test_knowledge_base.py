@@ -169,6 +169,60 @@ def test_generic_aiml_answer_reports_both_campuses():
     assert "INR 165,000" in answer["answer"]
 
 
+def test_program_comparison_returns_both_named_programs():
+    query = "CSE aur CSE AIML me difference kya hai?"
+    chunks = retrieve(query, "course_information")
+    answer = compose_answer(query, "course_information", chunks)
+
+    assert {chunk["record_id"] for chunk in chunks} >= {"program-cse", "program-ai-ml"}
+    assert answer["grounded"] is True
+    assert "Computer Science and Engineering (CSE)" in answer["answer"]
+    assert "Artificial Intelligence and Machine Learning" in answer["answer"]
+
+
+def test_admission_process_answer_includes_all_four_steps():
+    query = "admission process kya hai?"
+    answer = compose_answer(query, "admission_process", retrieve(query, "admission_process"))
+
+    assert answer["grounded"] is True
+    assert all(f"Step {step}:" in answer["answer"] for step in range(1, 5))
+
+
+def test_scholarship_answer_keeps_numbered_conditions_intact():
+    query = "scholarship terms and conditions kya hain?"
+    answer = compose_answer(query, "scholarship", retrieve(query, "scholarship"))
+
+    assert answer["grounded"] is True
+    assert all(f"{number}. " in answer["answer"] for number in range(1, 6))
+    assert "1.\n" not in answer["answer"]
+
+
+def test_general_scholarship_answer_summarizes_available_categories():
+    query = "scholarship kya hai?"
+    chunks = retrieve(query, "scholarship")
+    answer = compose_answer(query, "scholarship", chunks)
+    record_ids = {chunk["record_id"] for chunk in chunks}
+
+    assert {
+        "scholarship-amrit-kaal-cse",
+        "scholarship-amrit-kaal-non-cse",
+        "scholarship-chandrika-girls",
+        "scholarship-special-categories",
+        "scholarship-second-year-onwards",
+    } <= record_ids
+    assert answer["grounded"] is True
+    assert "### Scholarship options" in answer["answer"]
+    assert "Amrit Kaal Merit Scholarship for B.Tech CSE" in answer["answer"]
+    assert "Chandrika Scholarship for Girls" in answer["answer"]
+    assert "Special Category Scholarships" in answer["answer"]
+
+
+def test_specific_cse_scholarship_query_keeps_precise_record():
+    results = retrieve("CSE ke liye scholarship kitni milti hai?", "scholarship")
+
+    assert results[0]["record_id"] == "scholarship-amrit-kaal-cse"
+
+
 def test_retrieved_context_produces_grounded_branch_answer():
     chunks = retrieve("What is ECE?", "course_information")
     answer = compose_answer("What is ECE?", "course_information", chunks)
