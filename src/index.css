@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'DM Serif Display', 'Georgia', serif;
+  --history-row-bg: transparent;
+  --history-row-active: #e4e4e7;
+  --history-row-text: #09090b;
+  --history-drawer: #f4f4f5;
+}
+
+.dark {
+  --history-row-bg: transparent;
+  --history-row-active: #111d33;
+  --history-row-text: #f1f5f9;
+  --history-drawer: #182640;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #060d18;
+  color: #f1f5f9;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html:not(.dark) body {
+  background-color: #FFFFFF;
+  color: #0c1829;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Monochrome Glassmorphism with crisp high contrast */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(228, 228, 231, 1);
+}
+
+.dark .glass-panel {
+  background: rgba(11, 20, 38, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(28, 45, 74, 0.8);
+}
+
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E4E7;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.dark .glass-card {
+  background: #0b1426;
+  border: 1px solid #1c2d4a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.glass-modal {
+  background: rgba(8, 16, 32, 0.94);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(28, 45, 74, 0.6);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.9);
+}
+
+/* ANIMATION ONLY: Multi-color Neon Aura behind Composer (Image 2 style) */
+.neon-aura-container {
+  position: relative;
+}
+
+.neon-aura-container::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.45), rgba(6, 182, 212, 0.5), rgba(59, 130, 246, 0.4));
+  filter: blur(14px);
+  opacity: 0.5;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.neon-aura-container:focus-within::before {
+  opacity: 0.9;
+  filter: blur(18px);
+}
+
+/* ANIMATION ONLY: 3D Iridescent Orb */
+.orb-glow-purple {
+  background: radial-gradient(circle at 35% 35%, #f5d0fe 0%, #c084fc 25%, #9333ea 55%, #581c87 85%, #2e1065 100%);
+  box-shadow:
+    inset -8px -8px 18px rgba(0, 0, 0, 0.5),
+    inset 6px 6px 12px rgba(255, 255, 255, 0.7),
+    0 0 35px rgba(168, 85, 247, 0.5),
+    0 0 70px rgba(147, 51, 234, 0.25);
+}
+
+/* ANIMATION ONLY: Orb Logo Button – subtle smooth press */
+.orb-btn {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.18s ease;
+}
+
+.orb-btn:active {
+  transform: scale(0.95);
+  opacity: 0.75;
+}
+
+/* ANIMATION ONLY: Gradient Accent Line */
+.accent-bar-gradient {
+  background: linear-gradient(90deg, #38bdf8 0%, #06b6d4 50%, #3b82f6 100%);
+  background-size: 200% 200%;
+  animation: gradientX 6s ease infinite;
+}
+
+/* Clean Monochrome Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.5);
+}

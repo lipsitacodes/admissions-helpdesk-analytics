@@ -1,5 +1,17 @@
 ﻿# Query Help Desk AI
 
+## Run the web app
+
+The Flask server serves the React frontend from `frontend/static/`. Build the frontend after cloning or changing UI source so the generated assets referenced by the Flask template exist:
+
+```powershell
+npm ci
+npm run build
+.\run_app.bat
+```
+
+For UI development, run `npm run dev`; it proxies API requests to Flask on port 5000. Email and Google authentication are not configured yet and require a future authentication/database integration.
+
 An AI-based admissions query help desk prototype using synthetic institutional documents. The current project demonstrates preprocessing, intent classification, and document embedding preparation as part of a larger planned retrieval and answer generation pipeline.
 
 ## 📌 Project Overview

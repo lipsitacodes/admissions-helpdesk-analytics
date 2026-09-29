@@ -4,3 +4,9 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 data/helpdesk_interactions.db
+
+# Node / Vite
+node_modules/
+dist/
+frontend/static/assets/
+frontend/static/askcampus-orb.svg
