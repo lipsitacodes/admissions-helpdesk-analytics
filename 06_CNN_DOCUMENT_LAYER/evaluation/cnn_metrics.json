@@ -1,0 +1,33 @@
+{
+  "status": "ready_for_document_page_data",
+  "total_parameters": 93636,
+  "input_tensor_shape": [
+    2,
+    1,
+    224,
+    224
+  ],
+  "output_tensor_shape": [
+    2,
+    4
+  ],
+  "probability_sum_check": 0.9999999403953552,
+  "classes": [
+    "heading",
+    "table",
+    "paragraph",
+    "other"
+  ],
+  "dataset_status": {
+    "status": "awaiting_valid_source_page_scans",
+    "allowed_source": "CUTM_Category_CSVs",
+    "note": "CSV files do not contain page-image scans. Preserving integrity without synthetic fact fabrication.",
+    "target_classes": [
+      "heading",
+      "table",
+      "paragraph",
+      "other"
+    ],
+    "input_shape": "(1, 224, 224)"
+  }
+}

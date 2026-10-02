@@ -1,0 +1,4344 @@
+[
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "B Sc Hons Agriculture",
+      "url": "https://cutm.ac.in/courses/b-sc-hons-agriculture",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Soil Science",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-soil-science/",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Seed Science Technology",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-seed-science-technology/",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Plant Pathology",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-plant-pathology/",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Horticulture Vegetable Science",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-horticulture-vegetable-science/",
+      "about": "",
+      "fees": "₹2,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Genetics Plant Breeding",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-genetics-plant-breeding/",
+      "about": "",
+      "fees": "₹2,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Entomology",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-entomology/",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Agronomy",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-agronomy/",
+      "about": "",
+      "fees": "₹2,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Agriculture Extension And Communication",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-agriculture-extension-and-communication",
+      "about": "",
+      "fees": "₹2,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Agriculture.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Ph D In Agriculture",
+      "url": "https://cutm.ac.in/courses/ph-d-in-agriculture/",
+      "about": "",
+      "fees": "Not listed on current course-fee table",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Agricultural Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-agricultural-engineering",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Mechanical Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-mechanical-engineering/",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar; ₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Electronics And Communication Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-electronics-and-communication-engineering/",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar; ₹1,20,000/year — Paralakhemundi; International $3,600/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Electrical And Electronics Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-electrical-and-electronics-engineering",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar; ₹1,10,000/year — Paralakhemundi; International $3,600/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Mining Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-mining-engineering",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Civil Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-civil-engineering",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar; ₹1,10,000/year — Paralakhemundi; International $3,600/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Aerospace Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-aerospace-engineering",
+      "about": "",
+      "fees": "₹1,60,000/year — Bhubaneswar; International $3,600/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Computer Science And Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-computer-science-and-engineering",
+      "about": "",
+      "fees": "₹1,85,000/year — Bhubaneswar; ₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Bio Technology Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-bio-technology-engineering",
+      "about": "",
+      "fees": "₹1,65,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Computer Science And Engineering Aiml",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-computer-science-and-engineering-aiml/",
+      "about": "",
+      "fees": "₹2,00,000/year — Bhubaneswar; ₹1,65,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Master Of Technology In Structural Engineering",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-structural-engineering",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Master Of Technology In Transportation Engineering",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-transportation-engineering",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 12,
+    "raw_data": {
+      "course": "Master Of Technology In Power System And Control Engineering",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-power-system-and-control-engineering",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 13,
+    "raw_data": {
+      "course": "Master Of Technology In Data Science",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-data-science/",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "BTech_MTech.csv",
+    "row_index": 14,
+    "raw_data": {
+      "course": "Master Of Technology In Design And Manufacturing",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-design-and-manufacturing/",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "B Sc Hons Agriculture",
+      "url": "https://cutm.ac.in/courses/b-sc-hons-agriculture",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Soil Science",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-soil-science/",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Seed Science Technology",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-seed-science-technology/",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Plant Pathology",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-plant-pathology/",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Horticulture Vegetable Science",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-horticulture-vegetable-science/",
+      "about": "",
+      "fees": "₹2,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Genetics Plant Breeding",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-genetics-plant-breeding/",
+      "about": "",
+      "fees": "₹2,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Entomology",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-entomology/",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Agronomy",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-agronomy/",
+      "about": "",
+      "fees": "₹2,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Master Of Agriculture Science In Agriculture Extension And Communication",
+      "url": "https://cutm.ac.in/courses/master-of-agriculture-science-in-agriculture-extension-and-communication",
+      "about": "",
+      "fees": "₹2,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Agriculture.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Ph D In Agriculture",
+      "url": "https://cutm.ac.in/courses/ph-d-in-agriculture/",
+      "about": "",
+      "fees": "Not listed on current course-fee table",
+      "faculty_names": "",
+      "category": "Agriculture",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Agricultural Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-agricultural-engineering",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Mechanical Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-mechanical-engineering/",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar; ₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Electronics And Communication Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-electronics-and-communication-engineering/",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar; ₹1,20,000/year — Paralakhemundi; International $3,600/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Electrical And Electronics Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-electrical-and-electronics-engineering",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar; ₹1,10,000/year — Paralakhemundi; International $3,600/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Mining Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-mining-engineering",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Civil Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-civil-engineering",
+      "about": "",
+      "fees": "₹1,55,000/year — Bhubaneswar; ₹1,10,000/year — Paralakhemundi; International $3,600/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Aerospace Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-aerospace-engineering",
+      "about": "",
+      "fees": "₹1,60,000/year — Bhubaneswar; International $3,600/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Computer Science And Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-computer-science-and-engineering",
+      "about": "",
+      "fees": "₹1,85,000/year — Bhubaneswar; ₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Bio Technology Engineering",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-bio-technology-engineering",
+      "about": "",
+      "fees": "₹1,65,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_BTech.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Bachelor Of Technology In Computer Science And Engineering Aiml",
+      "url": "https://cutm.ac.in/courses/bachelor-of-technology-in-computer-science-and-engineering-aiml/",
+      "about": "",
+      "fees": "₹2,00,000/year — Bhubaneswar; ₹1,65,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Certificate In Introduction To Composite Fabrication",
+      "url": "https://cutm.ac.in/courses/certificate-in-introduction-to-composite-fabrication/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Certificate In Vermicomposting Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-vermicomposting-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Certificate In Poultry Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-poultry-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Certificate In Organic Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-organic-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Certificate In Mushroom Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-mushroom-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Certificate In Dairy Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-dairy-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Certificate In Bio Fertilisers Preparation",
+      "url": "https://cutm.ac.in/courses/certificate-in-bio-fertilisers-preparation/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Certificate In Digital Painting",
+      "url": "https://cutm.ac.in/courses/certificate-in-digital-painting/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Certificate In Adobe Tools And Illustrations",
+      "url": "https://cutm.ac.in/courses/certificate-in-adobe-tools-and-illustrations/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Certificate In Ward Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-ward-technician/",
+      "about": "",
+      "fees": "₹30,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Certificate In Ot Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-ot-technician/",
+      "about": "",
+      "fees": "₹45,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Certificate In Ophthalmic Surgical Assistant",
+      "url": "https://cutm.ac.in/courses/certificate-in-ophthalmic-surgical-assistant/",
+      "about": "",
+      "fees": "₹63,000 first year; ₹60,000 second year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 12,
+    "raw_data": {
+      "course": "Certificate In Ophthalmic Assistant",
+      "url": "https://cutm.ac.in/courses/certificate-in-ophthalmic-assistant/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 13,
+    "raw_data": {
+      "course": "Certificate In Ecg Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-ecg-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 14,
+    "raw_data": {
+      "course": "Certificate In Blood Collection Assistant",
+      "url": "https://cutm.ac.in/courses/certificate-in-blood-collection-assistant/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 15,
+    "raw_data": {
+      "course": "Certificate In Radiology Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-radiology-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 16,
+    "raw_data": {
+      "course": "Certificate In Operating Theatre Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-operating-theatre-technician/",
+      "about": "",
+      "fees": "₹45,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 17,
+    "raw_data": {
+      "course": "Certificate In Medical Lab Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-medical-lab-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 18,
+    "raw_data": {
+      "course": "Certificate In General Duty Assistance Service",
+      "url": "https://cutm.ac.in/courses/certificate-in-general-duty-assistance-service/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 19,
+    "raw_data": {
+      "course": "Certificate In First Aid",
+      "url": "https://cutm.ac.in/courses/certificate-in-first-aid/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 20,
+    "raw_data": {
+      "course": "Certified Cath Lab Technician",
+      "url": "https://cutm.ac.in/courses/certified-cath-lab-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 21,
+    "raw_data": {
+      "course": "Certificate In Emg Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-emg-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 22,
+    "raw_data": {
+      "course": "Certificate In Eeg Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-eeg-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 23,
+    "raw_data": {
+      "course": "Certificate In Dialysis Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-dialysis-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 24,
+    "raw_data": {
+      "course": "Certificate In X Ray Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-x-ray-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 25,
+    "raw_data": {
+      "course": "Certificate In Phlebotomy Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-phlebotomy-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Certificate.csv",
+    "row_index": 26,
+    "raw_data": {
+      "course": "Certificate In Emergency Medical Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-emergency-medical-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Diploma In Medical Radiation Technology",
+      "url": "https://cutm.ac.in/courses/diploma-in-medical-radiation-technology/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Diploma In Medical Laboratory Technology",
+      "url": "https://cutm.ac.in/courses/diploma-in-medical-laboratory-technology/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Diploma In Community Health Practice",
+      "url": "https://cutm.ac.in/courses/diploma-in-community-health-practice/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Diploma In Pharmacy",
+      "url": "https://cutm.ac.in/courses/diploma-in-pharmacy/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Diploma In Nautical Science",
+      "url": "https://cutm.ac.in/courses/diploma-in-nautical-science/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Iti In Automobile",
+      "url": "https://cutm.ac.in/courses/iti-in-automobile/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Diploma In Vocational In Manufacturing",
+      "url": "https://cutm.ac.in/courses/diploma-in-vocational-in-manufacturing/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Diploma In Vocational In Electrical Maintenance",
+      "url": "https://cutm.ac.in/courses/diploma-in-vocational-in-electrical-maintenance/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Diploma In Vocational In Automobile",
+      "url": "https://cutm.ac.in/courses/diploma-in-vocational-in-automobile/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Diploma In Mining Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-mining-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Diploma In Mechanical Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-mechanical-Engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Diploma In Electronics And Communication Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-electronics-and-communication-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 12,
+    "raw_data": {
+      "course": "Diploma In Electrical Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-electrical-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 13,
+    "raw_data": {
+      "course": "Diploma In Computer Science Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-computer-science-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 14,
+    "raw_data": {
+      "course": "Diploma In Civil Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-civil-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 15,
+    "raw_data": {
+      "course": "Diploma In Automobile Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-automobile-engineering/",
+      "about": "",
+      "fees": "₹65,000/year — current vocational fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 16,
+    "raw_data": {
+      "course": "Anm Auxiliary Nursing Midwifery",
+      "url": "https://cutm.ac.in/courses/anm-auxiliary-nursing-midwifery/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 17,
+    "raw_data": {
+      "course": "Gnm General Nursing In Midwifery",
+      "url": "https://cutm.ac.in/courses/gnm-general-nursing-in-midwifery/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 18,
+    "raw_data": {
+      "course": "Diploma In Forensic Accounting And Fraud Investigation",
+      "url": "https://cutm.ac.in/courses/diploma-in-forensic-accounting-and-fraud-investigation/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Diploma.csv",
+    "row_index": 19,
+    "raw_data": {
+      "course": "Diploma In Forensic Dna Analysis",
+      "url": "https://cutm.ac.in/courses/diploma-in-forensic-dna-analysis/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Fisheries.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Bachelor Of Fisheries Science",
+      "url": "https://cutm.ac.in/courses/bachelor-of-fisheries-science",
+      "about": "",
+      "fees": "₹1,25,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Fisheries",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Fisheries.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Master Of Fisheries Science",
+      "url": "https://cutm.ac.in/courses/master-of-fisheries-science/",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Fisheries",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_Fisheries.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Master Of Fisheries Science",
+      "url": "https://cutm.ac.in/courses/master-of-fisheries-science",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Fisheries",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_MTech.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Master Of Technology In Structural Engineering",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-structural-engineering",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_MTech.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Master Of Technology In Transportation Engineering",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-transportation-engineering",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_MTech.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Master Of Technology In Power System And Control Engineering",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-power-system-and-control-engineering",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_MTech.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Master Of Technology In Data Science",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-data-science/",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_MTech.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Master Of Technology In Design And Manufacturing",
+      "url": "https://cutm.ac.in/courses/master-of-technology-in-design-and-manufacturing/",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹85,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "BTech_MTech",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Master Of Science In Zoology",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-zoology/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar; ₹90,000/year — Balangir; International $2,500/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Master Of Science In Plant Genomics",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-plant-genomics/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Master Of Science In Nutraceuticals",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-nutraceuticals/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Master Of Science In New Materials",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-new-materials/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Master Of Science In Geoinformatic",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-geoinformatic/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Master Of Science In Botany",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-botany/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Master Of Science In Applied Physics",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-applied-physics/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar; ₹90,000/year — Bolangir; International $2,500/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Master Of Science In Applied Mathematics",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-applied-mathematics/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar; International $2,500/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Master Of Science In Applied Chemistry",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-applied-chemistry/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar; ₹90,000/year — Balangir; International $2,500/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Master Of Computer Applications",
+      "url": "https://cutm.ac.in/courses/master-of-computer-applications/",
+      "about": "",
+      "fees": "₹95,000/year — Bhubaneswar; ₹5,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Master Of Business Administration With Specialisation In Finance Hr Marketing Da",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration-with-specialisation-in-finance-hr-marketing-da",
+      "about": "",
+      "fees": "₹2,40,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Master Of Business Administration In Pharmaceutical Management",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration-in-pharmaceutical-management",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 12,
+    "raw_data": {
+      "course": "Master Of Business Administration Healthcare Management",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration-healthcare-management",
+      "about": "",
+      "fees": "₹1,20,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 13,
+    "raw_data": {
+      "course": "Master In Business Administration In Agribusiness Management",
+      "url": "https://cutm.ac.in/courses/master-in-business-administration-in-agribusiness-management",
+      "about": "",
+      "fees": "₹7,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 14,
+    "raw_data": {
+      "course": "Master Of Science In Optometry",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-optometry/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 15,
+    "raw_data": {
+      "course": "Master Of Science In Medical Laboratory Technolog",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-medical-laboratory-technolog/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 16,
+    "raw_data": {
+      "course": "Master Of Science In Applied And Clinical Microbiology",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-applied-and-clinical-microbiology/",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 17,
+    "raw_data": {
+      "course": "Master Of Public Health",
+      "url": "https://cutm.ac.in/courses/master-of-public-health/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 18,
+    "raw_data": {
+      "course": "Master Of Pharmacy In Pharmaceutics",
+      "url": "https://cutm.ac.in/courses/master-of-pharmacy-in-pharmaceutics/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 19,
+    "raw_data": {
+      "course": "Master Of Pharmacy In Pharmaceutical Analysis",
+      "url": "https://cutm.ac.in/courses/master-of-pharmacy-in-pharmaceutical-analysis/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 20,
+    "raw_data": {
+      "course": "Master Of Pharmacy In Industrial Pharmacy",
+      "url": "https://cutm.ac.in/courses/master-of-pharmacy-in-industrial-pharmacy/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 21,
+    "raw_data": {
+      "course": "M Pharm In Pharmaceutical Chemistry",
+      "url": "https://cutm.ac.in/courses/m-pharm-in-pharmaceutical-chemistry/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 22,
+    "raw_data": {
+      "course": "M Pharm In Pharmacology",
+      "url": "https://cutm.ac.in/courses/m-pharm-in-pharmacology/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 23,
+    "raw_data": {
+      "course": "M Pharm In Regulatory Affairs",
+      "url": "https://cutm.ac.in/courses/m-pharm-in-regulatory-affairs/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 24,
+    "raw_data": {
+      "course": "Master Of Media And Communication",
+      "url": "https://cutm.ac.in/courses/master-of-media-and-communication",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 25,
+    "raw_data": {
+      "course": "Ll M In Maritime Law",
+      "url": "https://cutm.ac.in/courses/ll-m-in-maritime-law",
+      "about": "",
+      "fees": "₹1,75,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 26,
+    "raw_data": {
+      "course": "Ll M In Commercial Law",
+      "url": "https://cutm.ac.in/courses/ll-m-in-commercial-law",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 27,
+    "raw_data": {
+      "course": "Master Of Science In Forensic Science",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-forensic-science",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 28,
+    "raw_data": {
+      "course": "Master Of Business Administration With Specialisation In Development Management Rural Urban Development Management",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration-with-specialisation-in-development-management-rural-urban-development-management",
+      "about": "",
+      "fees": "₹2,40,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 29,
+    "raw_data": {
+      "course": "Master Of Science In Biotechnology",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-biotechnology",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 30,
+    "raw_data": {
+      "course": "Master Of Business Administration",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration",
+      "about": "",
+      "fees": "₹2,40,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 31,
+    "raw_data": {
+      "course": "Llm In Human Rights Law",
+      "url": "https://cutm.ac.in/courses/llm-in-human-rights-law/",
+      "about": "",
+      "fees": "₹1,75,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PG.csv",
+    "row_index": 32,
+    "raw_data": {
+      "course": "Master Of Science In Cyber Security Digital Forensics",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-cyber-security-digital-forensics/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Ph D In Zoology",
+      "url": "https://cutm.ac.in/courses/ph-d-in-zoology/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Ph D In Botnay",
+      "url": "https://cutm.ac.in/courses/ph-d-in-botnay/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Ph D In Mathematics",
+      "url": "https://cutm.ac.in/courses/ph-d-in-mathematics/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Ph D In Chemistry",
+      "url": "https://cutm.ac.in/courses/ph-d-in-chemistry/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Ph D In Pharmacy",
+      "url": "https://cutm.ac.in/courses/ph-d-in-pharmacy/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Ph D In Medical Laboratory Technology",
+      "url": "https://cutm.ac.in/courses/ph-d-in-medical-laboratory-technology/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Ph D In Applied And Clinical Microbiology",
+      "url": "https://cutm.ac.in/courses/ph-d-in-applied-and-clinical-microbiology/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Ph D In Biotechnology",
+      "url": "https://cutm.ac.in/courses/ph-d-in-biotechnology/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Ph D In Environmental Science",
+      "url": "https://cutm.ac.in/courses/ph-d-in-environmental-science/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Ph D In Law",
+      "url": "https://cutm.ac.in/courses/ph-d-in-law/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Ph D In Forensic Science",
+      "url": "https://cutm.ac.in/courses/ph-d-in-forensic-science/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_PhD.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Ph D In Physics",
+      "url": "https://cutm.ac.in/courses/ph-d-in-physics/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Bachelor Of Science In Zoology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-zoology",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Bachelor Of Science In Mathematics",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-mathematics",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹60,000/year — Rayagada; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Bachelor Of Science In Health And Wellness",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-health-and-wellness",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Bachelor Of Science In Cosmetology And Wellness",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-cosmetology-and-wellness",
+      "about": "",
+      "fees": "₹90,000/year — Balangir",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Bachelor Of Science In Chemistry",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-chemistry",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹60,000/year — Rayagada; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Bachelor Of Science In Botany",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-botany",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹60,000/year — Rayagada; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Bachelor Of Dairy Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-dairy-technology",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Bba Retail Management",
+      "url": "https://cutm.ac.in/courses/bba-retail-management",
+      "about": "",
+      "fees": "₹60,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Bachelor Of Management Studies Airlines And Airport Management",
+      "url": "https://cutm.ac.in/courses/bachelor-of-management-studies-airlines-and-airport-management",
+      "about": "",
+      "fees": "₹1,20,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Bachelor Of Commerce",
+      "url": "https://cutm.ac.in/courses/bachelor-of-commerce",
+      "about": "",
+      "fees": "₹75,000/year — Bhubaneswar; International $2,400/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Bachelor Of Business Administration Healthcare Management",
+      "url": "https://cutm.ac.in/courses/bachelor-of-business-administration-healthcare-management",
+      "about": "",
+      "fees": "₹75,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Bachelor Of Phytopharmaceuticals",
+      "url": "https://cutm.ac.in/courses/bachelor-of-phytopharmaceuticals",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 12,
+    "raw_data": {
+      "course": "Bachelor Of Computer Application",
+      "url": "https://cutm.ac.in/courses/bachelor-of-computer-application",
+      "about": "",
+      "fees": "₹85,000/year — Bhubaneswar; ₹70,000/year — Paralakhemundi; ₹50,000/year — Balangir",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 13,
+    "raw_data": {
+      "course": "Bachelor Of Science In Optometry",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-optometry",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 14,
+    "raw_data": {
+      "course": "Bachelor Of Science In Operation Theatre Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-operation-theatre-technology",
+      "about": "",
+      "fees": "₹95,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 15,
+    "raw_data": {
+      "course": "Bachelor Of Science In Medical Radiation Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-medical-radiation-technology",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $1,500/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 16,
+    "raw_data": {
+      "course": "Bachelor Of Science In Medical Laboratory Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-medical-laboratory-technology",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 17,
+    "raw_data": {
+      "course": "Bachelor Of Science In Emergency Medicine Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-emergency-medicine-technology",
+      "about": "",
+      "fees": "₹95,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 18,
+    "raw_data": {
+      "course": "B Sc Nursing",
+      "url": "https://cutm.ac.in/courses/b-sc-nursing/",
+      "about": "",
+      "fees": "₹1,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 19,
+    "raw_data": {
+      "course": "Bachelor Of Science In Clinical Microbiology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-clinical-microbiology",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 20,
+    "raw_data": {
+      "course": "Bachelor Of Science In Anesthesia Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-anesthesia-technology",
+      "about": "",
+      "fees": "₹95,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 21,
+    "raw_data": {
+      "course": "Bachelor Of Science Animation And Multimedia",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-animation-and-multimedia",
+      "about": "",
+      "fees": "₹55,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 22,
+    "raw_data": {
+      "course": "Bachelor Of Media And Communication",
+      "url": "https://cutm.ac.in/courses/bachelor-of-media-and-communication",
+      "about": "",
+      "fees": "$800/year — International",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 23,
+    "raw_data": {
+      "course": "Bachelor Of Science Animation And Multimedia",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-animation-and-multimedia/",
+      "about": "",
+      "fees": "₹55,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 24,
+    "raw_data": {
+      "course": "Bachelor Of Science In Forensic Science",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-forensic-science",
+      "about": "",
+      "fees": "₹1,10,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 25,
+    "raw_data": {
+      "course": "Bachelor Of Physiotherapy",
+      "url": "https://cutm.ac.in/courses/bachelor-of-physiotherapy",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 26,
+    "raw_data": {
+      "course": "Bachelor Of Business Administration",
+      "url": "https://cutm.ac.in/courses/bachelor-of-business-administration",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹65,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 27,
+    "raw_data": {
+      "course": "Bachelor Of Pharmacy",
+      "url": "https://cutm.ac.in/courses/bachelor-of-pharmacy",
+      "about": "",
+      "fees": "₹1,50,000/year — Bhubaneswar; ₹80,000/year — Rayagada; ₹90,000/year — Balasore; ₹1,20,000/year — Balangir; International $4,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 28,
+    "raw_data": {
+      "course": "Bsc In Cruise Line Hospitality Management Program",
+      "url": "https://cutm.ac.in/courses/bsc-in-cruise-line-hospitality-management-program",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 29,
+    "raw_data": {
+      "course": "B Sc Nautical Science",
+      "url": "https://cutm.ac.in/courses/b-sc-nautical-science",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 30,
+    "raw_data": {
+      "course": "Bachelor Of Veterinary Science And Animal Husbandryb V Sc A H",
+      "url": "https://cutm.ac.in/courses/bachelor-of-veterinary-science-and-animal-husbandryb-v-sc-a-h",
+      "about": "",
+      "fees": "₹7,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 31,
+    "raw_data": {
+      "course": "Bachelor Of Science In Physics",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-physics",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹60,000/year — Rayagada; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 32,
+    "raw_data": {
+      "course": "Bba Hons Ll B Bachelor Of Business Administration And Bachelor Of Law",
+      "url": "https://cutm.ac.in/courses/bba-hons-ll-b-bachelor-of-business-administration-and-bachelor-of-law",
+      "about": "",
+      "fees": "₹1,15,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 33,
+    "raw_data": {
+      "course": "B A Hons Ll B Bachelor Of Arts And Bachelor Of Law",
+      "url": "https://cutm.ac.in/courses/b-a-hons-ll-b-bachelor-of-arts-and-bachelor-of-law",
+      "about": "",
+      "fees": "₹1,15,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 34,
+    "raw_data": {
+      "course": "Bachelor Of Design B Des With Automobile Transportation Design",
+      "url": "https://cutm.ac.in/courses/bachelor-of-design-b-des-with-automobile-transportation-design/",
+      "about": "",
+      "fees": "₹2,50,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 35,
+    "raw_data": {
+      "course": "Bachelor Of Design B Des With Product Design",
+      "url": "https://cutm.ac.in/courses/bachelor-of-design-b-des-with-product-design/",
+      "about": "",
+      "fees": "₹2,50,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 36,
+    "raw_data": {
+      "course": "Bachelor Of Design B Des With Graphic Visual Communication Design",
+      "url": "https://cutm.ac.in/courses/bachelor-of-design-b-des-with-graphic-visual-communication-design/",
+      "about": "",
+      "fees": "₹2,50,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 37,
+    "raw_data": {
+      "course": "Bachelor Of Design B Des With Ui Ux Design",
+      "url": "https://cutm.ac.in/courses/bachelor-of-design-b-des-with-ui-ux-design/",
+      "about": "",
+      "fees": "₹2,50,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 38,
+    "raw_data": {
+      "course": "Bachelor In Fashion Science And Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-in-fashion-science-and-technology/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 39,
+    "raw_data": {
+      "course": "Bachelors In Fashion Management Bfm",
+      "url": "https://cutm.ac.in/courses/bachelors-in-fashion-management-bfm/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 40,
+    "raw_data": {
+      "course": "Mba In Maritime Operations",
+      "url": "https://cutm.ac.in/courses/mba-in-maritime-operations",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 41,
+    "raw_data": {
+      "course": "Mba In Hospitality Operations",
+      "url": "https://cutm.ac.in/courses/mba-in-hospitality-operations/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 42,
+    "raw_data": {
+      "course": "Llb",
+      "url": "https://cutm.ac.in/courses/llb/",
+      "about": "",
+      "fees": "₹80,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 43,
+    "raw_data": {
+      "course": "Bachelor Of Science In Biotechnology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-biotechnology/",
+      "about": "",
+      "fees": "₹85,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 44,
+    "raw_data": {
+      "course": "Bachelor Of Science In Information Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-information-technology/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 45,
+    "raw_data": {
+      "course": "Bachelor Of Vocational Manufacturing",
+      "url": "https://cutm.ac.in/courses/bachelor-of-vocational-manufacturing/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "CUTM_UG_Other.csv",
+    "row_index": 46,
+    "raw_data": {
+      "course": "Bachelor Of Vocational Electrical Maintenance",
+      "url": "https://cutm.ac.in/courses/bachelor-of-vocational-electrical-maintenance/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Certificate In Introduction To Composite Fabrication",
+      "url": "https://cutm.ac.in/courses/certificate-in-introduction-to-composite-fabrication/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Certificate In Vermicomposting Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-vermicomposting-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Certificate In Poultry Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-poultry-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Certificate In Organic Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-organic-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Certificate In Mushroom Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-mushroom-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Certificate In Dairy Farming",
+      "url": "https://cutm.ac.in/courses/certificate-in-dairy-farming/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Certificate In Bio Fertilisers Preparation",
+      "url": "https://cutm.ac.in/courses/certificate-in-bio-fertilisers-preparation/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Certificate In Digital Painting",
+      "url": "https://cutm.ac.in/courses/certificate-in-digital-painting/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Certificate In Adobe Tools And Illustrations",
+      "url": "https://cutm.ac.in/courses/certificate-in-adobe-tools-and-illustrations/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Certificate In Ward Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-ward-technician/",
+      "about": "",
+      "fees": "₹30,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Certificate In Ot Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-ot-technician/",
+      "about": "",
+      "fees": "₹45,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Certificate In Ophthalmic Surgical Assistant",
+      "url": "https://cutm.ac.in/courses/certificate-in-ophthalmic-surgical-assistant/",
+      "about": "",
+      "fees": "₹63,000 first year; ₹60,000 second year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 12,
+    "raw_data": {
+      "course": "Certificate In Ophthalmic Assistant",
+      "url": "https://cutm.ac.in/courses/certificate-in-ophthalmic-assistant/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 13,
+    "raw_data": {
+      "course": "Certificate In Ecg Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-ecg-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 14,
+    "raw_data": {
+      "course": "Certificate In Blood Collection Assistant",
+      "url": "https://cutm.ac.in/courses/certificate-in-blood-collection-assistant/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 15,
+    "raw_data": {
+      "course": "Certificate In Radiology Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-radiology-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 16,
+    "raw_data": {
+      "course": "Certificate In Operating Theatre Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-operating-theatre-technician/",
+      "about": "",
+      "fees": "₹45,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 17,
+    "raw_data": {
+      "course": "Certificate In Medical Lab Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-medical-lab-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 18,
+    "raw_data": {
+      "course": "Certificate In General Duty Assistance Service",
+      "url": "https://cutm.ac.in/courses/certificate-in-general-duty-assistance-service/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 19,
+    "raw_data": {
+      "course": "Certificate In First Aid",
+      "url": "https://cutm.ac.in/courses/certificate-in-first-aid/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 20,
+    "raw_data": {
+      "course": "Certified Cath Lab Technician",
+      "url": "https://cutm.ac.in/courses/certified-cath-lab-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 21,
+    "raw_data": {
+      "course": "Certificate In Emg Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-emg-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 22,
+    "raw_data": {
+      "course": "Certificate In Eeg Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-eeg-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 23,
+    "raw_data": {
+      "course": "Certificate In Dialysis Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-dialysis-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 24,
+    "raw_data": {
+      "course": "Certificate In X Ray Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-x-ray-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 25,
+    "raw_data": {
+      "course": "Certificate In Phlebotomy Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-phlebotomy-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Certificate.csv",
+    "row_index": 26,
+    "raw_data": {
+      "course": "Certificate In Emergency Medical Technician",
+      "url": "https://cutm.ac.in/courses/certificate-in-emergency-medical-technician/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Certificate",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Diploma In Medical Radiation Technology",
+      "url": "https://cutm.ac.in/courses/diploma-in-medical-radiation-technology/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Diploma In Medical Laboratory Technology",
+      "url": "https://cutm.ac.in/courses/diploma-in-medical-laboratory-technology/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Diploma In Community Health Practice",
+      "url": "https://cutm.ac.in/courses/diploma-in-community-health-practice/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Diploma In Pharmacy",
+      "url": "https://cutm.ac.in/courses/diploma-in-pharmacy/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Diploma In Nautical Science",
+      "url": "https://cutm.ac.in/courses/diploma-in-nautical-science/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Iti In Automobile",
+      "url": "https://cutm.ac.in/courses/iti-in-automobile/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Diploma In Vocational In Manufacturing",
+      "url": "https://cutm.ac.in/courses/diploma-in-vocational-in-manufacturing/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Diploma In Vocational In Electrical Maintenance",
+      "url": "https://cutm.ac.in/courses/diploma-in-vocational-in-electrical-maintenance/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Diploma In Vocational In Automobile",
+      "url": "https://cutm.ac.in/courses/diploma-in-vocational-in-automobile/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Diploma In Mining Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-mining-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Diploma In Mechanical Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-mechanical-Engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Diploma In Electronics And Communication Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-electronics-and-communication-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 12,
+    "raw_data": {
+      "course": "Diploma In Electrical Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-electrical-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 13,
+    "raw_data": {
+      "course": "Diploma In Computer Science Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-computer-science-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 14,
+    "raw_data": {
+      "course": "Diploma In Civil Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-civil-engineering/",
+      "about": "",
+      "fees": "₹65,000/year",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 15,
+    "raw_data": {
+      "course": "Diploma In Automobile Engineering",
+      "url": "https://cutm.ac.in/courses/diploma-in-automobile-engineering/",
+      "about": "",
+      "fees": "₹65,000/year — current vocational fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 16,
+    "raw_data": {
+      "course": "Anm Auxiliary Nursing Midwifery",
+      "url": "https://cutm.ac.in/courses/anm-auxiliary-nursing-midwifery/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 17,
+    "raw_data": {
+      "course": "Gnm General Nursing In Midwifery",
+      "url": "https://cutm.ac.in/courses/gnm-general-nursing-in-midwifery/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 18,
+    "raw_data": {
+      "course": "Diploma In Forensic Accounting And Fraud Investigation",
+      "url": "https://cutm.ac.in/courses/diploma-in-forensic-accounting-and-fraud-investigation/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Diploma.csv",
+    "row_index": 19,
+    "raw_data": {
+      "course": "Diploma In Forensic Dna Analysis",
+      "url": "https://cutm.ac.in/courses/diploma-in-forensic-dna-analysis/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "Diploma",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Fisheries.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Bachelor Of Fisheries Science",
+      "url": "https://cutm.ac.in/courses/bachelor-of-fisheries-science",
+      "about": "",
+      "fees": "₹1,25,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Fisheries",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Fisheries.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Master Of Fisheries Science",
+      "url": "https://cutm.ac.in/courses/master-of-fisheries-science/",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Fisheries",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "Fisheries.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Master Of Fisheries Science",
+      "url": "https://cutm.ac.in/courses/master-of-fisheries-science",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "Fisheries",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Master Of Science In Zoology",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-zoology/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar; ₹90,000/year — Balangir; International $2,500/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Master Of Science In Plant Genomics",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-plant-genomics/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Master Of Science In Nutraceuticals",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-nutraceuticals/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Master Of Science In New Materials",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-new-materials/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Master Of Science In Geoinformatic",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-geoinformatic/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Master Of Science In Botany",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-botany/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Master Of Science In Applied Physics",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-applied-physics/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar; ₹90,000/year — Bolangir; International $2,500/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Master Of Science In Applied Mathematics",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-applied-mathematics/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar; International $2,500/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Master Of Science In Applied Chemistry",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-applied-chemistry/",
+      "about": "",
+      "fees": "₹80,000/year — Bhubaneswar; ₹90,000/year — Balangir; International $2,500/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Master Of Computer Applications",
+      "url": "https://cutm.ac.in/courses/master-of-computer-applications/",
+      "about": "",
+      "fees": "₹95,000/year — Bhubaneswar; ₹5,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Master Of Business Administration With Specialisation In Finance Hr Marketing Da",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration-with-specialisation-in-finance-hr-marketing-da",
+      "about": "",
+      "fees": "₹2,40,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Master Of Business Administration In Pharmaceutical Management",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration-in-pharmaceutical-management",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 12,
+    "raw_data": {
+      "course": "Master Of Business Administration Healthcare Management",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration-healthcare-management",
+      "about": "",
+      "fees": "₹1,20,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 13,
+    "raw_data": {
+      "course": "Master In Business Administration In Agribusiness Management",
+      "url": "https://cutm.ac.in/courses/master-in-business-administration-in-agribusiness-management",
+      "about": "",
+      "fees": "₹7,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 14,
+    "raw_data": {
+      "course": "Master Of Science In Optometry",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-optometry/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 15,
+    "raw_data": {
+      "course": "Master Of Science In Medical Laboratory Technolog",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-medical-laboratory-technolog/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 16,
+    "raw_data": {
+      "course": "Master Of Science In Applied And Clinical Microbiology",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-applied-and-clinical-microbiology/",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 17,
+    "raw_data": {
+      "course": "Master Of Public Health",
+      "url": "https://cutm.ac.in/courses/master-of-public-health/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 18,
+    "raw_data": {
+      "course": "Master Of Pharmacy In Pharmaceutics",
+      "url": "https://cutm.ac.in/courses/master-of-pharmacy-in-pharmaceutics/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 19,
+    "raw_data": {
+      "course": "Master Of Pharmacy In Pharmaceutical Analysis",
+      "url": "https://cutm.ac.in/courses/master-of-pharmacy-in-pharmaceutical-analysis/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 20,
+    "raw_data": {
+      "course": "Master Of Pharmacy In Industrial Pharmacy",
+      "url": "https://cutm.ac.in/courses/master-of-pharmacy-in-industrial-pharmacy/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 21,
+    "raw_data": {
+      "course": "M Pharm In Pharmaceutical Chemistry",
+      "url": "https://cutm.ac.in/courses/m-pharm-in-pharmaceutical-chemistry/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 22,
+    "raw_data": {
+      "course": "M Pharm In Pharmacology",
+      "url": "https://cutm.ac.in/courses/m-pharm-in-pharmacology/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 23,
+    "raw_data": {
+      "course": "M Pharm In Regulatory Affairs",
+      "url": "https://cutm.ac.in/courses/m-pharm-in-regulatory-affairs/",
+      "about": "",
+      "fees": "₹1,70,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 24,
+    "raw_data": {
+      "course": "Master Of Media And Communication",
+      "url": "https://cutm.ac.in/courses/master-of-media-and-communication",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 25,
+    "raw_data": {
+      "course": "Ll M In Maritime Law",
+      "url": "https://cutm.ac.in/courses/ll-m-in-maritime-law",
+      "about": "",
+      "fees": "₹1,75,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 26,
+    "raw_data": {
+      "course": "Ll M In Commercial Law",
+      "url": "https://cutm.ac.in/courses/ll-m-in-commercial-law",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 27,
+    "raw_data": {
+      "course": "Master Of Science In Forensic Science",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-forensic-science",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 28,
+    "raw_data": {
+      "course": "Master Of Business Administration With Specialisation In Development Management Rural Urban Development Management",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration-with-specialisation-in-development-management-rural-urban-development-management",
+      "about": "",
+      "fees": "₹2,40,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 29,
+    "raw_data": {
+      "course": "Master Of Science In Biotechnology",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-biotechnology",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 30,
+    "raw_data": {
+      "course": "Master Of Business Administration",
+      "url": "https://cutm.ac.in/courses/master-of-business-administration",
+      "about": "",
+      "fees": "₹2,40,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 31,
+    "raw_data": {
+      "course": "Llm In Human Rights Law",
+      "url": "https://cutm.ac.in/courses/llm-in-human-rights-law/",
+      "about": "",
+      "fees": "₹1,75,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PG.csv",
+    "row_index": 32,
+    "raw_data": {
+      "course": "Master Of Science In Cyber Security Digital Forensics",
+      "url": "https://cutm.ac.in/courses/master-of-science-in-cyber-security-digital-forensics/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PG",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Ph D In Zoology",
+      "url": "https://cutm.ac.in/courses/ph-d-in-zoology/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Ph D In Botnay",
+      "url": "https://cutm.ac.in/courses/ph-d-in-botnay/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Ph D In Mathematics",
+      "url": "https://cutm.ac.in/courses/ph-d-in-mathematics/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Ph D In Chemistry",
+      "url": "https://cutm.ac.in/courses/ph-d-in-chemistry/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Ph D In Pharmacy",
+      "url": "https://cutm.ac.in/courses/ph-d-in-pharmacy/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Ph D In Medical Laboratory Technology",
+      "url": "https://cutm.ac.in/courses/ph-d-in-medical-laboratory-technology/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Ph D In Applied And Clinical Microbiology",
+      "url": "https://cutm.ac.in/courses/ph-d-in-applied-and-clinical-microbiology/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Ph D In Biotechnology",
+      "url": "https://cutm.ac.in/courses/ph-d-in-biotechnology/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Ph D In Environmental Science",
+      "url": "https://cutm.ac.in/courses/ph-d-in-environmental-science/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Ph D In Law",
+      "url": "https://cutm.ac.in/courses/ph-d-in-law/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Ph D In Forensic Science",
+      "url": "https://cutm.ac.in/courses/ph-d-in-forensic-science/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "PhD.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Ph D In Physics",
+      "url": "https://cutm.ac.in/courses/ph-d-in-physics/",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "PhD",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 0,
+    "raw_data": {
+      "course": "Bachelor Of Science In Zoology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-zoology",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 1,
+    "raw_data": {
+      "course": "Bachelor Of Science In Mathematics",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-mathematics",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹60,000/year — Rayagada; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 2,
+    "raw_data": {
+      "course": "Bachelor Of Science In Health And Wellness",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-health-and-wellness",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 3,
+    "raw_data": {
+      "course": "Bachelor Of Science In Cosmetology And Wellness",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-cosmetology-and-wellness",
+      "about": "",
+      "fees": "₹90,000/year — Balangir",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 4,
+    "raw_data": {
+      "course": "Bachelor Of Science In Chemistry",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-chemistry",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹60,000/year — Rayagada; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 5,
+    "raw_data": {
+      "course": "Bachelor Of Science In Botany",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-botany",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹60,000/year — Rayagada; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 6,
+    "raw_data": {
+      "course": "Bachelor Of Dairy Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-dairy-technology",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 7,
+    "raw_data": {
+      "course": "Bba Retail Management",
+      "url": "https://cutm.ac.in/courses/bba-retail-management",
+      "about": "",
+      "fees": "₹60,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 8,
+    "raw_data": {
+      "course": "Bachelor Of Management Studies Airlines And Airport Management",
+      "url": "https://cutm.ac.in/courses/bachelor-of-management-studies-airlines-and-airport-management",
+      "about": "",
+      "fees": "₹1,20,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 9,
+    "raw_data": {
+      "course": "Bachelor Of Commerce",
+      "url": "https://cutm.ac.in/courses/bachelor-of-commerce",
+      "about": "",
+      "fees": "₹75,000/year — Bhubaneswar; International $2,400/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 10,
+    "raw_data": {
+      "course": "Bachelor Of Business Administration Healthcare Management",
+      "url": "https://cutm.ac.in/courses/bachelor-of-business-administration-healthcare-management",
+      "about": "",
+      "fees": "₹75,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 11,
+    "raw_data": {
+      "course": "Bachelor Of Phytopharmaceuticals",
+      "url": "https://cutm.ac.in/courses/bachelor-of-phytopharmaceuticals",
+      "about": "",
+      "fees": "₹1,10,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 12,
+    "raw_data": {
+      "course": "Bachelor Of Computer Application",
+      "url": "https://cutm.ac.in/courses/bachelor-of-computer-application",
+      "about": "",
+      "fees": "₹85,000/year — Bhubaneswar; ₹70,000/year — Paralakhemundi; ₹50,000/year — Balangir",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 13,
+    "raw_data": {
+      "course": "Bachelor Of Science In Optometry",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-optometry",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 14,
+    "raw_data": {
+      "course": "Bachelor Of Science In Operation Theatre Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-operation-theatre-technology",
+      "about": "",
+      "fees": "₹95,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 15,
+    "raw_data": {
+      "course": "Bachelor Of Science In Medical Radiation Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-medical-radiation-technology",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $1,500/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 16,
+    "raw_data": {
+      "course": "Bachelor Of Science In Medical Laboratory Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-medical-laboratory-technology",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 17,
+    "raw_data": {
+      "course": "Bachelor Of Science In Emergency Medicine Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-emergency-medicine-technology",
+      "about": "",
+      "fees": "₹95,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 18,
+    "raw_data": {
+      "course": "B Sc Nursing",
+      "url": "https://cutm.ac.in/courses/b-sc-nursing/",
+      "about": "",
+      "fees": "₹1,00,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 19,
+    "raw_data": {
+      "course": "Bachelor Of Science In Clinical Microbiology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-clinical-microbiology",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 20,
+    "raw_data": {
+      "course": "Bachelor Of Science In Anesthesia Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-anesthesia-technology",
+      "about": "",
+      "fees": "₹95,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 21,
+    "raw_data": {
+      "course": "Bachelor Of Science Animation And Multimedia",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-animation-and-multimedia",
+      "about": "",
+      "fees": "₹55,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 22,
+    "raw_data": {
+      "course": "Bachelor Of Media And Communication",
+      "url": "https://cutm.ac.in/courses/bachelor-of-media-and-communication",
+      "about": "",
+      "fees": "$800/year — International",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 23,
+    "raw_data": {
+      "course": "Bachelor Of Science Animation And Multimedia",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-animation-and-multimedia/",
+      "about": "",
+      "fees": "₹55,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 24,
+    "raw_data": {
+      "course": "Bachelor Of Science In Forensic Science",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-forensic-science",
+      "about": "",
+      "fees": "₹1,10,000/year — Bhubaneswar; International $3,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 25,
+    "raw_data": {
+      "course": "Bachelor Of Physiotherapy",
+      "url": "https://cutm.ac.in/courses/bachelor-of-physiotherapy",
+      "about": "",
+      "fees": "₹1,00,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 26,
+    "raw_data": {
+      "course": "Bachelor Of Business Administration",
+      "url": "https://cutm.ac.in/courses/bachelor-of-business-administration",
+      "about": "",
+      "fees": "₹90,000/year — Bhubaneswar; ₹65,000/year — Paralakhemundi; International $2,400/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 27,
+    "raw_data": {
+      "course": "Bachelor Of Pharmacy",
+      "url": "https://cutm.ac.in/courses/bachelor-of-pharmacy",
+      "about": "",
+      "fees": "₹1,50,000/year — Bhubaneswar; ₹80,000/year — Rayagada; ₹90,000/year — Balasore; ₹1,20,000/year — Balangir; International $4,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 28,
+    "raw_data": {
+      "course": "Bsc In Cruise Line Hospitality Management Program",
+      "url": "https://cutm.ac.in/courses/bsc-in-cruise-line-hospitality-management-program",
+      "about": "",
+      "fees": "Not Available in current official fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 29,
+    "raw_data": {
+      "course": "B Sc Nautical Science",
+      "url": "https://cutm.ac.in/courses/b-sc-nautical-science",
+      "about": "",
+      "fees": "₹1,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 30,
+    "raw_data": {
+      "course": "Bachelor Of Veterinary Science And Animal Husbandryb V Sc A H",
+      "url": "https://cutm.ac.in/courses/bachelor-of-veterinary-science-and-animal-husbandryb-v-sc-a-h",
+      "about": "",
+      "fees": "₹7,50,000/year — Paralakhemundi",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 31,
+    "raw_data": {
+      "course": "Bachelor Of Science In Physics",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-physics",
+      "about": "",
+      "fees": "₹50,000/year — Bhubaneswar; ₹60,000/year — Rayagada; ₹90,000/year — Balangir; International $2,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 32,
+    "raw_data": {
+      "course": "Bba Hons Ll B Bachelor Of Business Administration And Bachelor Of Law",
+      "url": "https://cutm.ac.in/courses/bba-hons-ll-b-bachelor-of-business-administration-and-bachelor-of-law",
+      "about": "",
+      "fees": "₹1,15,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 33,
+    "raw_data": {
+      "course": "B A Hons Ll B Bachelor Of Arts And Bachelor Of Law",
+      "url": "https://cutm.ac.in/courses/b-a-hons-ll-b-bachelor-of-arts-and-bachelor-of-law",
+      "about": "",
+      "fees": "₹1,15,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 34,
+    "raw_data": {
+      "course": "Bachelor Of Design B Des With Automobile Transportation Design",
+      "url": "https://cutm.ac.in/courses/bachelor-of-design-b-des-with-automobile-transportation-design/",
+      "about": "",
+      "fees": "₹2,50,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 35,
+    "raw_data": {
+      "course": "Bachelor Of Design B Des With Product Design",
+      "url": "https://cutm.ac.in/courses/bachelor-of-design-b-des-with-product-design/",
+      "about": "",
+      "fees": "₹2,50,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 36,
+    "raw_data": {
+      "course": "Bachelor Of Design B Des With Graphic Visual Communication Design",
+      "url": "https://cutm.ac.in/courses/bachelor-of-design-b-des-with-graphic-visual-communication-design/",
+      "about": "",
+      "fees": "₹2,50,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 37,
+    "raw_data": {
+      "course": "Bachelor Of Design B Des With Ui Ux Design",
+      "url": "https://cutm.ac.in/courses/bachelor-of-design-b-des-with-ui-ux-design/",
+      "about": "",
+      "fees": "₹2,50,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 38,
+    "raw_data": {
+      "course": "Bachelor In Fashion Science And Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-in-fashion-science-and-technology/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 39,
+    "raw_data": {
+      "course": "Bachelors In Fashion Management Bfm",
+      "url": "https://cutm.ac.in/courses/bachelors-in-fashion-management-bfm/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 40,
+    "raw_data": {
+      "course": "Mba In Maritime Operations",
+      "url": "https://cutm.ac.in/courses/mba-in-maritime-operations",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 41,
+    "raw_data": {
+      "course": "Mba In Hospitality Operations",
+      "url": "https://cutm.ac.in/courses/mba-in-hospitality-operations/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 42,
+    "raw_data": {
+      "course": "Llb",
+      "url": "https://cutm.ac.in/courses/llb/",
+      "about": "",
+      "fees": "₹80,000/year",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 43,
+    "raw_data": {
+      "course": "Bachelor Of Science In Biotechnology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-biotechnology/",
+      "about": "",
+      "fees": "₹85,000/year — Bhubaneswar",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 44,
+    "raw_data": {
+      "course": "Bachelor Of Science In Information Technology",
+      "url": "https://cutm.ac.in/courses/bachelor-of-science-in-information-technology/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 45,
+    "raw_data": {
+      "course": "Bachelor Of Vocational Manufacturing",
+      "url": "https://cutm.ac.in/courses/bachelor-of-vocational-manufacturing/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  },
+  {
+    "source_file": "UG_Other.csv",
+    "row_index": 46,
+    "raw_data": {
+      "course": "Bachelor Of Vocational Electrical Maintenance",
+      "url": "https://cutm.ac.in/courses/bachelor-of-vocational-electrical-maintenance/",
+      "about": "",
+      "fees": "Not listed on current fee table",
+      "faculty_names": "",
+      "category": "UG_Other",
+      "fee_source": "Official CUTM fee structure / course page; checked 2026"
+    }
+  }
+]

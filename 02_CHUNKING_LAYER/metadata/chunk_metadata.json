@@ -1,0 +1,29 @@
+{
+  "total_chunks": 330,
+  "total_source_documents": 165,
+  "categories_covered": [
+    "Agriculture",
+    "BTech_MTech",
+    "Certificate",
+    "Diploma",
+    "Fisheries",
+    "PG",
+    "PhD",
+    "UG_Other"
+  ],
+  "section_types": [
+    "course_information",
+    "fees"
+  ],
+  "source_files": [
+    "CUTM_Agriculture.csv",
+    "CUTM_BTech.csv",
+    "CUTM_Certificate.csv",
+    "CUTM_Diploma.csv",
+    "CUTM_Fisheries.csv",
+    "CUTM_MTech.csv",
+    "CUTM_PG.csv",
+    "CUTM_PhD.csv",
+    "CUTM_UG_Other.csv"
+  ]
+}

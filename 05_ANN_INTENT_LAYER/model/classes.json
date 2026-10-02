@@ -1,0 +1,12 @@
+{
+  "input_dim": 1831,
+  "output_dim": 6,
+  "classes": [
+    "fees",
+    "course_information",
+    "faculty",
+    "hostel",
+    "eligibility",
+    "admission"
+  ]
+}

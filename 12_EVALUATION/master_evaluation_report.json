@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-10-01T01:09:19.301417",
+  "project": "CUTM Multilingual Admissions & Student Query Helpdesk",
+  "institutional_source": "CUTM_Category_CSVs/*.csv",
+  "evaluation_summary": {
+    "ann_intent": {
+      "subset_accuracy": 0.9959,
+      "precision_micro": 0.9966,
+      "precision_macro": 0.9978,
+      "recall_micro": 0.9991,
+      "recall_macro": 0.9989,
+      "f1_micro": 0.9979,
+      "f1_macro": 0.9983,
+      "target_intents": [
+        "fees",
+        "course_information",
+        "faculty",
+        "hostel",
+        "eligibility",
+        "admission"
+      ]
+    },
+    "rag_retrieval": {
+      "recall_at_1": 0.4286,
+      "recall_at_3": 0.4286,
+      "recall_at_5": 0.4286,
+      "mrr": 0.4286,
+      "retrieval_precision": 0.4286,
+      "eval_sample_count": 7
+    },
+    "answer_generation": {
+      "total_queries_tested": 3,
+      "answer_correctness_accuracy": 1.0,
+      "groundedness_rate": 0.6667
+    },
+    "escalation": {
+      "total_queries_tested": 3,
+      "escalation_appropriateness_accuracy": 1.0
+    }
+  }
+}

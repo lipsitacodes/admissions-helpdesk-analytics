@@ -1,9 +1,18 @@
-﻿.venv/
+.venv/
 .env
 __pycache__/
+*.py[cod]
+*$py.class
 *.pyc
+.pytest_cache/
+*.log
+*.tmp
+*.swp
+*.bak
 .ipynb_checkpoints/
+.vscode/
 data/helpdesk_interactions.db
+backend/data/helpdesk_interactions.db
 
 # Node / Vite
 node_modules/

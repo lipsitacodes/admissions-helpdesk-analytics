@@ -1,0 +1,26 @@
+{
+  "classes": [
+    "heading",
+    "table",
+    "paragraph",
+    "other"
+  ],
+  "input_shape": [
+    1,
+    224,
+    224
+  ],
+  "weights_file": "cnn_document_layout_weights.pt",
+  "status": {
+    "status": "awaiting_valid_source_page_scans",
+    "allowed_source": "CUTM_Category_CSVs",
+    "note": "CSV files do not contain page-image scans. Preserving integrity without synthetic fact fabrication.",
+    "target_classes": [
+      "heading",
+      "table",
+      "paragraph",
+      "other"
+    ],
+    "input_shape": "(1, 224, 224)"
+  }
+}

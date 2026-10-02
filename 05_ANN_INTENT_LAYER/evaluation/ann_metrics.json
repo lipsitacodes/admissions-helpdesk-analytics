@@ -1,0 +1,17 @@
+{
+  "subset_accuracy": 0.9959,
+  "precision_micro": 0.9966,
+  "precision_macro": 0.9978,
+  "recall_micro": 0.9991,
+  "recall_macro": 0.9989,
+  "f1_micro": 0.9979,
+  "f1_macro": 0.9983,
+  "target_intents": [
+    "fees",
+    "course_information",
+    "faculty",
+    "hostel",
+    "eligibility",
+    "admission"
+  ]
+}
