@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 from pymongo.database import Database
 
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(PROJECT_ROOT / ".env")
 
 MONGODB_URI = os.getenv("MONGODB_URI", "").strip()
