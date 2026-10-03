@@ -65,7 +65,7 @@ export function App() {
 
   // Candidate Name state
   const [candidateName, setCandidateName] = useState(() => {
-    return localStorage.getItem("campus_ai_candidate_name") || "Jason";
+    return localStorage.getItem("campus_ai_candidate_name") || "Student";
   });
 
   // Auth Modal State
@@ -218,6 +218,8 @@ export function App() {
           body: JSON.stringify({
             query: queryText,
             target_language: targetLanguage,
+            session_id: currentChatId,
+            candidate_name: candidateName,
           }),
         });
 

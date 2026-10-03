@@ -29,7 +29,7 @@ for path in (BACKEND_DIR, REPO_ROOT):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from backend.database import get_database
+from backend.database import get_database, check_connection
 from backend.logger import log_interaction
 
 # Lazy-loaded Official Institutional Layer Modules
@@ -102,10 +102,13 @@ def _format_public_chunks(chunks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 def run_query_pipeline(
     query: str,
     session_id: Optional[str] = None,
+    candidate_name: Optional[str] = None,
     target_language: Optional[str] = None,
 ) -> Dict[str, Any]:
     if not query or not query.strip():
         raise ValueError("Query must not be empty.")
+
+    pipeline_start_time = time.time()
 
     # 1. Multilingual Language Normalization & IndicXlit Transliteration (03_LANGUAGE_LAYER)
     multilingual_mod, orch_mod, ans_mod, esc_mod = _get_modules()
@@ -159,6 +162,10 @@ def run_query_pipeline(
             if "ungrounded_answer" not in escalation_reasons:
                 escalation_reasons.append("ungrounded_answer")
 
+    final_answer = ans_result.get("answer") or get_unavailable_message(target_lang)
+    elapsed_sec = round(time.time() - pipeline_start_time, 2)
+    accuracy_pct = round(confidence * 100.0, 1)
+
     response = {
         "query": query,
         "cleaned_query": clean_query,
@@ -167,19 +174,31 @@ def run_query_pipeline(
         "detected_language": lang_info.get("language", "English"),
         "predicted_intent": predicted_intent,
         "classifier_confidence": round(confidence, 4),
+        "accuracy_percentage": accuracy_pct,
+        "response_time_sec": elapsed_sec,
         "source_document": source_doc,
         "retrieved_chunks": retrieved_chunks,
         "retrieval_similarity": retrieval_sim,
-        "answer": ans_result.get("answer") or get_unavailable_message(target_lang),
+        "answer": final_answer,
         "grounded": bool(ans_result.get("is_grounded", True)),
         "escalated": escalate,
         "escalation_reasons": escalation_reasons,
     }
 
-    # Log interaction for audit trail
+    # Log interaction for audit trail & conversation history in MongoDB
     try:
         log_interaction(
             query=query,
+            session_id=session_id,
+            candidate_name=candidate_name,
+            answer=final_answer,
+            accuracy_percentage=accuracy_pct,
+            response_time_sec=elapsed_sec,
+            grounded=bool(ans_result.get("is_grounded", True)),
+            ticket=esc_result.get("ticket"),
+            cleaned_query=clean_query,
+            target_language=target_lang,
+            detected_language=lang_info.get("language", "English"),
             predicted_intent=predicted_intent,
             classifier_confidence=confidence,
             source_document=source_doc,
@@ -188,7 +207,7 @@ def run_query_pipeline(
             escalation_reason=",".join(escalation_reasons) if escalation_reasons else None,
         )
     except Exception:
-        response["escalation_reasons"].append("logging_failure")
+        pass
 
     return response
 
@@ -206,7 +225,71 @@ def create_app() -> Flask:
 
     @app.get("/health")
     def health():
-        return jsonify({"status": "ok"})
+        is_db = check_connection()
+        return jsonify({
+            "status": "ok",
+            "database": "connected" if is_db else "disconnected",
+        })
+
+    @app.get("/conversations")
+    def list_conversations():
+        try:
+            db = get_database()
+            records = (
+                db["helpdesk_conversations"]
+                .find(
+                    {},
+                    {
+                        "_id": 0,
+                        "conversation_id": 1,
+                        "title": 1,
+                        "created_at": 1,
+                        "updated_at": 1,
+                        "candidate_name": 1,
+                        "latest_query": 1,
+                    },
+                )
+                .sort("updated_at", -1)
+                .limit(50)
+            )
+            conversations = []
+            for doc in records:
+                created = doc.get("created_at")
+                updated = doc.get("updated_at")
+                conversations.append({
+                    "id": doc.get("conversation_id"),
+                    "title": doc.get("title", "Conversation"),
+                    "createdAt": created.isoformat() if hasattr(created, "isoformat") else str(created or ""),
+                    "updatedAt": updated.isoformat() if hasattr(updated, "isoformat") else str(updated or ""),
+                    "candidateName": doc.get("candidate_name", "Student"),
+                    "latestQuery": doc.get("latest_query", ""),
+                })
+            return jsonify({"conversations": conversations})
+        except Exception:
+            return jsonify({"conversations": []})
+
+    @app.get("/conversations/<conversation_id>")
+    def get_conversation(conversation_id: str):
+        try:
+            db = get_database()
+            doc = db["helpdesk_conversations"].find_one(
+                {"conversation_id": conversation_id},
+                {"_id": 0}
+            )
+            if not doc:
+                return jsonify({"error": "Conversation not found."}), 404
+            return jsonify(doc)
+        except Exception:
+            return jsonify({"error": "Could not retrieve conversation."}), 500
+
+    @app.delete("/conversations/<conversation_id>")
+    def delete_conversation(conversation_id: str):
+        try:
+            db = get_database()
+            res = db["helpdesk_conversations"].delete_one({"conversation_id": conversation_id})
+            return jsonify({"deleted": res.deleted_count > 0})
+        except Exception:
+            return jsonify({"error": "Could not delete conversation."}), 500
 
     @app.get("/history")
     def history():
@@ -216,32 +299,47 @@ def create_app() -> Flask:
                 .find(
                     {},
                     {
+                        "_id": 0,
                         "timestamp": 1,
                         "query": 1,
+                        "answer": 1,
+                        "accuracy_percentage": 1,
+                        "response_time_sec": 1,
+                        "target_language": 1,
+                        "detected_language": 1,
                         "predicted_intent": 1,
                         "classifier_confidence": 1,
                         "source_document": 1,
                         "retrieval_similarity": 1,
                         "escalated": 1,
                         "grounded": 1,
+                        "session_id": 1,
+                        "candidate_name": 1,
                     },
                 )
                 .sort("timestamp", -1)
                 .limit(100)
             )
-            interactions = [
-                {
-                    "timestamp": record.get("timestamp"),
+            interactions = []
+            for record in records:
+                ts = record.get("timestamp")
+                interactions.append({
+                    "timestamp": ts.isoformat() if hasattr(ts, "isoformat") else str(ts or ""),
+                    "session_id": record.get("session_id"),
+                    "candidate_name": record.get("candidate_name", "Student"),
                     "query": record.get("query", ""),
+                    "answer": record.get("answer", ""),
+                    "accuracy_percentage": record.get("accuracy_percentage"),
+                    "response_time_sec": record.get("response_time_sec"),
+                    "target_language": record.get("target_language", "en"),
+                    "detected_language": record.get("detected_language", "English"),
                     "predicted_intent": record.get("predicted_intent", "other"),
                     "classifier_confidence": record.get("classifier_confidence"),
                     "source_document": record.get("source_document"),
                     "retrieval_similarity": record.get("retrieval_similarity"),
                     "escalated": bool(record.get("escalated", False)),
                     "grounded": record.get("grounded"),
-                }
-                for record in records
-            ]
+                })
             return jsonify({"interactions": interactions})
         except Exception:
             return jsonify({"error": "Interaction history is temporarily unavailable."}), 503
@@ -249,7 +347,7 @@ def create_app() -> Flask:
     @app.after_request
     def log_request_info(response):
         response.headers["Access-Control-Allow-Origin"] = "*"
-        response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+        response.headers["Access-Control-Allow-Methods"] = "GET, POST, DELETE, OPTIONS"
         response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
 
         status_color = "\033[92m" if response.status_code == 200 else "\033[91m"
@@ -279,10 +377,12 @@ def create_app() -> Flask:
         start_time = time.time()
         try:
             session_id = payload.get("session_id")
+            candidate_name = payload.get("candidate_name") or payload.get("candidateName")
             target_language = payload.get("target_language") or payload.get("language")
             result = run_query_pipeline(
                 payload["query"],
                 session_id=session_id,
+                candidate_name=candidate_name,
                 target_language=target_language,
             )
             elapsed_sec = round(time.time() - start_time, 2)
