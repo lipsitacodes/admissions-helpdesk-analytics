@@ -95,6 +95,7 @@ def log_interaction(
         interaction = {
             "timestamp": datetime.now(timezone.utc),
             "query": query,
+            "session_id": session_id,
             "predicted_intent": predicted_intent,
             "classifier_confidence": float(classifier_confidence),
             "source_document": source_document,
@@ -117,6 +118,7 @@ def log_interaction(
                     },
                     "$set": {
                         "updated_at": now,
+                        "latest_query": query,
                         "target_language": kwargs.get("target_language", "en"),
                     },
                     "$push": {
