@@ -263,7 +263,7 @@ function AnimationSlot() {
 // MAIN LANDING PAGE
 // ===========================================================================
 
-export function LandingPage({ onLaunchChat, onSaveCandidate, theme }) {
+export function LandingPage({ onLaunchChat, onSaveCandidate, theme, firebaseUser, onLogout }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
@@ -400,26 +400,45 @@ export function LandingPage({ onLaunchChat, onSaveCandidate, theme }) {
             </div>
           </div>
 
-          {/* CTA: Sign In / Register Button */}
+          {/* CTA: Sign In / Register or Account */}
           <div className="flex items-center gap-3">
-            <SpecularButton
-              size="sm"
-              radius={24}
-              tint="#06b6d4"
-              tintOpacity={0.15}
-              blur={12}
-              textColor="#ffffff"
-              lineColor="#38bdf8"
-              baseColor="#0e7490"
-              intensity={1.2}
-              speed={0.4}
-              followMouse={true}
-              proximity={180}
-              onClick={() => setAuthOpen(true)}
-              className="text-xs sm:text-sm font-bold"
-            >
-              Sign In / Register
-            </SpecularButton>
+            {firebaseUser ? (
+              <div className="flex items-center gap-2">
+                <div
+                  className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-md"
+                  title={firebaseUser.displayName || firebaseUser.email}
+                >
+                  {(firebaseUser.displayName || firebaseUser.email || "U").charAt(0).toUpperCase()}
+                </div>
+                <button
+                  type="button"
+                  onClick={onLogout}
+                  className="text-xs font-semibold px-3 py-1.5 rounded-full border transition-all"
+                  style={{ borderColor: "rgba(239,68,68,0.4)", color: "#f87171", background: "rgba(239,68,68,0.08)" }}
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <SpecularButton
+                size="sm"
+                radius={24}
+                tint="#06b6d4"
+                tintOpacity={0.15}
+                blur={12}
+                textColor="#ffffff"
+                lineColor="#38bdf8"
+                baseColor="#0e7490"
+                intensity={1.2}
+                speed={0.4}
+                followMouse={true}
+                proximity={180}
+                onClick={() => setAuthOpen(true)}
+                className="text-xs sm:text-sm font-bold"
+              >
+                Sign In / Register
+              </SpecularButton>
+            )}
           </div>
         </div>
       </nav>

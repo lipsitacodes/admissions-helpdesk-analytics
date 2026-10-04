@@ -31,6 +31,8 @@ export function AppShell({
   onNavigateLanding,
   targetLanguage,
   setTargetLanguage,
+  firebaseUser,
+  onLogout,
 }) {
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300">
@@ -48,6 +50,8 @@ export function AppShell({
         onOpenAuth={() => setAuthOpen(true)}
         candidateName={candidateName}
         onNavigateLanding={onNavigateLanding}
+        firebaseUser={firebaseUser}
+        onLogout={onLogout}
       />
 
       {/* Main Intelligent Workspace */}
@@ -61,6 +65,8 @@ export function AppShell({
           onNewConversation={onNewConversation}
           candidateName={candidateName}
           onOpenAuth={() => setAuthOpen(true)}
+          firebaseUser={firebaseUser}
+          onLogout={onLogout}
           targetLanguage={targetLanguage}
           setTargetLanguage={setTargetLanguage}
         />
@@ -97,6 +103,11 @@ export function AppShell({
         onSaveCandidate={(name) => {
           setCandidateName(name);
           localStorage.setItem("campus_ai_candidate_name", name);
+        }}
+        onAuthSuccess={(displayName) => {
+          setCandidateName(displayName);
+          localStorage.setItem("campus_ai_candidate_name", displayName);
+          setAuthOpen(false);
         }}
       />
     </div>

@@ -10,8 +10,18 @@ import {
   Award,
   ChevronLeft,
   ChevronRight,
+  Loader2,
 } from "lucide-react";
 import { OrbLogo } from "./OrbLogo";
+import { auth, googleProvider } from "../firebase";
+import { signOut } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
 const SLIDES = [
   {
@@ -58,12 +68,30 @@ const SLIDES = [
   },
 ];
 
+// Map Firebase error codes to user-friendly messages
+function getFirebaseErrorMessage(errorCode) {
+  const messages = {
+    "auth/email-already-in-use": "This email is already registered. Try logging in instead.",
+    "auth/invalid-email": "Please enter a valid email address.",
+    "auth/weak-password": "Password must be at least 6 characters.",
+    "auth/user-not-found": "No account found with this email. Sign up first!",
+    "auth/wrong-password": "Incorrect password. Please try again.",
+    "auth/invalid-credential": "Invalid email or password. Please try again.",
+    "auth/too-many-requests": "Too many attempts. Please wait a moment and try again.",
+    "auth/popup-closed-by-user": "Google sign-in was cancelled.",
+    "auth/network-request-failed": "Network error. Check your connection and try again.",
+    "auth/popup-blocked": "Popup was blocked. Please allow popups for this site.",
+  };
+  return messages[errorCode] || "Something went wrong. Please try again.";
+}
+
 export function AuthModal({
   isOpen,
   onClose,
   candidateName,
   onSaveCandidate,
   onAuthSuccess,
+  firebaseUser,
 }) {
   const [activeTab, setActiveTab] = useState("login"); // 'login' | 'signup'
   const [nameInput, setNameInput] = useState(candidateName || "");
@@ -72,6 +100,8 @@ export function AuthModal({
   const [confirmPassword, setConfirmPassword] = useState("");
   const [keepLoggedIn, setKeepLoggedIn] = useState(true);
   const [authMessage, setAuthMessage] = useState("");
+  const [authMessageType, setAuthMessageType] = useState("error"); // 'error' | 'success' | 'info'
+  const [isLoading, setIsLoading] = useState(false);
 
   // Slide Carousel State & Touch/Swipe logic
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -88,7 +118,46 @@ export function AuthModal({
     return () => clearInterval(timer);
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  // Reset form state when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setAuthMessage("");
+      setAuthMessageType("error");
+      setIsLoading(false);
+    }
+  }, [isOpen]);
+
+    if (!isOpen) return null;
+
+  // If user is already logged in, show logout option
+  if (firebaseUser) {
+    const displayName = firebaseUser.displayName || firebaseUser.email?.split("@")[0] || "User";
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
+        {/* Backdrop */}
+        <div className="fixed inset-0 bg-[#030712]/85 backdrop-blur-2xl transition-opacity" onClick={onClose} />
+        <div className="relative w-full max-w-md bg-[#0a1424]/95 backdrop-blur-3xl rounded-2xl p-6 text-white shadow-2xl border border-slate-700/60 z-10">
+          <h2 className="text-xl font-bold mb-4">Logged in as {displayName}</h2>
+          <button
+            type="button"
+            onClick={async () => {
+              try {
+                await signOut(auth);
+                onClose();
+              } catch (err) {
+                console.error("Logout error:", err);
+              }
+            }}
+            className="w-full py-2 px-4 bg-red-600 hover:bg-red-700 rounded transition"
+          >
+            Log Out
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Existing auth modal UI
 
   const handleNextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
@@ -141,19 +210,8 @@ export function AuthModal({
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (activeTab === "signup" && passwordInput !== confirmPassword) {
-      setAuthMessage("Your passwords do not match.");
-      return;
-    }
-    setAuthMessage(
-      "Account authentication will be available after the database is connected. Continue as a guest for now."
-    );
-  };
-
-  const handleGuestAccess = () => {
-    const displayName = nameInput.trim() || candidateName || "Guest";
+  // Helper to handle successful auth
+  const handleAuthComplete = (displayName) => {
     onSaveCandidate(displayName);
     if (onAuthSuccess) {
       onAuthSuccess(displayName);
@@ -162,10 +220,125 @@ export function AuthModal({
     }
   };
 
-  const handleGoogleSignIn = () => {
-    setAuthMessage(
-      "Google sign-in will be available when database authentication is integrated."
-    );
+  // Email/Password Sign Up
+  const handleSignUp = async () => {
+    if (passwordInput !== confirmPassword) {
+      setAuthMessage("Your passwords do not match.");
+      setAuthMessageType("error");
+      return;
+    }
+    if (passwordInput.length < 6) {
+      setAuthMessage("Password must be at least 6 characters.");
+      setAuthMessageType("error");
+      return;
+    }
+
+    setIsLoading(true);
+    setAuthMessage("");
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        emailInput,
+        passwordInput
+      );
+      // Set display name on the Firebase user profile
+      const displayName = nameInput.trim() || "Student";
+      await updateProfile(userCredential.user, { displayName });
+      handleAuthComplete(displayName);
+    } catch (error) {
+      console.error("Sign up error:", error);
+      setAuthMessage(getFirebaseErrorMessage(error.code));
+      setAuthMessageType("error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Email/Password Login
+  const handleLogin = async () => {
+    setIsLoading(true);
+    setAuthMessage("");
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        emailInput,
+        passwordInput
+      );
+      const displayName =
+        userCredential.user.displayName || emailInput.split("@")[0] || "Student";
+      handleAuthComplete(displayName);
+    } catch (error) {
+      console.error("Login error:", error);
+      setAuthMessage(getFirebaseErrorMessage(error.code));
+      setAuthMessageType("error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Form Submit handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isLoading) return;
+    if (activeTab === "signup") {
+      handleSignUp();
+    } else {
+      handleLogin();
+    }
+  };
+
+  // Google Sign-In
+  const handleGoogleSignIn = async () => {
+    setIsLoading(true);
+    setAuthMessage("");
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const displayName =
+        result.user.displayName || result.user.email?.split("@")[0] || "Student";
+      handleAuthComplete(displayName);
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+      if (error.code !== "auth/popup-closed-by-user") {
+        setAuthMessage(getFirebaseErrorMessage(error.code));
+        setAuthMessageType("error");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Forgot Password
+  const handleForgotPassword = async () => {
+    if (!emailInput.trim()) {
+      setAuthMessage("Enter your email above first, then click 'Forgot password?'");
+      setAuthMessageType("info");
+      return;
+    }
+    setIsLoading(true);
+    setAuthMessage("");
+    try {
+      await sendPasswordResetEmail(auth, emailInput);
+      setAuthMessage("Password reset email sent! Check your inbox.");
+      setAuthMessageType("success");
+    } catch (error) {
+      console.error("Password reset error:", error);
+      setAuthMessage(getFirebaseErrorMessage(error.code));
+      setAuthMessageType("error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGuestAccess = () => {
+    const displayName = nameInput.trim() || candidateName || "Guest";
+    handleAuthComplete(displayName);
+  };
+
+  // Message style based on type
+  const messageStyles = {
+    error: "border-red-400/20 bg-red-400/10 text-red-100",
+    success: "border-emerald-400/20 bg-emerald-400/10 text-emerald-100",
+    info: "border-amber-400/20 bg-amber-400/10 text-amber-100",
   };
 
   return (
@@ -452,12 +625,9 @@ export function AuthModal({
                   {activeTab === "login" && (
                     <button
                       type="button"
-                      onClick={() =>
-                        setAuthMessage(
-                          "Password recovery will be available after account authentication is integrated."
-                        )
-                      }
-                      className="text-[11px] text-cyan-400 hover:text-cyan-300 hover:underline transition-colors"
+                      onClick={handleForgotPassword}
+                      disabled={isLoading}
+                      className="text-[11px] text-cyan-400 hover:text-cyan-300 hover:underline transition-colors disabled:opacity-50"
                     >
                       Forgot password?
                     </button>
@@ -518,17 +688,27 @@ export function AuthModal({
               {/* Primary Action CTA Button */}
               <button
                 type="submit"
-                className="w-full py-3 px-6 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:opacity-95 shadow-lg shadow-cyan-500/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-1"
+                disabled={isLoading}
+                className="w-full py-3 px-6 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:opacity-95 shadow-lg shadow-cyan-500/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <span>{activeTab === "login" ? "Sign In" : "Create Account"}</span>
-                <ArrowRight className="w-4 h-4" />
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Please wait...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>{activeTab === "login" ? "Sign In" : "Create Account"}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </form>
 
             {authMessage && (
               <p
                 role="status"
-                className="rounded-xl border border-amber-400/20 bg-amber-400/10 px-3 py-2 text-xs leading-relaxed text-amber-100"
+                className={`rounded-xl border px-3 py-2 text-xs leading-relaxed ${messageStyles[authMessageType]}`}
               >
                 {authMessage}
               </p>
@@ -547,7 +727,8 @@ export function AuthModal({
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
-                className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2"
+                disabled={isLoading}
+                className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
                   <path
@@ -567,13 +748,14 @@ export function AuthModal({
                     d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.3-6.4-5.2L1.9 16C3.7 19.7 7.5 23 12 23z"
                   />
                 </svg>
-                <span>Google (soon)</span>
+                <span>Google</span>
               </button>
 
               <button
                 type="button"
                 onClick={handleGuestAccess}
-                className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2"
+                disabled={isLoading}
+                className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <User className="w-4 h-4 flex-shrink-0" />
                 <span>Continue as Guest</span>
@@ -620,4 +802,3 @@ export function AuthModal({
 }
 
 export default AuthModal;
-

@@ -13,6 +13,8 @@ import {
   PhoneCall,
   X,
   ChevronRight,
+  LogOut,
+  User,
 } from "lucide-react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Delete02Icon } from "@hugeicons/core-free-icons";
@@ -73,6 +75,8 @@ export function Sidebar({
   onOpenAuth,
   candidateName,
   onNavigateLanding,
+  firebaseUser,
+  onLogout,
 }) {
   const groupedChats = groupChatsByDate(chats);
   const hasHistory = chats.length > 0;
@@ -169,9 +173,9 @@ export function Sidebar({
                             radius={10}
                             actionWidth={72}
                             direction="left"
-                            rowColor={isActive ? "var(--history-row-active)" : "var(--history-row-bg)"}
+                            rowColor={isActive ? (isDark ? "#262626" : "#f4f4f5") : "transparent"}
                             textColor="var(--history-row-text)"
-                            drawerColor="var(--history-drawer)"
+                            drawerColor="transparent"
                             actionColor="#ef4444"
                             commitAt={0.55}
                             collapseMs={220}
@@ -195,7 +199,6 @@ export function Sidebar({
                               type="button"
                               onClick={() => onSelectChat(chat.id)}
                               className="flex-1 flex items-center gap-2 text-xs text-left min-w-0 bg-transparent border-0 cursor-pointer p-0 text-light-text dark:text-dark-text"
-                              title={chat.title}
                             >
                               <MessageSquare
                                 className={`w-3.5 h-3.5 shrink-0 text-light-text dark:text-dark-text ${
@@ -233,7 +236,7 @@ export function Sidebar({
                     key={item.label}
                     type="button"
                     onClick={() => { onSelectTopic(item.query); setSidebarOpen(false); }}
-                    className="w-full flex items-center justify-between px-3 py-2 text-xs font-medium rounded-xl text-left text-light-text dark:text-dark-text hover:bg-light-surface2 dark:hover:bg-dark-surface2 transition-colors group"
+                    className="w-full flex items-center justify-between px-3 py-2 text-xs font-medium text-left text-light-muted dark:text-dark-muted hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-200 hover:translate-x-1 group"
                   >
                     <div className="flex items-center gap-2.5 truncate">
                       <Icon className="w-3.5 h-3.5 text-light-muted dark:text-dark-muted group-hover:text-light-text dark:group-hover:text-dark-text shrink-0" />
@@ -261,7 +264,7 @@ export function Sidebar({
                   key={i}
                   type="button"
                   onClick={() => { onSelectTopic(ws.query); setSidebarOpen(false); }}
-                  className="w-full flex items-center justify-between px-3 py-1.5 text-xs text-light-muted dark:text-dark-muted hover:text-light-text dark:hover:text-dark-text hover:bg-light-surface2 dark:hover:bg-dark-surface2 rounded-lg text-left transition-colors"
+                  className="w-full flex items-center justify-between px-3 py-1.5 text-xs text-light-muted dark:text-dark-muted hover:text-indigo-600 dark:hover:text-indigo-400 text-left transition-all duration-200 hover:translate-x-1"
                 >
                   <div className="flex items-center gap-2 truncate">
                     <FolderKanban className="w-3.5 h-3.5 opacity-60 shrink-0" />
@@ -274,8 +277,43 @@ export function Sidebar({
           </div>
         </div>
 
-        {/* Bottom Helpdesk Card (Transparent seamless transition) */}
-        <div className="p-4 border-t border-transparent bg-transparent">
+        {/* Bottom: User Profile + Helpdesk */}
+        <div className="p-4 border-t border-light-border dark:border-dark-border space-y-3">
+
+          {/* User profile card */}
+          {firebaseUser ? (
+            <div className="flex items-center gap-2.5 px-2 py-2 transition-all duration-200 group">
+              {/* Avatar */}
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+                {(candidateName || "U").charAt(0).toUpperCase()}
+              </div>
+              {/* Name + email */}
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-semibold text-light-text dark:text-dark-text truncate">{candidateName || "Student"}</p>
+                <p className="text-[10px] text-light-muted dark:text-dark-muted truncate">{firebaseUser.email || ""}</p>
+              </div>
+              {/* Logout icon */}
+              <button
+                type="button"
+                onClick={onLogout}
+                title="Sign Out"
+                className="p-1.5 rounded-lg text-light-muted dark:text-dark-muted hover:text-red-500 hover:bg-red-500/10 opacity-0 group-hover:opacity-100 transition-all"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={onOpenAuth}
+              className="w-full flex items-center justify-center gap-2.5 px-3 py-2.5 rounded-xl border border-light-border dark:border-dark-border text-light-text dark:text-dark-text hover:border-purple-500/50 hover:text-purple-600 dark:hover:text-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)] transition-all text-xs font-semibold"
+            >
+              <User className="w-4 h-4 flex-shrink-0" />
+              <span>Sign In / Register</span>
+            </button>
+          )}
+
+          {/* Helpdesk card */}
           <div className="p-3.5 rounded-2xl glass-card border border-light-border/60 dark:border-dark-border/60 space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-light-text dark:text-dark-text">Admissions Helpdesk</span>

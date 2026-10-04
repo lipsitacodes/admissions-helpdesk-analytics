@@ -3,6 +3,8 @@ import { AppShell } from "./components/AppShell";
 import { LandingPage } from "./components/LandingPage";
 import { SpeedLoader } from "./components/SpeedLoader";
 import BlobCursor from "./components/BlobCursor";
+import { auth } from "./firebase";
+import { onAuthStateChanged, signOut, setPersistence, browserLocalPersistence } from "firebase/auth";
 
 function formatTimestamp() {
   return new Intl.DateTimeFormat("en-IN", {
@@ -28,9 +30,23 @@ function cleanAnswerText(text) {
   return lines.join("\n");
 }
 
-function loadChats() {
+// Build a user-scoped localStorage key
+function userKey(base, uid) {
+  const scope = uid || "guest";
+  return `${base}_${scope}`;
+}
+
+function loadChats(uid) {
   try {
-    const raw = JSON.parse(localStorage.getItem("campus_ai_chats"));
+    // Try user-scoped key first, then fall back to legacy key for migration
+    const scopedKey = userKey("campus_ai_chats", uid);
+    let raw = JSON.parse(localStorage.getItem(scopedKey));
+    if (!Array.isArray(raw)) {
+      // First time for this user — check if there's legacy data to migrate
+      if (!uid) {
+        raw = JSON.parse(localStorage.getItem("campus_ai_chats"));
+      }
+    }
     if (Array.isArray(raw)) {
       return raw.filter(
         (c) => c && typeof c === "object" && c.id && Array.isArray(c.messages)
@@ -70,6 +86,59 @@ export function App() {
 
   // Auth Modal State
   const [authOpen, setAuthOpen] = useState(false);
+  const [firebaseUser, setFirebaseUser] = useState(null);
+
+  // Set auth persistence to stay logged in across reloads
+  useEffect(() => {
+    setPersistence(auth, browserLocalPersistence).catch((e) => console.error('Auth persistence error', e));
+  }, []);
+
+  // Listen for Firebase auth state changes (login, logout, page refresh)
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setFirebaseUser(user);
+      if (user) {
+        const displayName = user.displayName || user.email?.split("@")[0] || "Student";
+        setCandidateName(displayName);
+        localStorage.setItem("campus_ai_candidate_name", displayName);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // Swap chat history when user changes (login / logout / switch account)
+  useEffect(() => {
+    const uid = firebaseUser?.uid || null;
+    const loaded = loadChats(uid);
+    setChats(loaded);
+    // Restore active chat for this user
+    const savedActive = localStorage.getItem(userKey("campus_ai_active_chat", uid));
+    if (savedActive && loaded.find((c) => c.id === savedActive)) {
+      setActiveChatId(savedActive);
+      activeChatIdRef.current = savedActive;
+      const found = loaded.find((c) => c.id === savedActive);
+      setMessages(found ? found.messages : []);
+    } else {
+      setActiveChatId(null);
+      activeChatIdRef.current = null;
+      setMessages([]);
+    }
+    setInput("");
+    setErrorMessage("");
+  }, [firebaseUser]);
+
+  // Handle logout from Firebase
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setFirebaseUser(null);
+      setCandidateName("Student");
+      localStorage.setItem("campus_ai_candidate_name", "Student");
+      setCurrentView("landing");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
 
   // Citation switch state
   const [citationEnabled, setCitationEnabled] = useState(true);
@@ -119,15 +188,16 @@ export function App() {
   const [isBusy, setIsBusy] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Keep ref in sync with state + persist for refresh restore
+  // Keep ref in sync with state + persist for refresh restore (user-scoped)
   React.useEffect(() => {
     activeChatIdRef.current = activeChatId;
+    const key = userKey("campus_ai_active_chat", firebaseUser?.uid || null);
     if (activeChatId) {
-      localStorage.setItem("campus_ai_active_chat", activeChatId);
+      localStorage.setItem(key, activeChatId);
     } else {
-      localStorage.removeItem("campus_ai_active_chat");
+      localStorage.removeItem(key);
     }
-  }, [activeChatId]);
+  }, [activeChatId, firebaseUser]);
 
   // Persist current view so refresh lands on the same page
   useEffect(() => {
@@ -144,10 +214,11 @@ export function App() {
     localStorage.setItem("campus_ai_theme", theme);
   }, [theme]);
 
-  // Persist chats to localStorage whenever they change
+  // Persist chats to localStorage whenever they change (user-scoped)
   useEffect(() => {
-    localStorage.setItem("campus_ai_chats", JSON.stringify(chats));
-  }, [chats]);
+    const key = userKey("campus_ai_chats", firebaseUser?.uid || null);
+    localStorage.setItem(key, JSON.stringify(chats));
+  }, [chats, firebaseUser]);
 
   // Periodic health check heartbeat to keep backend connection warm and verified
   useEffect(() => {
@@ -351,6 +422,8 @@ export function App() {
             localStorage.setItem("campus_ai_candidate_name", name);
           }}
           theme={theme}
+          firebaseUser={firebaseUser}
+          onLogout={handleLogout}
         />
       ) : (
         <AppShell
@@ -379,6 +452,8 @@ export function App() {
           targetLanguage={targetLanguage}
           setTargetLanguage={setTargetLanguage}
           onNavigateLanding={() => setCurrentView("landing")}
+          firebaseUser={firebaseUser}
+          onLogout={handleLogout}
         />
       )}
     </>
