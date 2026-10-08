@@ -92,6 +92,11 @@ export function App() {
         const displayName = user.displayName || user.email?.split("@")[0] || "Student";
         setCandidateName(displayName);
         localStorage.setItem("campus_ai_candidate_name", displayName);
+        setIsAuthenticated(true);
+        localStorage.setItem("campus_ai_is_authenticated", "true");
+        if (user.email) {
+          localStorage.setItem("campus_ai_user_email", user.email);
+        }
       }
     });
     return () => unsubscribe();

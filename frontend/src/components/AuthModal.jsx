@@ -75,13 +75,17 @@ function getFirebaseErrorMessage(errorCode) {
     "auth/weak-password": "Password must be at least 6 characters.",
     "auth/user-not-found": "No account found with this email. Sign up first!",
     "auth/wrong-password": "Incorrect password. Please try again.",
-    "auth/invalid-credential": "Invalid email or password. Please try again.",
-    "auth/too-many-requests": "Too many attempts. Please wait a moment and try again.",
+    "auth/invalid-credential": "Invalid email or password. Please verify and try again.",
+    "auth/too-many-requests": "Too many failed attempts. Please wait a moment and try again.",
     "auth/popup-closed-by-user": "Google sign-in was cancelled.",
-    "auth/network-request-failed": "Network error. Check your connection and try again.",
-    "auth/popup-blocked": "Popup was blocked. Please allow popups for this site.",
+    "auth/network-request-failed": "Network error. Check your internet connection and try again.",
+    "auth/popup-blocked": "Popup was blocked by your browser. Please allow popups for this site.",
+    "auth/operation-not-allowed": "This sign-in method is not enabled in the Firebase Console (Authentication > Sign-in method).",
+    "auth/unauthorized-domain": "This domain is not in the Firebase Authorized Domains list (Console > Authentication > Settings).",
+    "auth/invalid-api-key": "Invalid Firebase API Key. Please check your Firebase configuration.",
+    "auth/internal-error": "Internal authentication error. Please try again in a moment.",
   };
-  return messages[errorCode] || "Authentication failed. Please verify your details.";
+  return messages[errorCode] || (errorCode ? `Authentication error (${errorCode.replace("auth/", "")}). Please check your details.` : "Authentication failed. Please verify your details.");
 }
 
 export function AuthModal({
@@ -228,7 +232,23 @@ export function AuthModal({
     e.preventDefault();
     if (submitting) return;
 
-    if (activeTab === "signup" && passwordInput !== confirmPassword) {
+    const trimmedEmail = emailInput.trim();
+    const trimmedPassword = passwordInput;
+    const trimmedName = nameInput.trim();
+
+    if (!trimmedEmail) {
+      setAuthMessage("Please enter your email address.");
+      setAuthMessageType("error");
+      return;
+    }
+
+    if (!trimmedPassword) {
+      setAuthMessage("Please enter your password.");
+      setAuthMessageType("error");
+      return;
+    }
+
+    if (activeTab === "signup" && trimmedPassword !== confirmPassword) {
       setAuthMessage("Your passwords do not match.");
       setAuthMessageType("error");
       return;
@@ -239,11 +259,11 @@ export function AuthModal({
 
     if (!auth) {
       const fallbackName =
-        (activeTab === "signup" ? nameInput.trim() : "") ||
-        (emailInput ? emailInput.split("@")[0] : "") ||
+        (activeTab === "signup" ? trimmedName : "") ||
+        trimmedEmail.split("@")[0] ||
         candidateName ||
         "Student";
-      handleAuthComplete(fallbackName, emailInput);
+      handleAuthComplete(fallbackName, trimmedEmail);
       setSubmitting(false);
       return;
     }
@@ -252,37 +272,36 @@ export function AuthModal({
       if (activeTab === "signup") {
         const userCredential = await createUserWithEmailAndPassword(
           auth,
-          emailInput,
-          passwordInput
+          trimmedEmail,
+          trimmedPassword
         );
-        const displayName = nameInput.trim() || emailInput.split("@")[0] || "Student";
+        const displayName = trimmedName || trimmedEmail.split("@")[0] || "Student";
         try {
           await updateProfile(userCredential.user, { displayName });
         } catch (_) {}
-        handleAuthComplete(displayName, emailInput);
+        handleAuthComplete(displayName, trimmedEmail);
       } else {
         const userCredential = await signInWithEmailAndPassword(
           auth,
-          emailInput,
-          passwordInput
+          trimmedEmail,
+          trimmedPassword
         );
         const displayName =
-          userCredential.user.displayName || emailInput.split("@")[0] || "Student";
-        handleAuthComplete(displayName, emailInput);
+          userCredential.user.displayName || trimmedEmail.split("@")[0] || "Student";
+        handleAuthComplete(displayName, trimmedEmail);
       }
     } catch (error) {
       console.error("Firebase auth error:", error);
-      // Fallback: if Firebase config is invalid or fails, gracefully fallback
       if (error?.code && error.code.startsWith("auth/")) {
         setAuthMessage(getFirebaseErrorMessage(error.code));
         setAuthMessageType("error");
       } else {
         const fallbackName =
-          (activeTab === "signup" ? nameInput.trim() : "") ||
-          (emailInput ? emailInput.split("@")[0] : "") ||
+          (activeTab === "signup" ? trimmedName : "") ||
+          trimmedEmail.split("@")[0] ||
           candidateName ||
           "Student";
-        handleAuthComplete(fallbackName, emailInput);
+        handleAuthComplete(fallbackName, trimmedEmail);
       }
     } finally {
       setSubmitting(false);
@@ -352,8 +371,9 @@ export function AuthModal({
   };
 
   const handleForgotPassword = async () => {
-    if (!emailInput.trim()) {
-      setAuthMessage("Enter your email above first, then click 'Forgot password?'");
+    const trimmedEmail = emailInput.trim();
+    if (!trimmedEmail) {
+      setAuthMessage("Enter your email in the field above first, then click 'Forgot password?'");
       setAuthMessageType("info");
       return;
     }
@@ -367,8 +387,8 @@ export function AuthModal({
     setSubmitting(true);
     setAuthMessage("");
     try {
-      await sendPasswordResetEmail(auth, emailInput);
-      setAuthMessage("Password reset email sent! Please check your inbox.");
+      await sendPasswordResetEmail(auth, trimmedEmail);
+      setAuthMessage("Password reset email sent! Please check your inbox / spam folder.");
       setAuthMessageType("success");
     } catch (error) {
       console.error("Password reset error:", error);

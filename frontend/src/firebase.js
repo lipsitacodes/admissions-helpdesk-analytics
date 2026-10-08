@@ -1,9 +1,11 @@
 // Firebase SDK Initialization
-// Config loaded from environment variables (VITE_FIREBASE_* in .env)
+// Config loaded from environment variables (VITE_FIREBASE_* in .env) with verified fallbacks
 import { initializeApp, getApps } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
-const apiKey = import.meta.env.VITE_FIREBASE_API_KEY;
+const apiKey =
+  import.meta.env.VITE_FIREBASE_API_KEY ||
+  "AIzaSyAa6l_4MKRpAZnVQVB3vo3FeUdI8IS45cs";
 
 let app = null;
 let auth = null;
@@ -12,7 +14,7 @@ let googleProvider = null;
 try {
   if (apiKey && apiKey.trim().length > 0 && apiKey !== "undefined") {
     const firebaseConfig = {
-      apiKey: apiKey,
+      apiKey: apiKey.trim(),
       authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "admissions-helpdesk.firebaseapp.com",
       projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "admissions-helpdesk",
       storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "admissions-helpdesk.firebasestorage.app",
@@ -23,6 +25,7 @@ try {
     app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
     auth = getAuth(app);
     googleProvider = new GoogleAuthProvider();
+    googleProvider.setCustomParameters({ prompt: "select_account" });
   } else {
     console.info("[Auth] Running in local guest/candidate mode (Firebase API key not set).");
   }
@@ -32,3 +35,4 @@ try {
 
 export { auth, googleProvider };
 export default app;
+
