@@ -7,16 +7,16 @@ import { Composer } from "./Composer";
 import { AuthModal } from "./AuthModal";
 
 export function AppShell({
-  theme,
-  onToggleTheme,
   sidebarOpen,
   setSidebarOpen,
-  onNewConversation,
   chats,
   activeChatId,
   onSelectChat,
+  onNewConversation,
   onDeleteChat,
   onSelectTopic,
+  theme,
+  onToggleTheme,
   messages,
   isBusy,
   input,
@@ -32,6 +32,7 @@ export function AppShell({
   onNavigateLanding,
   targetLanguage,
   setTargetLanguage,
+  firebaseUser,
   onLogout,
 }) {
   const chatContainerRef = useRef(null);
@@ -68,6 +69,7 @@ export function AppShell({
         onOpenAuth={() => setAuthOpen(true)}
         candidateName={candidateName}
         onNavigateLanding={onNavigateLanding}
+        firebaseUser={firebaseUser}
         onLogout={onLogout}
       />
 
@@ -82,6 +84,7 @@ export function AppShell({
           onNewConversation={onNewConversation}
           candidateName={candidateName}
           onOpenAuth={() => setAuthOpen(true)}
+          firebaseUser={firebaseUser}
           targetLanguage={targetLanguage}
           setTargetLanguage={setTargetLanguage}
           onNavigateLanding={onNavigateLanding}
@@ -141,6 +144,11 @@ export function AppShell({
         onSaveCandidate={(name) => {
           setCandidateName(name);
           localStorage.setItem("campus_ai_candidate_name", name);
+        }}
+        onAuthSuccess={(displayName) => {
+          setCandidateName(displayName);
+          localStorage.setItem("campus_ai_candidate_name", displayName);
+          setAuthOpen(false);
         }}
       />
     </div>

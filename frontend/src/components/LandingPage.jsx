@@ -10,6 +10,9 @@ export function LandingPage({
   onLaunchChat,
   onSaveCandidate,
   isAuthenticated: propIsAuth,
+  theme,
+  firebaseUser,
+  onLogout,
 }) {
   const [authOpen, setAuthOpen] = useState(false);
 
@@ -19,7 +22,7 @@ export function LandingPage({
     const hasStorage =
       localStorage.getItem("campus_ai_is_authenticated") === "true" ||
       localStorage.getItem("campus_ai_is_guest") === "true";
-    return propIsAuth !== undefined ? Boolean(propIsAuth) && hasStorage : hasStorage;
+    return Boolean(firebaseUser) || (propIsAuth !== undefined ? Boolean(propIsAuth) && hasStorage : hasStorage);
   });
 
   useEffect(() => {
@@ -27,9 +30,9 @@ export function LandingPage({
       localStorage.getItem("campus_ai_is_authenticated") === "true" ||
       localStorage.getItem("campus_ai_is_guest") === "true";
     const isAuth =
-      propIsAuth !== undefined ? Boolean(propIsAuth) && hasStorage : hasStorage;
+      Boolean(firebaseUser) || (propIsAuth !== undefined ? Boolean(propIsAuth) && hasStorage : hasStorage);
     setIsAuthenticated(isAuth);
-  }, [propIsAuth, authOpen]);
+  }, [propIsAuth, authOpen, firebaseUser]);
 
   const handleWorkspaceEnter = () => {
     setAuthOpen(false);

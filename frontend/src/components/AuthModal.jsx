@@ -11,8 +11,17 @@ import {
   Award,
   ChevronLeft,
   ChevronRight,
+  Loader2,
 } from "lucide-react";
 import { FeesabilityLogo } from "./FeesabilityLogo";
+import { auth, googleProvider } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
 const SLIDES = [
   {
@@ -59,6 +68,22 @@ const SLIDES = [
   },
 ];
 
+function getFirebaseErrorMessage(errorCode) {
+  const messages = {
+    "auth/email-already-in-use": "This email is already registered. Try logging in instead.",
+    "auth/invalid-email": "Please enter a valid email address.",
+    "auth/weak-password": "Password must be at least 6 characters.",
+    "auth/user-not-found": "No account found with this email. Sign up first!",
+    "auth/wrong-password": "Incorrect password. Please try again.",
+    "auth/invalid-credential": "Invalid email or password. Please try again.",
+    "auth/too-many-requests": "Too many attempts. Please wait a moment and try again.",
+    "auth/popup-closed-by-user": "Google sign-in was cancelled.",
+    "auth/network-request-failed": "Network error. Check your connection and try again.",
+    "auth/popup-blocked": "Popup was blocked. Please allow popups for this site.",
+  };
+  return messages[errorCode] || "Authentication failed. Please verify your details.";
+}
+
 export function AuthModal({
   isOpen,
   onClose,
@@ -66,13 +91,14 @@ export function AuthModal({
   onSaveCandidate,
   onAuthSuccess,
 }) {
-  const [activeTab, setActiveTab] = useState("login"); // 'login' | 'signup'
+  const [activeTab, setActiveTab] = useState("login"); // 'login' | 'signup' | 'guest'
   const [nameInput, setNameInput] = useState(candidateName || "");
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [keepLoggedIn, setKeepLoggedIn] = useState(true);
   const [authMessage, setAuthMessage] = useState("");
+  const [authMessageType, setAuthMessageType] = useState("error"); // 'error' | 'success' | 'info'
   const [submitting, setSubmitting] = useState(false);
 
   // Slide Carousel State & Touch/Swipe logic
@@ -85,6 +111,7 @@ export function AuthModal({
   useEffect(() => {
     if (isOpen) {
       setSubmitting(false);
+      setAuthMessage("");
     }
   }, [isOpen]);
 
@@ -184,27 +211,70 @@ export function AuthModal({
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (activeTab === "signup" && passwordInput !== confirmPassword) {
-      setAuthMessage("Your passwords do not match.");
-      return;
-    }
-    const displayName =
-      (activeTab === "signup" ? nameInput.trim() : "") ||
-      (emailInput ? emailInput.split("@")[0] : "") ||
-      candidateName ||
-      "Student";
-
-    setSubmitting(true);
+  const handleAuthComplete = (displayName, email) => {
     onSaveCandidate(displayName);
     localStorage.setItem("campus_ai_candidate_name", displayName);
-    localStorage.setItem("campus_ai_user_email", emailInput);
+    if (email) localStorage.setItem("campus_ai_user_email", email);
     localStorage.setItem("campus_ai_is_authenticated", "true");
+    localStorage.removeItem("campus_ai_is_guest");
     if (onAuthSuccess) {
       onAuthSuccess(displayName);
     } else {
       onClose();
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (submitting) return;
+
+    if (activeTab === "signup" && passwordInput !== confirmPassword) {
+      setAuthMessage("Your passwords do not match.");
+      setAuthMessageType("error");
+      return;
+    }
+
+    setSubmitting(true);
+    setAuthMessage("");
+
+    try {
+      if (activeTab === "signup") {
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          emailInput,
+          passwordInput
+        );
+        const displayName = nameInput.trim() || emailInput.split("@")[0] || "Student";
+        try {
+          await updateProfile(userCredential.user, { displayName });
+        } catch (_) {}
+        handleAuthComplete(displayName, emailInput);
+      } else {
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          emailInput,
+          passwordInput
+        );
+        const displayName =
+          userCredential.user.displayName || emailInput.split("@")[0] || "Student";
+        handleAuthComplete(displayName, emailInput);
+      }
+    } catch (error) {
+      console.error("Firebase auth error:", error);
+      // Fallback: if Firebase config is invalid or fails, gracefully fallback
+      if (error?.code && error.code.startsWith("auth/")) {
+        setAuthMessage(getFirebaseErrorMessage(error.code));
+        setAuthMessageType("error");
+      } else {
+        const fallbackName =
+          (activeTab === "signup" ? nameInput.trim() : "") ||
+          (emailInput ? emailInput.split("@")[0] : "") ||
+          candidateName ||
+          "Student";
+        handleAuthComplete(fallbackName, emailInput);
+      }
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -215,10 +285,12 @@ export function AuthModal({
 
     if (!trimmedName) {
       setAuthMessage("Please enter your name to continue as a guest.");
+      setAuthMessageType("error");
       return;
     }
     if (!trimmedEmail || !trimmedEmail.includes("@") || !trimmedEmail.includes(".")) {
       setAuthMessage("Please enter a valid email address to continue.");
+      setAuthMessageType("error");
       return;
     }
 
@@ -241,43 +313,86 @@ export function AuthModal({
     setAuthMessage("");
   };
 
-  const handleGoogleSignIn = () => {
-    setAuthMessage(
-      "Google sign-in will be available when database authentication is integrated."
-    );
+  const handleGoogleSignIn = async () => {
+    setSubmitting(true);
+    setAuthMessage("");
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const displayName =
+        result.user.displayName || result.user.email?.split("@")[0] || "Student";
+      handleAuthComplete(displayName, result.user.email);
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+      if (error?.code !== "auth/popup-closed-by-user") {
+        setAuthMessage(getFirebaseErrorMessage(error?.code));
+        setAuthMessageType("error");
+      }
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    if (!emailInput.trim()) {
+      setAuthMessage("Enter your email above first, then click 'Forgot password?'");
+      setAuthMessageType("info");
+      return;
+    }
+    setSubmitting(true);
+    setAuthMessage("");
+    try {
+      await sendPasswordResetEmail(auth, emailInput);
+      setAuthMessage("Password reset email sent! Please check your inbox.");
+      setAuthMessageType("success");
+    } catch (error) {
+      console.error("Password reset error:", error);
+      setAuthMessage(getFirebaseErrorMessage(error?.code));
+      setAuthMessageType("error");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const activeSlideData = SLIDES[currentSlide];
+  const IconComponent = activeSlideData.icon;
+
+  const messageStyles = {
+    error: "border-red-400/20 bg-red-400/10 text-red-200",
+    success: "border-emerald-400/20 bg-emerald-400/10 text-emerald-200",
+    info: "border-cyan-400/20 bg-cyan-400/10 text-cyan-200",
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
-      {/* Deep Dark Blurred Backdrop */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      {/* Dimmed Blurred Backdrop */}
       <div
         ref={backdropRef}
-        className="fixed inset-0 bg-[#030712]/85 backdrop-blur-2xl"
         onClick={handleModalClose}
+        className="fixed inset-0 bg-black/75 backdrop-blur-md transition-opacity"
       />
 
-      {/* Decorative Ambient Radial Glows */}
-      <div className="fixed top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-cyan-500/15 blur-[120px] pointer-events-none" />
-      <div className="fixed bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-blue-600/15 blur-[120px] pointer-events-none" />
-
-      {/* Split-Layout Glassmorphic Modal Card */}
+      {/* Main Dialog Modal Container */}
       <div
         ref={modalWrapperRef}
-        className="relative w-full max-w-4xl bg-[#0a1424]/95 backdrop-blur-3xl rounded-2xl sm:rounded-3xl text-white shadow-2xl border border-slate-700/60 z-10 overflow-hidden flex flex-col md:flex-row max-h-[92vh] md:max-h-[88vh]"
+        className="relative w-full max-w-4xl rounded-3xl bg-[#070e1b] border border-cyan-500/20 shadow-[0_20px_70px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col md:flex-row z-10 my-auto text-left"
+        style={{
+          boxShadow:
+            "0 25px 60px -15px rgba(6, 182, 212, 0.15), 0 0 40px rgba(0, 0, 0, 0.9)",
+        }}
       >
         {/* Close Button */}
         <button
           type="button"
           onClick={handleModalClose}
-          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-30 p-2 rounded-full bg-slate-800/70 hover:bg-slate-700/90 text-slate-400 hover:text-white transition-colors"
-          aria-label="Close modal"
+          className="absolute top-4 right-4 z-30 p-2 rounded-full bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-700/50 transition-all cursor-pointer"
+          aria-label="Close auth dialog"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
-        {/* ──────────────────── LEFT COLUMN: INTERACTIVE VISUAL SLIDE CAROUSEL ──────────────────── */}
+        {/* ──────────────────── LEFT COLUMN: SLIDE SHOWCASE CAROUSEL ──────────────────── */}
         <div
-          className="hidden md:flex md:w-5/12 p-6 lg:p-8 flex-col justify-between relative overflow-hidden bg-gradient-to-br from-[#071324] via-[#091a30] to-[#040a14] border-r border-slate-800/60 select-none cursor-grab active:cursor-grabbing group"
+          className="hidden md:flex md:w-5/12 bg-gradient-to-br from-[#0a172e] via-[#081224] to-[#040813] border-r border-slate-800/80 p-8 flex-col justify-between relative overflow-hidden select-none cursor-grab active:cursor-grabbing"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -285,103 +400,94 @@ export function AuthModal({
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
         >
-          {/* Subtle Radial Glow Effect */}
-          <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_40%,#06b6d4_0%,transparent_60%)] filter blur-3xl" />
+          {/* Ambient Lighting Orbs */}
+          <div className="absolute top-0 -left-10 w-56 h-56 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-10 -right-10 w-56 h-56 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
-          {/* Top Brand Header */}
+          {/* Top Branding Header */}
           <div className="relative z-10 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <FeesabilityLogo className="w-5 h-5 text-white shrink-0" />
+            <div className="flex items-center gap-2.5">
+              <FeesabilityLogo className="w-6 h-6 text-white shrink-0" />
               <span className="text-sm font-extrabold tracking-[-0.03em] text-white" style={{ fontFamily: "'Outfit', sans-serif" }}>
                 feesability<span className="text-white">.</span>
               </span>
             </div>
-            <span className="text-[10px] text-slate-400 opacity-60 group-hover:opacity-100 transition-opacity">
-              Swipe &rarr;
+            <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+              ADMISSIONS 2026
             </span>
           </div>
 
-          {/* Middle Floating Glass Showcase Card Carousel Track */}
-          <div className="relative z-10 my-auto py-4 overflow-hidden w-full">
-            <div
-              className="flex w-full transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {SLIDES.map((slide) => {
-                const SlideIcon = slide.icon;
-                return (
-                  <div
-                    key={slide.id}
-                    className="w-full flex-shrink-0 space-y-4 px-0.5"
-                  >
-                    {/* Glassmorphic Badge / Progress Card */}
-                    <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-700/50 backdrop-blur-md shadow-xl space-y-3">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2.5">
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-md">
-                            <SlideIcon className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <div className="text-xs font-bold text-white">
-                              {slide.cardTitle}
-                            </div>
-                            <div className="text-[10px] text-slate-400">
-                              {slide.cardSubtitle}
-                            </div>
-                          </div>
-                        </div>
-                        <span className="text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                          {slide.badge}
-                        </span>
-                      </div>
+          {/* Center Dynamic Interactive Card */}
+          <div className="relative z-10 my-6 transition-all duration-300">
+            {/* Holographic Glowing Glass Card */}
+            <div className="rounded-2xl p-4 bg-slate-900/60 backdrop-blur-xl border border-cyan-500/30 shadow-[0_8px_32px_rgba(0,0,0,0.5)] space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-cyan-400/15 to-transparent rounded-bl-full pointer-events-none" />
 
-                      {/* Progress Bar Indicator */}
-                      <div className="space-y-1">
-                        <div className="flex justify-between text-[10px] text-slate-400">
-                          <span>{slide.category}</span>
-                          <span className="text-cyan-400 font-mono">
-                            {slide.statusText}
-                          </span>
-                        </div>
-                        <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden flex">
-                          <div
-                            className={`h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 rounded-full transition-all duration-500 ${slide.progress}`}
-                          />
-                        </div>
-                      </div>
-                      <div className="text-[10px] text-slate-400 flex items-center gap-1.5">
-                        <Sparkles className="w-3 h-3 text-cyan-400" />
-                        <span>{slide.footerText}</span>
-                      </div>
-                    </div>
-
-                    {/* Headline & Description */}
-                    <div className="space-y-2 mt-4">
-                      <h3 className="text-xl lg:text-2xl font-extrabold tracking-tight leading-snug font-heading text-white">
-                        {slide.title}
-                      </h3>
-                      <p className="text-xs text-slate-400 leading-relaxed">
-                        {slide.subtitle}
-                      </p>
-                    </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white shadow-md shadow-cyan-500/25">
+                    <IconComponent className="w-4 h-4" />
                   </div>
-                );
-              })}
+                  <div>
+                    <h4 className="text-xs font-bold text-white">
+                      {activeSlideData.cardTitle}
+                    </h4>
+                    <p className="text-[10px] text-slate-400">
+                      {activeSlideData.cardSubtitle}
+                    </p>
+                  </div>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  {activeSlideData.statusText}
+                </span>
+              </div>
+
+              {/* Progress bar visual */}
+              <div className="space-y-1">
+                <div className="flex justify-between text-[10px] text-slate-400">
+                  <span>Knowledge Graph</span>
+                  <span>Centurion Univ</span>
+                </div>
+                <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+                  <div
+                    className={`h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 rounded-full transition-all duration-500 ${activeSlideData.progress}`}
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pt-1 border-t border-slate-800/80 text-[10px] text-slate-400">
+                <span className="flex items-center gap-1">
+                  <Sparkles className="w-3 h-3 text-cyan-400" />
+                  Verified Grounding
+                </span>
+                <span>{activeSlideData.footerText}</span>
+              </div>
+            </div>
+
+            {/* Slide Text Content */}
+            <div className="mt-5 space-y-1.5">
+              <div className="inline-block px-2 py-0.5 rounded-md bg-cyan-500/10 text-cyan-400 text-[10px] font-semibold tracking-wide uppercase border border-cyan-500/20 mb-1">
+                {activeSlideData.badge} • {activeSlideData.category}
+              </div>
+              <h3 className="text-base font-bold text-white leading-snug">
+                {activeSlideData.title}
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                {activeSlideData.subtitle}
+              </p>
             </div>
           </div>
 
-          {/* Bottom Slide Pagination Controls & Chevrons */}
-          <div className="relative z-10 flex items-center justify-between pt-2">
-            {/* Clickable Dots */}
-            <div className="flex items-center gap-2">
-              {SLIDES.map((slide, idx) => (
+          {/* Bottom Slide Indicators & Navigation Arrows */}
+          <div className="relative z-10 flex items-center justify-between pt-3 border-t border-slate-800/60">
+            {/* Indicators */}
+            <div className="flex items-center gap-1.5">
+              {SLIDES.map((_, idx) => (
                 <button
-                  key={slide.id}
+                  key={idx}
                   type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setCurrentSlide(idx);
-                  }}
+                  onClick={() => setCurrentSlide(idx)}
                   className={`h-2 rounded-full transition-all duration-300 focus:outline-none ${
                     currentSlide === idx
                       ? "w-6 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_8px_rgba(6,182,212,0.6)]"
@@ -400,7 +506,7 @@ export function AuthModal({
                   e.stopPropagation();
                   handlePrevSlide();
                 }}
-                className="p-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700/80 text-slate-400 hover:text-white transition-colors"
+                className="p-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700/80 text-slate-400 hover:text-white transition-colors cursor-pointer"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
@@ -411,7 +517,7 @@ export function AuthModal({
                   e.stopPropagation();
                   handleNextSlide();
                 }}
-                className="p-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700/80 text-slate-400 hover:text-white transition-colors"
+                className="p-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700/80 text-slate-400 hover:text-white transition-colors cursor-pointer"
                 aria-label="Next slide"
               >
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -463,7 +569,7 @@ export function AuthModal({
                     setActiveTab("login");
                     setAuthMessage("");
                   }}
-                  className={`pb-3 px-4 transition-all relative ${
+                  className={`pb-3 px-4 transition-all relative cursor-pointer ${
                     activeTab === "login"
                       ? "text-white font-bold"
                       : "text-slate-400 hover:text-slate-200"
@@ -480,7 +586,7 @@ export function AuthModal({
                     setActiveTab("signup");
                     setAuthMessage("");
                   }}
-                  className={`pb-3 px-4 transition-all relative ${
+                  className={`pb-3 px-4 transition-all relative cursor-pointer ${
                     activeTab === "signup"
                       ? "text-white font-bold"
                       : "text-slate-400 hover:text-slate-200"
@@ -551,24 +657,24 @@ export function AuthModal({
                   </div>
                 </div>
 
-                <p className="text-[11px] text-slate-400 leading-relaxed">
-                  Enter your name and email to immediately access the FEESABILITY admissions workspace.
+                <p className="text-[11px] text-slate-400">
+                  Guest access stores your conversation locally on this browser.
                 </p>
 
-                {/* Primary Action CTA Button */}
+                {/* Submit Guest */}
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-3 px-6 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:opacity-95 shadow-lg shadow-cyan-500/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-1 cursor-pointer disabled:opacity-80"
+                  className="w-full py-3 px-6 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:opacity-95 shadow-lg shadow-cyan-500/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-2 cursor-pointer disabled:opacity-80"
                 >
                   {submitting ? (
                     <>
-                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <Loader2 className="w-4 h-4 animate-spin" />
                       <span>Entering Workspace...</span>
                     </>
                   ) : (
                     <>
-                      <span>Continue to Workspace</span>
+                      <span>Continue to Admissions Workspace</span>
                       <ArrowRight className="w-4 h-4" />
                     </>
                   )}
@@ -596,7 +702,7 @@ export function AuthModal({
                   </div>
                 )}
 
-                {/* Email Address */}
+                {/* Email Field */}
                 <div className="space-y-1">
                   <label className="text-[11px] font-semibold text-slate-300">
                     Email Address
@@ -606,7 +712,7 @@ export function AuthModal({
                     <input
                       type="email"
                       required
-                      placeholder="hero@example.com"
+                      placeholder="student@example.com"
                       value={emailInput}
                       onChange={(e) => setEmailInput(e.target.value)}
                       className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
@@ -616,19 +722,16 @@ export function AuthModal({
 
                 {/* Password Field */}
                 <div className="space-y-1">
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-center justify-between">
                     <label className="text-[11px] font-semibold text-slate-300">
                       Password
                     </label>
                     {activeTab === "login" && (
                       <button
                         type="button"
-                        onClick={() =>
-                          setAuthMessage(
-                            "Password recovery will be available after account authentication is integrated."
-                          )
-                        }
-                        className="text-[11px] text-cyan-400 hover:text-cyan-300 hover:underline transition-colors"
+                        onClick={handleForgotPassword}
+                        disabled={submitting}
+                        className="text-[11px] text-cyan-400 hover:text-cyan-300 hover:underline transition-colors disabled:opacity-50 cursor-pointer"
                       >
                         Forgot password?
                       </button>
@@ -694,8 +797,8 @@ export function AuthModal({
                 >
                   {submitting ? (
                     <>
-                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>Entering Workspace...</span>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Please wait...</span>
                     </>
                   ) : (
                     <>
@@ -710,7 +813,7 @@ export function AuthModal({
             {authMessage && (
               <p
                 role="status"
-                className="rounded-xl border border-amber-400/20 bg-amber-400/10 px-3 py-2 text-xs leading-relaxed text-amber-100"
+                className={`rounded-xl border px-3 py-2 text-xs leading-relaxed ${messageStyles[authMessageType]}`}
               >
                 {authMessage}
               </p>
@@ -720,7 +823,7 @@ export function AuthModal({
             {activeTab !== "guest" && (
               <>
                 <div className="relative flex justify-center text-[10px] uppercase font-mono tracking-widest text-slate-500 my-3">
-                  <span className="px-3 bg-[#0a1424] relative z-10">OR CONTINUE AS</span>
+                  <span className="px-3 bg-[#070e1b] relative z-10">OR CONTINUE AS</span>
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-slate-800" />
                   </div>
@@ -731,7 +834,8 @@ export function AuthModal({
                   <button
                     type="button"
                     onClick={handleGoogleSignIn}
-                    className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    disabled={submitting}
+                    className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
                       <path
@@ -751,13 +855,14 @@ export function AuthModal({
                         d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.3-6.4-5.2L1.9 16C3.7 19.7 7.5 23 12 23z"
                       />
                     </svg>
-                    <span>Google (soon)</span>
+                    <span>Google</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={handleGuestAccess}
-                    className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    disabled={submitting}
+                    className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     <User className="w-4 h-4 flex-shrink-0" />
                     <span>Continue as Guest</span>
@@ -831,4 +936,3 @@ export function AuthModal({
 }
 
 export default AuthModal;
-

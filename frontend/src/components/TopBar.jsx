@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Menu, Globe, ChevronDown, LogOut, User } from "lucide-react";
+import { Menu, Globe, ChevronDown, LogOut, RefreshCw, User } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { LANGUAGE_OPTIONS } from "./Composer";
 import { FeesabilityLogo } from "./FeesabilityLogo";
@@ -12,6 +12,7 @@ export function TopBar({
   onNewConversation,
   candidateName,
   onOpenAuth,
+  firebaseUser,
   targetLanguage = "en",
   setTargetLanguage = () => {},
   onNavigateLanding,
@@ -47,6 +48,17 @@ export function TopBar({
   const currentLang =
     LANGUAGE_OPTIONS.find((l) => l.id === targetLanguage) ||
     LANGUAGE_OPTIONS[0];
+
+  const isLoggedIn = Boolean(
+    firebaseUser ||
+    (typeof window !== "undefined" &&
+      (localStorage.getItem("campus_ai_is_authenticated") === "true" ||
+        localStorage.getItem("campus_ai_is_guest") === "true"))
+  );
+
+  const displayName = candidateName || firebaseUser?.displayName || "Candidate";
+  const displayEmail = firebaseUser?.email || userEmail || (isGuest ? "Guest Session" : "");
+  const avatarInitial = (displayName || "C").charAt(0).toUpperCase();
 
   return (
     <header className="h-16 px-4 sm:px-6 flex items-center justify-between border-b border-light-border dark:border-dark-border bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-xl sticky top-0 z-30 transition-colors">
@@ -123,12 +135,18 @@ export function TopBar({
         <div className="relative" ref={profileMenuRef}>
           <button
             type="button"
-            onClick={() => setShowProfileMenu((prev) => !prev)}
+            onClick={() => {
+              if (isLoggedIn) {
+                setShowProfileMenu((prev) => !prev);
+              } else {
+                onOpenAuth();
+              }
+            }}
             className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-md hover:scale-105 active:scale-95 transition-transform focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:ring-offset-transparent cursor-pointer"
-            title={`${candidateName || "Candidate"} — Profile & Session`}
-            aria-label="Open profile menu"
+            title={isLoggedIn ? `${displayName} — Account` : "Sign In / Register"}
+            aria-label={isLoggedIn ? "Account menu" : "Open login"}
           >
-            {(candidateName || "C").charAt(0).toUpperCase()}
+            {avatarInitial}
           </button>
 
           {showProfileMenu && (
@@ -137,14 +155,14 @@ export function TopBar({
               <div className="px-3 py-2.5 border-b border-light-border dark:border-dark-border mb-1">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
-                    {(candidateName || "C").charAt(0).toUpperCase()}
+                    {avatarInitial}
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-bold text-light-text dark:text-dark-text truncate">
-                      {candidateName || "Candidate"}
+                      {displayName}
                     </p>
                     <p className="text-[10px] text-light-muted dark:text-dark-muted truncate">
-                      {userEmail || (isGuest ? "Guest Session" : "Candidate")}
+                      {displayEmail || (isGuest ? "Guest Session" : "Candidate")}
                     </p>
                   </div>
                 </div>
@@ -155,20 +173,33 @@ export function TopBar({
                 )}
               </div>
 
-              {/* Logout Option */}
-              {onLogout && (
+              {/* Actions */}
+              <div className="py-1">
                 <button
                   type="button"
                   onClick={() => {
                     setShowProfileMenu(false);
-                    onLogout();
+                    onOpenAuth();
                   }}
-                  className="w-full px-3 py-2 text-xs font-semibold text-red-500 dark:text-red-400 hover:bg-red-500/10 rounded-xl flex items-center gap-2.5 transition-colors text-left cursor-pointer"
+                  className="w-full px-3 py-2 text-xs font-semibold text-light-muted dark:text-dark-muted hover:text-purple-600 dark:hover:text-purple-400 hover:bg-light-surface2 dark:hover:bg-dark-surface2 rounded-xl flex items-center gap-2.5 transition-all text-left cursor-pointer"
                 >
-                  <LogOut className="w-4 h-4 shrink-0" />
-                  <span>Log Out</span>
+                  <RefreshCw className="w-3.5 h-3.5 shrink-0" />
+                  <span>Switch Account</span>
                 </button>
-              )}
+                {onLogout && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowProfileMenu(false);
+                      onLogout();
+                    }}
+                    className="w-full px-3 py-2 text-xs font-semibold text-red-500 dark:text-red-400 hover:bg-red-500/10 rounded-xl flex items-center gap-2.5 transition-colors text-left cursor-pointer"
+                  >
+                    <LogOut className="w-3.5 h-3.5 shrink-0" />
+                    <span>Sign Out</span>
+                  </button>
+                )}
+              </div>
             </div>
           )}
         </div>

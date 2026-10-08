@@ -14,6 +14,7 @@ import {
   X,
   ChevronRight,
   LogOut,
+  User,
 } from "lucide-react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Delete02Icon } from "@hugeicons/core-free-icons";
@@ -74,6 +75,7 @@ export function Sidebar({
   onOpenAuth,
   candidateName,
   onNavigateLanding,
+  firebaseUser,
   onLogout,
 }) {
   const groupedChats = groupChatsByDate(chats);
@@ -171,9 +173,9 @@ export function Sidebar({
                             radius={10}
                             actionWidth={72}
                             direction="left"
-                            rowColor={isActive ? "var(--history-row-active)" : "var(--history-row-bg)"}
+                            rowColor={isActive ? (isDark ? "#262626" : "#f4f4f5") : "transparent"}
                             textColor="var(--history-row-text)"
-                            drawerColor="var(--history-drawer)"
+                            drawerColor="transparent"
                             actionColor="#ef4444"
                             commitAt={0.55}
                             collapseMs={220}
@@ -197,7 +199,6 @@ export function Sidebar({
                               type="button"
                               onClick={() => onSelectChat(chat.id)}
                               className="flex-1 flex items-center gap-2 text-xs text-left min-w-0 bg-transparent border-0 cursor-pointer p-0 text-light-text dark:text-dark-text"
-                              title={chat.title}
                             >
                               <MessageSquare
                                 className={`w-3.5 h-3.5 shrink-0 text-light-text dark:text-dark-text ${
@@ -235,7 +236,7 @@ export function Sidebar({
                     key={item.label}
                     type="button"
                     onClick={() => { onSelectTopic(item.query); setSidebarOpen(false); }}
-                    className="w-full flex items-center justify-between px-3 py-2 text-xs font-medium rounded-xl text-left text-light-text dark:text-dark-text hover:bg-light-surface2 dark:hover:bg-dark-surface2 transition-colors group"
+                    className="w-full flex items-center justify-between px-3 py-2 text-xs font-medium text-left text-light-muted dark:text-dark-muted hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-200 hover:translate-x-1 group"
                   >
                     <div className="flex items-center gap-2.5 truncate">
                       <Icon className="w-3.5 h-3.5 text-light-muted dark:text-dark-muted group-hover:text-light-text dark:group-hover:text-dark-text shrink-0" />
@@ -263,7 +264,7 @@ export function Sidebar({
                   key={i}
                   type="button"
                   onClick={() => { onSelectTopic(ws.query); setSidebarOpen(false); }}
-                  className="w-full flex items-center justify-between px-3 py-1.5 text-xs text-light-muted dark:text-dark-muted hover:text-light-text dark:hover:text-dark-text hover:bg-light-surface2 dark:hover:bg-dark-surface2 rounded-lg text-left transition-colors"
+                  className="w-full flex items-center justify-between px-3 py-1.5 text-xs text-light-muted dark:text-dark-muted hover:text-indigo-600 dark:hover:text-indigo-400 text-left transition-all duration-200 hover:translate-x-1"
                 >
                   <div className="flex items-center gap-2 truncate">
                     <FolderKanban className="w-3.5 h-3.5 opacity-60 shrink-0" />
@@ -278,35 +279,47 @@ export function Sidebar({
 
         {/* User Session & Logout in Sidebar */}
         <div className="px-4 pt-3 pb-1 border-t border-light-border dark:border-dark-border">
-          <div className="p-2.5 rounded-2xl glass-card border border-light-border/60 dark:border-dark-border/60 flex items-center justify-between gap-2">
-            <div className="flex items-center gap-2.5 min-w-0">
-              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
-                {(candidateName || "C").charAt(0).toUpperCase()}
+          {firebaseUser || candidateName || (typeof window !== "undefined" && (localStorage.getItem("campus_ai_is_guest") === "true" || localStorage.getItem("campus_ai_is_authenticated") === "true")) ? (
+            <div className="p-2.5 rounded-2xl glass-card border border-light-border/60 dark:border-dark-border/60 flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
+                  {(candidateName || firebaseUser?.displayName || "C").charAt(0).toUpperCase()}
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold text-light-text dark:text-dark-text truncate leading-tight">
+                    {candidateName || firebaseUser?.displayName || "Candidate"}
+                  </p>
+                  <p className="text-[10px] text-light-muted dark:text-dark-muted truncate">
+                    {firebaseUser?.email ||
+                      (typeof window !== "undefined" && localStorage.getItem("campus_ai_is_guest") === "true"
+                        ? "Guest Mode"
+                        : typeof window !== "undefined" && localStorage.getItem("campus_ai_user_email")
+                        ? localStorage.getItem("campus_ai_user_email")
+                        : "Active")}
+                  </p>
+                </div>
               </div>
-              <div className="min-w-0">
-                <p className="text-xs font-semibold text-light-text dark:text-dark-text truncate leading-tight">
-                  {candidateName || "Candidate"}
-                </p>
-                <p className="text-[10px] text-light-muted dark:text-dark-muted truncate">
-                  {typeof window !== "undefined" && localStorage.getItem("campus_ai_is_guest") === "true"
-                    ? "Guest Mode"
-                    : typeof window !== "undefined" && localStorage.getItem("campus_ai_user_email")
-                    ? localStorage.getItem("campus_ai_user_email")
-                    : "Active"}
-                </p>
-              </div>
+              {onLogout && (
+                <button
+                  type="button"
+                  onClick={onLogout}
+                  title="Log Out and return to Home"
+                  className="p-1.5 rounded-lg text-light-muted dark:text-dark-muted hover:text-red-500 hover:bg-red-500/10 transition-colors cursor-pointer"
+                >
+                  <LogOut className="w-4 h-4" />
+                </button>
+              )}
             </div>
-            {onLogout && (
-              <button
-                type="button"
-                onClick={onLogout}
-                title="Log Out and return to Home"
-                className="p-1.5 rounded-lg text-light-muted dark:text-dark-muted hover:text-red-500 hover:bg-red-500/10 transition-colors cursor-pointer"
-              >
-                <LogOut className="w-4 h-4" />
-              </button>
-            )}
-          </div>
+          ) : (
+            <button
+              type="button"
+              onClick={onOpenAuth}
+              className="w-full flex items-center justify-center gap-2.5 px-3 py-2.5 rounded-xl border border-light-border dark:border-dark-border text-light-text dark:text-dark-text hover:border-purple-500/50 hover:text-purple-600 dark:hover:text-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)] transition-all text-xs font-semibold cursor-pointer"
+            >
+              <User className="w-4 h-4 flex-shrink-0" />
+              <span>Sign In / Register</span>
+            </button>
+          )}
         </div>
 
         {/* Bottom Helpdesk Card (Transparent seamless transition) */}
