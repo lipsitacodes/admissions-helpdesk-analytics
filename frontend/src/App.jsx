@@ -79,11 +79,13 @@ export function App() {
 
   // Set auth persistence to stay logged in across reloads
   useEffect(() => {
+    if (!auth) return;
     setPersistence(auth, browserLocalPersistence).catch((e) => console.error('Auth persistence error', e));
   }, []);
 
   // Listen for Firebase auth state changes (login, logout, page refresh)
   useEffect(() => {
+    if (!auth) return;
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setFirebaseUser(user);
       if (user) {
@@ -474,9 +476,11 @@ export function App() {
 
   // Handle complete logout: clear auth credentials, active conversation, reset state, and return to Landing Page
   const handleLogout = useCallback(async () => {
-    try {
-      await signOut(auth);
-    } catch (_) {}
+    if (auth) {
+      try {
+        await signOut(auth);
+      } catch (_) {}
+    }
     setFirebaseUser(null);
     localStorage.removeItem("campus_ai_is_authenticated");
     localStorage.removeItem("campus_ai_is_guest");

@@ -237,6 +237,17 @@ export function AuthModal({
     setSubmitting(true);
     setAuthMessage("");
 
+    if (!auth) {
+      const fallbackName =
+        (activeTab === "signup" ? nameInput.trim() : "") ||
+        (emailInput ? emailInput.split("@")[0] : "") ||
+        candidateName ||
+        "Student";
+      handleAuthComplete(fallbackName, emailInput);
+      setSubmitting(false);
+      return;
+    }
+
     try {
       if (activeTab === "signup") {
         const userCredential = await createUserWithEmailAndPassword(
@@ -316,6 +327,14 @@ export function AuthModal({
   const handleGoogleSignIn = async () => {
     setSubmitting(true);
     setAuthMessage("");
+
+    if (!auth || !googleProvider) {
+      setAuthMessage("Google sign-in is unavailable without Firebase setup. Please use email or guest mode.");
+      setAuthMessageType("info");
+      setSubmitting(false);
+      return;
+    }
+
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const displayName =
@@ -338,6 +357,13 @@ export function AuthModal({
       setAuthMessageType("info");
       return;
     }
+
+    if (!auth) {
+      setAuthMessage("Password reset is unavailable without Firebase configuration.");
+      setAuthMessageType("info");
+      return;
+    }
+
     setSubmitting(true);
     setAuthMessage("");
     try {
