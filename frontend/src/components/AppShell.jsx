@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import { Sidebar } from "./Sidebar";
 import { TopBar } from "./TopBar";
 import { ChatArea } from "./ChatArea";
@@ -31,7 +32,26 @@ export function AppShell({
   onNavigateLanding,
   targetLanguage,
   setTargetLanguage,
+  onLogout,
 }) {
+  const chatContainerRef = useRef(null);
+  const prevMessagesCount = useRef(messages.length);
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      const wasEmpty = prevMessagesCount.current === 0;
+      const isEmpty = messages.length === 0;
+      if (wasEmpty !== isEmpty) {
+        gsap.fromTo(
+          chatContainerRef.current,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", clearProps: "all" }
+        );
+      }
+    }
+    prevMessagesCount.current = messages.length;
+  }, [messages.length]);
+
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300">
       {/* Sidebar Rail / Navigation */}
@@ -48,11 +68,12 @@ export function AppShell({
         onOpenAuth={() => setAuthOpen(true)}
         candidateName={candidateName}
         onNavigateLanding={onNavigateLanding}
+        onLogout={onLogout}
       />
 
       {/* Main Intelligent Workspace */}
       <div className="flex-1 flex flex-col h-full min-h-0 min-w-0 overflow-hidden relative">
-        {/* Top Bar with Language Dropdown */}
+        {/* Top Bar with Language Dropdown & Logo */}
         <TopBar
           onToggleSidebar={() => setSidebarOpen((prev) => !prev)}
           sidebarOpen={sidebarOpen}
@@ -63,30 +84,53 @@ export function AppShell({
           onOpenAuth={() => setAuthOpen(true)}
           targetLanguage={targetLanguage}
           setTargetLanguage={setTargetLanguage}
+          onNavigateLanding={onNavigateLanding}
+          onLogout={onLogout}
         />
 
-        {/* Conversation Stream & Hero */}
-        <ChatArea
-          messages={messages}
-          isBusy={isBusy}
-          onSelectPrompt={(prompt) => onSelectTopic(prompt)}
-          candidateName={candidateName}
-          theme={theme}
-          citationEnabled={citationEnabled}
-        />
+        {/* Chat Area & Composer: Clean empty state or active conversation with GSAP fade */}
+        <div ref={chatContainerRef} className="flex-1 flex flex-col h-full min-h-0 min-w-0 overflow-hidden">
+          {messages.length === 0 ? (
+            <div className="flex-1 flex flex-col items-center justify-center px-4 py-8 overflow-y-auto">
+              <div className="w-full max-w-3xl">
+                <Composer
+                  input={input}
+                  setInput={setInput}
+                  onSubmit={onSubmit}
+                  isBusy={isBusy}
+                  errorMessage={errorMessage}
+                  citationEnabled={citationEnabled}
+                  setCitationEnabled={setCitationEnabled}
+                  targetLanguage={targetLanguage}
+                  setTargetLanguage={setTargetLanguage}
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="flex-1 flex flex-col h-full min-h-0 overflow-hidden">
+              <ChatArea
+                messages={messages}
+                isBusy={isBusy}
+                onSelectPrompt={(prompt) => onSelectTopic(prompt)}
+                candidateName={candidateName}
+                theme={theme}
+                citationEnabled={citationEnabled}
+              />
 
-        {/* Floating Neon-Aura Composer with Language & Whisper Voice */}
-        <Composer
-          input={input}
-          setInput={setInput}
-          onSubmit={onSubmit}
-          isBusy={isBusy}
-          errorMessage={errorMessage}
-          citationEnabled={citationEnabled}
-          setCitationEnabled={setCitationEnabled}
-          targetLanguage={targetLanguage}
-          setTargetLanguage={setTargetLanguage}
-        />
+              <Composer
+                input={input}
+                setInput={setInput}
+                onSubmit={onSubmit}
+                isBusy={isBusy}
+                errorMessage={errorMessage}
+                citationEnabled={citationEnabled}
+                setCitationEnabled={setCitationEnabled}
+                targetLanguage={targetLanguage}
+                setTargetLanguage={setTargetLanguage}
+              />
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Motivating Candidate Auth Modal (Reference Image 4) */}

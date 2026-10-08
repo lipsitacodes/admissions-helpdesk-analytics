@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Menu, Globe, ChevronDown } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { Menu, Globe, ChevronDown, LogOut, User } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { LANGUAGE_OPTIONS } from "./Composer";
+import { FeesabilityLogo } from "./FeesabilityLogo";
 
 export function TopBar({
   onToggleSidebar,
@@ -13,8 +14,35 @@ export function TopBar({
   onOpenAuth,
   targetLanguage = "en",
   setTargetLanguage = () => {},
+  onNavigateLanding,
+  onLogout,
 }) {
   const [showLangMenu, setShowLangMenu] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const profileMenuRef = useRef(null);
+
+  // Close profile dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target)) {
+        setShowProfileMenu(false);
+      }
+    }
+    if (showProfileMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showProfileMenu]);
+
+  const isGuest =
+    typeof window !== "undefined" &&
+    localStorage.getItem("campus_ai_is_guest") === "true";
+  const userEmail =
+    typeof window !== "undefined"
+      ? localStorage.getItem("campus_ai_user_email") || ""
+      : "";
 
   const currentLang =
     LANGUAGE_OPTIONS.find((l) => l.id === targetLanguage) ||
@@ -22,17 +50,30 @@ export function TopBar({
 
   return (
     <header className="h-16 px-4 sm:px-6 flex items-center justify-between border-b border-light-border dark:border-dark-border bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-xl sticky top-0 z-30 transition-colors">
-      {/* Left: Show hamburger only when sidebar is collapsed */}
-      <div className="flex items-center gap-2">
+      {/* Left: Show hamburger and logo when sidebar is collapsed */}
+      <div className="flex items-center gap-3">
         {!sidebarOpen && (
-          <button
-            type="button"
-            onClick={onToggleSidebar}
-            aria-label="Open navigation"
-            className="p-2 rounded-xl border border-light-border dark:border-dark-border text-light-muted dark:text-dark-muted hover:text-light-text dark:hover:text-dark-text hover:bg-light-surface2 dark:hover:bg-dark-surface2 transition-all focus:outline-none"
-          >
-            <Menu className="w-4 h-4" />
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={onToggleSidebar}
+              aria-label="Open navigation"
+              className="p-2 rounded-xl border border-light-border dark:border-dark-border text-light-muted dark:text-dark-muted hover:text-light-text dark:hover:text-dark-text hover:bg-light-surface2 dark:hover:bg-dark-surface2 transition-all focus:outline-none"
+            >
+              <Menu className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={onNavigateLanding}
+              className="flex items-center gap-2 cursor-pointer hover:opacity-85 transition-opacity select-none text-left"
+              title="Return to Landing Page"
+            >
+              <FeesabilityLogo className="w-5 h-5 text-light-text dark:text-white shrink-0" />
+              <span className="text-base font-extrabold tracking-[-0.03em] text-light-text dark:text-white" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                feesability<span className="text-white">.</span>
+              </span>
+            </button>
+          </>
         )}
       </div>
 
@@ -78,16 +119,59 @@ export function TopBar({
         {/* Minimalist Theme Switcher */}
         <ThemeToggle theme={theme} onToggle={onToggleTheme} />
 
-        {/* Candidate Profile Avatar */}
-        <button
-          type="button"
-          onClick={onOpenAuth}
-          className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-md hover:scale-105 active:scale-95 transition-transform focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:ring-offset-transparent"
-          title={`${candidateName || "Candidate"} — Profile & Admissions Login`}
-          aria-label="Open profile"
-        >
-          {(candidateName || "C").charAt(0).toUpperCase()}
-        </button>
+        {/* Candidate Profile Avatar & Dropdown */}
+        <div className="relative" ref={profileMenuRef}>
+          <button
+            type="button"
+            onClick={() => setShowProfileMenu((prev) => !prev)}
+            className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-md hover:scale-105 active:scale-95 transition-transform focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:ring-offset-transparent cursor-pointer"
+            title={`${candidateName || "Candidate"} — Profile & Session`}
+            aria-label="Open profile menu"
+          >
+            {(candidateName || "C").charAt(0).toUpperCase()}
+          </button>
+
+          {showProfileMenu && (
+            <div className="absolute right-0 top-full mt-2 w-56 p-2 rounded-2xl glass-card border border-light-border dark:border-dark-border shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150">
+              {/* User info header */}
+              <div className="px-3 py-2.5 border-b border-light-border dark:border-dark-border mb-1">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
+                    {(candidateName || "C").charAt(0).toUpperCase()}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-bold text-light-text dark:text-dark-text truncate">
+                      {candidateName || "Candidate"}
+                    </p>
+                    <p className="text-[10px] text-light-muted dark:text-dark-muted truncate">
+                      {userEmail || (isGuest ? "Guest Session" : "Candidate")}
+                    </p>
+                  </div>
+                </div>
+                {isGuest && (
+                  <span className="inline-block mt-2 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                    Guest Mode
+                  </span>
+                )}
+              </div>
+
+              {/* Logout Option */}
+              {onLogout && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowProfileMenu(false);
+                    onLogout();
+                  }}
+                  className="w-full px-3 py-2 text-xs font-semibold text-red-500 dark:text-red-400 hover:bg-red-500/10 rounded-xl flex items-center gap-2.5 transition-colors text-left cursor-pointer"
+                >
+                  <LogOut className="w-4 h-4 shrink-0" />
+                  <span>Log Out</span>
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

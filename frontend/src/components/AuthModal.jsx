@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import {
   X,
   Lock,
@@ -11,7 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { OrbLogo } from "./OrbLogo";
+import { FeesabilityLogo } from "./FeesabilityLogo";
 
 const SLIDES = [
   {
@@ -72,12 +73,20 @@ export function AuthModal({
   const [confirmPassword, setConfirmPassword] = useState("");
   const [keepLoggedIn, setKeepLoggedIn] = useState(true);
   const [authMessage, setAuthMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   // Slide Carousel State & Touch/Swipe logic
   const [currentSlide, setCurrentSlide] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const isDragging = useRef(false);
+
+  // Reset submitting when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setSubmitting(false);
+    }
+  }, [isOpen]);
 
   // Auto-advance slide every 5 seconds
   useEffect(() => {
@@ -87,6 +96,40 @@ export function AuthModal({
     }, 5000);
     return () => clearInterval(timer);
   }, [isOpen]);
+
+  const modalWrapperRef = useRef(null);
+  const backdropRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen && modalWrapperRef.current && backdropRef.current) {
+      gsap.fromTo(
+        backdropRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.35, ease: "power2.out" }
+      );
+      gsap.fromTo(
+        modalWrapperRef.current,
+        { opacity: 0, scale: 0.95, y: 12 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power3.out" }
+      );
+    }
+  }, [isOpen]);
+
+  const handleModalClose = () => {
+    if (modalWrapperRef.current && backdropRef.current) {
+      gsap.to(backdropRef.current, { opacity: 0, duration: 0.22, ease: "power2.in" });
+      gsap.to(modalWrapperRef.current, {
+        opacity: 0,
+        scale: 0.96,
+        y: 10,
+        duration: 0.25,
+        ease: "power2.in",
+        onComplete: onClose,
+      });
+    } else {
+      onClose();
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -147,19 +190,55 @@ export function AuthModal({
       setAuthMessage("Your passwords do not match.");
       return;
     }
-    setAuthMessage(
-      "Account authentication will be available after the database is connected. Continue as a guest for now."
-    );
-  };
+    const displayName =
+      (activeTab === "signup" ? nameInput.trim() : "") ||
+      (emailInput ? emailInput.split("@")[0] : "") ||
+      candidateName ||
+      "Student";
 
-  const handleGuestAccess = () => {
-    const displayName = nameInput.trim() || candidateName || "Guest";
+    setSubmitting(true);
     onSaveCandidate(displayName);
+    localStorage.setItem("campus_ai_candidate_name", displayName);
+    localStorage.setItem("campus_ai_user_email", emailInput);
+    localStorage.setItem("campus_ai_is_authenticated", "true");
     if (onAuthSuccess) {
       onAuthSuccess(displayName);
     } else {
       onClose();
     }
+  };
+
+  const handleGuestSubmit = (e) => {
+    if (e) e.preventDefault();
+    const trimmedName = nameInput.trim();
+    const trimmedEmail = emailInput.trim();
+
+    if (!trimmedName) {
+      setAuthMessage("Please enter your name to continue as a guest.");
+      return;
+    }
+    if (!trimmedEmail || !trimmedEmail.includes("@") || !trimmedEmail.includes(".")) {
+      setAuthMessage("Please enter a valid email address to continue.");
+      return;
+    }
+
+    setSubmitting(true);
+    onSaveCandidate(trimmedName);
+    localStorage.setItem("campus_ai_candidate_name", trimmedName);
+    localStorage.setItem("campus_ai_user_email", trimmedEmail);
+    localStorage.setItem("campus_ai_is_guest", "true");
+    localStorage.setItem("campus_ai_is_authenticated", "true");
+
+    if (onAuthSuccess) {
+      onAuthSuccess(trimmedName);
+    } else {
+      onClose();
+    }
+  };
+
+  const handleGuestAccess = () => {
+    setActiveTab("guest");
+    setAuthMessage("");
   };
 
   const handleGoogleSignIn = () => {
@@ -172,8 +251,9 @@ export function AuthModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
       {/* Deep Dark Blurred Backdrop */}
       <div
-        className="fixed inset-0 bg-[#030712]/85 backdrop-blur-2xl transition-opacity"
-        onClick={onClose}
+        ref={backdropRef}
+        className="fixed inset-0 bg-[#030712]/85 backdrop-blur-2xl"
+        onClick={handleModalClose}
       />
 
       {/* Decorative Ambient Radial Glows */}
@@ -181,11 +261,14 @@ export function AuthModal({
       <div className="fixed bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-blue-600/15 blur-[120px] pointer-events-none" />
 
       {/* Split-Layout Glassmorphic Modal Card */}
-      <div className="relative w-full max-w-4xl bg-[#0a1424]/95 backdrop-blur-3xl rounded-2xl sm:rounded-3xl text-white shadow-2xl border border-slate-700/60 z-10 overflow-hidden flex flex-col md:flex-row max-h-[92vh] md:max-h-[88vh]">
+      <div
+        ref={modalWrapperRef}
+        className="relative w-full max-w-4xl bg-[#0a1424]/95 backdrop-blur-3xl rounded-2xl sm:rounded-3xl text-white shadow-2xl border border-slate-700/60 z-10 overflow-hidden flex flex-col md:flex-row max-h-[92vh] md:max-h-[88vh]"
+      >
         {/* Close Button */}
         <button
           type="button"
-          onClick={onClose}
+          onClick={handleModalClose}
           className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-30 p-2 rounded-full bg-slate-800/70 hover:bg-slate-700/90 text-slate-400 hover:text-white transition-colors"
           aria-label="Close modal"
         >
@@ -207,10 +290,10 @@ export function AuthModal({
 
           {/* Top Brand Header */}
           <div className="relative z-10 flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <OrbLogo size="sm" animated={false} interactive={false} />
-              <span className="text-sm font-extrabold tracking-tight text-white font-heading">
-                FEESABILITY
+            <div className="flex items-center gap-2">
+              <FeesabilityLogo className="w-5 h-5 text-white shrink-0" />
+              <span className="text-sm font-extrabold tracking-[-0.03em] text-white" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                feesability<span className="text-white">.</span>
               </span>
             </div>
             <span className="text-[10px] text-slate-400 opacity-60 group-hover:opacity-100 transition-opacity">
@@ -342,9 +425,9 @@ export function AuthModal({
           {/* Mobile Header (Visible on small screens where left showcase is hidden) */}
           <div className="flex md:hidden items-center justify-between pb-3 border-b border-slate-800/60 pr-8">
             <div className="flex items-center gap-2">
-              <OrbLogo size="sm" animated={false} interactive={false} />
-              <span className="text-xs font-extrabold tracking-tight text-white font-heading">
-                FEESABILITY
+              <FeesabilityLogo className="w-5 h-5 text-white shrink-0" />
+              <span className="text-xs font-extrabold tracking-[-0.03em] text-white" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                feesability<span className="text-white">.</span>
               </span>
             </div>
             <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
@@ -356,66 +439,92 @@ export function AuthModal({
             {/* Form Header */}
             <div>
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-white">
-                {activeTab === "login" ? "Welcome Back" : "Create Account"}
+                {activeTab === "login"
+                  ? "Welcome Back"
+                  : activeTab === "signup"
+                  ? "Create Account"
+                  : "Guest Access"}
               </h2>
               <p className="text-xs text-slate-400 mt-1">
                 {activeTab === "login"
                   ? "Ready to continue your admissions quest?"
-                  : "Create your FEESABILITY account"}
+                  : activeTab === "signup"
+                  ? "Create your FEESABILITY account"
+                  : "Enter your name and email to proceed to the workspace"}
               </p>
             </div>
 
-            {/* Tab Switcher (Login | Sign Up) */}
-            <div className="flex items-center border-b border-slate-800 text-sm font-semibold">
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveTab("login");
-                  setAuthMessage("");
-                }}
-                className={`pb-3 px-4 transition-all relative ${
-                  activeTab === "login"
-                    ? "text-white font-bold"
-                    : "text-slate-400 hover:text-slate-200"
-                }`}
-              >
-                Login
-                {activeTab === "login" && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
-                )}
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveTab("signup");
-                  setAuthMessage("");
-                }}
-                className={`pb-3 px-4 transition-all relative ${
-                  activeTab === "signup"
-                    ? "text-white font-bold"
-                    : "text-slate-400 hover:text-slate-200"
-                }`}
-              >
-                Sign Up
-                {activeTab === "signup" && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
-                )}
-              </button>
-            </div>
+            {/* Tab Switcher (Login | Sign Up | Guest Mode) */}
+            {activeTab !== "guest" ? (
+              <div className="flex items-center border-b border-slate-800 text-sm font-semibold">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTab("login");
+                    setAuthMessage("");
+                  }}
+                  className={`pb-3 px-4 transition-all relative ${
+                    activeTab === "login"
+                      ? "text-white font-bold"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  Login
+                  {activeTab === "login" && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTab("signup");
+                    setAuthMessage("");
+                  }}
+                  className={`pb-3 px-4 transition-all relative ${
+                    activeTab === "signup"
+                      ? "text-white font-bold"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  Sign Up
+                  {activeTab === "signup" && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
+                  )}
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3 text-sm font-semibold">
+                <span className="flex items-center gap-1.5 text-xs text-cyan-400 font-semibold">
+                  <User className="w-3.5 h-3.5 text-cyan-400" />
+                  Guest Information
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTab("login");
+                    setAuthMessage("");
+                  }}
+                  className="text-xs text-slate-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  ← Back to Login
+                </button>
+              </div>
+            )}
 
-            {/* Form Inputs */}
-            <form onSubmit={handleSubmit} className="space-y-3.5">
-              {/* Name Field (for Sign Up) */}
-              {activeTab === "signup" && (
+            {/* Form Inputs: Guest Mode or Login/Signup */}
+            {activeTab === "guest" ? (
+              <form onSubmit={handleGuestSubmit} className="space-y-4">
+                {/* Name Field */}
                 <div className="space-y-1">
                   <label className="text-[11px] font-semibold text-slate-300">
-                    Full Name
+                    Full Name <span className="text-cyan-400">*</span>
                   </label>
                   <div className="relative">
                     <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
                       type="text"
                       required
+                      autoFocus
                       placeholder="Candidate / Student Name"
                       value={nameInput}
                       onChange={(e) => setNameInput(e.target.value)}
@@ -423,107 +532,180 @@ export function AuthModal({
                     />
                   </div>
                 </div>
-              )}
 
-              {/* Email Address */}
-              <div className="space-y-1">
-                <label className="text-[11px] font-semibold text-slate-300">
-                  Email Address
-                </label>
-                <div className="relative">
-                  <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                  <input
-                    type="email"
-                    required
-                    placeholder="hero@example.com"
-                    value={emailInput}
-                    onChange={(e) => setEmailInput(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
-                  />
-                </div>
-              </div>
-
-              {/* Password Field */}
-              <div className="space-y-1">
-                <div className="flex justify-between items-center">
-                  <label className="text-[11px] font-semibold text-slate-300">
-                    Password
-                  </label>
-                  {activeTab === "login" && (
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setAuthMessage(
-                          "Password recovery will be available after account authentication is integrated."
-                        )
-                      }
-                      className="text-[11px] text-cyan-400 hover:text-cyan-300 hover:underline transition-colors"
-                    >
-                      Forgot password?
-                    </button>
-                  )}
-                </div>
-                <div className="relative">
-                  <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                  <input
-                    type="password"
-                    required
-                    placeholder="••••••••"
-                    value={passwordInput}
-                    onChange={(e) => setPasswordInput(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
-                  />
-                </div>
-              </div>
-
-              {/* Confirm Password (for Sign Up) */}
-              {activeTab === "signup" && (
+                {/* Email Address */}
                 <div className="space-y-1">
                   <label className="text-[11px] font-semibold text-slate-300">
-                    Confirm Password
+                    Email Address <span className="text-cyan-400">*</span>
                   </label>
+                  <div className="relative">
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <input
+                      type="email"
+                      required
+                      placeholder="hero@example.com"
+                      value={emailInput}
+                      onChange={(e) => setEmailInput(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <p className="text-[11px] text-slate-400 leading-relaxed">
+                  Enter your name and email to immediately access the FEESABILITY admissions workspace.
+                </p>
+
+                {/* Primary Action CTA Button */}
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full py-3 px-6 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:opacity-95 shadow-lg shadow-cyan-500/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-1 cursor-pointer disabled:opacity-80"
+                >
+                  {submitting ? (
+                    <>
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span>Entering Workspace...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Continue to Workspace</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
+                </button>
+              </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-3.5">
+                {/* Name Field (for Sign Up) */}
+                {activeTab === "signup" && (
+                  <div className="space-y-1">
+                    <label className="text-[11px] font-semibold text-slate-300">
+                      Full Name
+                    </label>
+                    <div className="relative">
+                      <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      <input
+                        type="text"
+                        required
+                        placeholder="Candidate / Student Name"
+                        value={nameInput}
+                        onChange={(e) => setNameInput(e.target.value)}
+                        className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Email Address */}
+                <div className="space-y-1">
+                  <label className="text-[11px] font-semibold text-slate-300">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <input
+                      type="email"
+                      required
+                      placeholder="hero@example.com"
+                      value={emailInput}
+                      onChange={(e) => setEmailInput(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Password Field */}
+                <div className="space-y-1">
+                  <div className="flex justify-between items-center">
+                    <label className="text-[11px] font-semibold text-slate-300">
+                      Password
+                    </label>
+                    {activeTab === "login" && (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setAuthMessage(
+                            "Password recovery will be available after account authentication is integrated."
+                          )
+                        }
+                        className="text-[11px] text-cyan-400 hover:text-cyan-300 hover:underline transition-colors"
+                      >
+                        Forgot password?
+                      </button>
+                    )}
+                  </div>
                   <div className="relative">
                     <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
                       type="password"
                       required
                       placeholder="••••••••"
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      value={passwordInput}
+                      onChange={(e) => setPasswordInput(e.target.value)}
                       className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
                     />
                   </div>
                 </div>
-              )}
 
-              {/* Checkbox Option */}
-              <div className="flex items-center gap-2 pt-0.5">
-                <input
-                  type="checkbox"
-                  id="keep-logged"
-                  checked={keepLoggedIn}
-                  onChange={(e) => setKeepLoggedIn(e.target.checked)}
-                  className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0 cursor-pointer"
-                />
-                <label
-                  htmlFor="keep-logged"
-                  className="text-xs text-slate-400 select-none cursor-pointer"
+                {/* Confirm Password (for Sign Up) */}
+                {activeTab === "signup" && (
+                  <div className="space-y-1">
+                    <label className="text-[11px] font-semibold text-slate-300">
+                      Confirm Password
+                    </label>
+                    <div className="relative">
+                      <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      <input
+                        type="password"
+                        required
+                        placeholder="••••••••"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Checkbox Option */}
+                <div className="flex items-center gap-2 pt-0.5">
+                  <input
+                    type="checkbox"
+                    id="keep-logged"
+                    checked={keepLoggedIn}
+                    onChange={(e) => setKeepLoggedIn(e.target.checked)}
+                    className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0 cursor-pointer"
+                  />
+                  <label
+                    htmlFor="keep-logged"
+                    className="text-xs text-slate-400 select-none cursor-pointer"
+                  >
+                    {activeTab === "login"
+                      ? "Keep me logged in to the portal"
+                      : "I agree to Admissions Terms & Privacy Policy"}
+                  </label>
+                </div>
+
+                {/* Primary Action CTA Button */}
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full py-3 px-6 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:opacity-95 shadow-lg shadow-cyan-500/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-1 cursor-pointer disabled:opacity-80"
                 >
-                  {activeTab === "login"
-                    ? "Keep me logged in to the portal"
-                    : "I agree to Admissions Terms & Privacy Policy"}
-                </label>
-              </div>
-
-              {/* Primary Action CTA Button */}
-              <button
-                type="submit"
-                className="w-full py-3 px-6 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:opacity-95 shadow-lg shadow-cyan-500/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-1"
-              >
-                <span>{activeTab === "login" ? "Sign In" : "Create Account"}</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </form>
+                  {submitting ? (
+                    <>
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span>Entering Workspace...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>{activeTab === "login" ? "Sign In" : "Create Account"}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
 
             {authMessage && (
               <p
@@ -534,56 +716,85 @@ export function AuthModal({
               </p>
             )}
 
-            {/* OR CONTINUE AS Divider */}
-            <div className="relative flex justify-center text-[10px] uppercase font-mono tracking-widest text-slate-500 my-3">
-              <span className="px-3 bg-[#0a1424] relative z-10">OR CONTINUE AS</span>
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-slate-800" />
-              </div>
-            </div>
+            {/* OR CONTINUE AS Divider (shown for Login & Sign Up) */}
+            {activeTab !== "guest" && (
+              <>
+                <div className="relative flex justify-center text-[10px] uppercase font-mono tracking-widest text-slate-500 my-3">
+                  <span className="px-3 bg-[#0a1424] relative z-10">OR CONTINUE AS</span>
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-slate-800" />
+                  </div>
+                </div>
 
-            {/* Social Logins / Guest Option */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              <button
-                type="button"
-                onClick={handleGoogleSignIn}
-                className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2"
-              >
-                <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
-                  <path
-                    fill="#EA4335"
-                    d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.3 9 5 12 5z"
-                  />
-                  <path
-                    fill="#4285F4"
-                    d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"
-                  />
-                  <path
-                    fill="#FBBC05"
-                    d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.9 7.3C.7 9.7 0 12 0 14.5s.7 4.8 1.9 7.2l3.7-2.9z"
-                  />
-                  <path
-                    fill="#34A853"
-                    d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.3-6.4-5.2L1.9 16C3.7 19.7 7.5 23 12 23z"
-                  />
-                </svg>
-                <span>Google (soon)</span>
-              </button>
+                {/* Social Logins / Guest Option */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <button
+                    type="button"
+                    onClick={handleGoogleSignIn}
+                    className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
+                      <path
+                        fill="#EA4335"
+                        d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.3 9 5 12 5z"
+                      />
+                      <path
+                        fill="#4285F4"
+                        d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"
+                      />
+                      <path
+                        fill="#FBBC05"
+                        d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.9 7.3C.7 9.7 0 12 0 14.5s.7 4.8 1.9 7.2l3.7-2.9z"
+                      />
+                      <path
+                        fill="#34A853"
+                        d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.3-6.4-5.2L1.9 16C3.7 19.7 7.5 23 12 23z"
+                      />
+                    </svg>
+                    <span>Google (soon)</span>
+                  </button>
 
-              <button
-                type="button"
-                onClick={handleGuestAccess}
-                className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2"
-              >
-                <User className="w-4 h-4 flex-shrink-0" />
-                <span>Continue as Guest</span>
-              </button>
-            </div>
+                  <button
+                    type="button"
+                    onClick={handleGuestAccess}
+                    className="py-2.5 px-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <User className="w-4 h-4 flex-shrink-0" />
+                    <span>Continue as Guest</span>
+                  </button>
+                </div>
+              </>
+            )}
           </div>
 
           {/* Footer Tab Switch Link */}
           <div className="text-center pt-2 text-xs text-slate-400">
-            {activeTab === "login" ? (
+            {activeTab === "guest" ? (
+              <span>
+                Want to save your profile permanently?{" "}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTab("signup");
+                    setAuthMessage("");
+                  }}
+                  className="text-cyan-400 font-bold hover:underline transition-colors ml-1 cursor-pointer"
+                >
+                  Create Account
+                </button>
+                {" or "}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTab("login");
+                    setAuthMessage("");
+                  }}
+                  className="text-cyan-400 font-bold hover:underline transition-colors cursor-pointer"
+                >
+                  Sign In
+                </button>
+              </span>
+            ) : activeTab === "login" ? (
               <span>
                 Don't have an account yet?{" "}
                 <button
@@ -592,7 +803,7 @@ export function AuthModal({
                     setActiveTab("signup");
                     setAuthMessage("");
                   }}
-                  className="text-cyan-400 font-bold hover:underline transition-colors ml-1"
+                  className="text-cyan-400 font-bold hover:underline transition-colors ml-1 cursor-pointer"
                 >
                   Create Account
                 </button>
@@ -606,7 +817,7 @@ export function AuthModal({
                     setActiveTab("login");
                     setAuthMessage("");
                   }}
-                  className="text-cyan-400 font-bold hover:underline transition-colors ml-1"
+                  className="text-cyan-400 font-bold hover:underline transition-colors ml-1 cursor-pointer"
                 >
                   Sign In
                 </button>

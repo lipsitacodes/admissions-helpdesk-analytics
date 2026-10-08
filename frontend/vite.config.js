@@ -23,6 +23,11 @@ function syncFlaskTemplatePlugin() {
 
 export default defineConfig(({ command }) => ({
   plugins: [react(), syncFlaskTemplatePlugin()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   base: command === "build" ? "/static/" : "/",
   build: {
     outDir: "static",

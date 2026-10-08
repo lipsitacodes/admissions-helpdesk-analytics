@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import { gsap } from "gsap";
 import { AppShell } from "./components/AppShell";
 import { LandingPage } from "./components/LandingPage";
-import { SpeedLoader } from "./components/SpeedLoader";
-import BlobCursor from "./components/BlobCursor";
 
 function formatTimestamp() {
   return new Intl.DateTimeFormat("en-IN", {
@@ -43,16 +42,6 @@ function loadChats() {
 }
 
 export function App() {
-  // Initial Hyper-Speed Website Loader
-  const [appLoading, setAppLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAppLoading(false);
-    }, 1800);
-    return () => clearTimeout(timer);
-  }, []);
-
   // View routing: 'landing' | 'chat' — persisted across refreshes
   const [currentView, setCurrentView] = useState(() => {
     return localStorage.getItem("campus_ai_view") || "landing";
@@ -70,6 +59,20 @@ export function App() {
 
   // Auth Modal State
   const [authOpen, setAuthOpen] = useState(false);
+
+  // Authentication status (user account or guest access)
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return (
+      localStorage.getItem("campus_ai_is_authenticated") === "true" ||
+      localStorage.getItem("campus_ai_is_guest") === "true"
+    );
+  });
+
+  const handleSaveCandidate = useCallback((name) => {
+    setCandidateName(name);
+    localStorage.setItem("campus_ai_candidate_name", name);
+    setIsAuthenticated(true);
+  }, []);
 
   // Citation switch state
   const [citationEnabled, setCitationEnabled] = useState(true);
@@ -290,13 +293,89 @@ export function App() {
     [input, isBusy, targetLanguage]
   );
 
+  const pageContainerRef = useRef(null);
+  const isTransitioningRef = useRef(false);
+
+  // Smooth GSAP Fade-Out / Fade-In Page Transitions
+  const navigateToView = useCallback(
+    (targetView, callback) => {
+      if (isTransitioningRef.current || currentView === targetView) return;
+      isTransitioningRef.current = true;
+
+      const container = pageContainerRef.current;
+      if (!container) {
+        setCurrentView(targetView);
+        localStorage.setItem("campus_ai_view", targetView);
+        if (callback) callback();
+        isTransitioningRef.current = false;
+        return;
+      }
+
+      // Phase 1: Smooth GSAP Fade-Out
+      gsap.to(container, {
+        opacity: 0,
+        scale: 0.985,
+        filter: "blur(4px)",
+        duration: 0.45,
+        ease: "power2.inOut",
+        onComplete: () => {
+          // Switch view
+          setCurrentView(targetView);
+          localStorage.setItem("campus_ai_view", targetView);
+          if (callback) callback();
+
+          // Phase 2: Smooth GSAP Fade-In
+          requestAnimationFrame(() => {
+            gsap.fromTo(
+              container,
+              {
+                opacity: 0,
+                scale: 1.015,
+                filter: "blur(4px)",
+              },
+              {
+                opacity: 1,
+                scale: 1,
+                filter: "blur(0px)",
+                duration: 0.55,
+                ease: "power2.out",
+                clearProps: "scale,filter",
+                onComplete: () => {
+                  isTransitioningRef.current = false;
+                },
+              }
+            );
+          });
+        },
+      });
+    },
+    [currentView]
+  );
+
+  // Initial mount smooth fade-in with GSAP
+  useEffect(() => {
+    if (pageContainerRef.current) {
+      gsap.fromTo(
+        pageContainerRef.current,
+        { opacity: 0, filter: "blur(4px)" },
+        {
+          opacity: 1,
+          filter: "blur(0px)",
+          duration: 0.5,
+          ease: "power2.out",
+          clearProps: "filter",
+        }
+      );
+    }
+  }, []);
+
   // Launch from Landing Page: switch to chat view, optionally pre-fill prompt
   const handleLaunchChat = (initialPrompt = "") => {
-    setCurrentView("chat");
-    if (initialPrompt && initialPrompt.trim()) {
-      // Small delay ensures the chat view is mounted before sending
-      setTimeout(() => handleSend(initialPrompt.trim()), 80);
-    }
+    navigateToView("chat", () => {
+      if (initialPrompt && initialPrompt.trim()) {
+        setTimeout(() => handleSend(initialPrompt.trim()), 100);
+      }
+    });
   };
 
   // Start a brand-new blank conversation
@@ -333,23 +412,33 @@ export function App() {
     }
   };
 
+  // Handle complete logout: clear auth credentials, active conversation, reset state, and return to Landing Page
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem("campus_ai_is_authenticated");
+    localStorage.removeItem("campus_ai_is_guest");
+    localStorage.removeItem("campus_ai_candidate_name");
+    localStorage.removeItem("campus_ai_user_email");
+    localStorage.removeItem("campus_ai_active_chat");
+    setIsAuthenticated(false);
+    setCandidateName("Student");
+    setActiveChatId(null);
+    activeChatIdRef.current = null;
+    setMessages([]);
+    setInput("");
+    setErrorMessage("");
+    navigateToView("landing");
+  }, [navigateToView]);
+
   return (
-    <>
-      {appLoading && (
-        <SpeedLoader
-          title="Loading FEESABILITY Intelligence"
-          subtitle="Synchronizing with institutional admissions database"
-          fullScreen={true}
-          onDismiss={() => setAppLoading(false)}
-        />
-      )}
+    <div
+      ref={pageContainerRef}
+      className="w-screen h-screen overflow-hidden bg-light-bg dark:bg-dark-bg"
+    >
       {currentView === "landing" ? (
         <LandingPage
           onLaunchChat={handleLaunchChat}
-          onSaveCandidate={(name) => {
-            setCandidateName(name);
-            localStorage.setItem("campus_ai_candidate_name", name);
-          }}
+          onSaveCandidate={handleSaveCandidate}
+          isAuthenticated={isAuthenticated}
           theme={theme}
         />
       ) : (
@@ -371,17 +460,18 @@ export function App() {
           onSubmit={() => handleSend()}
           errorMessage={errorMessage}
           candidateName={candidateName}
-          setCandidateName={setCandidateName}
+          setCandidateName={handleSaveCandidate}
           authOpen={authOpen}
           setAuthOpen={setAuthOpen}
           citationEnabled={citationEnabled}
           setCitationEnabled={setCitationEnabled}
           targetLanguage={targetLanguage}
           setTargetLanguage={setTargetLanguage}
-          onNavigateLanding={() => setCurrentView("landing")}
+          onNavigateLanding={() => navigateToView("landing")}
+          onLogout={handleLogout}
         />
       )}
-    </>
+    </div>
   );
 }
 

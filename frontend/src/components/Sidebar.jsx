@@ -13,11 +13,12 @@ import {
   PhoneCall,
   X,
   ChevronRight,
+  LogOut,
 } from "lucide-react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Delete02Icon } from "@hugeicons/core-free-icons";
-import { OrbLogo } from "./OrbLogo";
 import SwipeRow from "./SwipeRow";
+import { FeesabilityLogo } from "./FeesabilityLogo";
 
 const EXPLORE_TOPICS = [
   { label: "B.Tech CSE Fees", query: "What is the fee for B.Tech CSE?", icon: IndianRupee, badge: "Popular" },
@@ -73,6 +74,7 @@ export function Sidebar({
   onOpenAuth,
   candidateName,
   onNavigateLanding,
+  onLogout,
 }) {
   const groupedChats = groupChatsByDate(chats);
   const hasHistory = chats.length > 0;
@@ -108,15 +110,15 @@ export function Sidebar({
               type="button"
               onClick={onNavigateLanding}
               title="Return to Landing Page"
-              className="orb-btn flex items-center gap-2.5 cursor-pointer transition-transform duration-150 text-left group hover:opacity-90"
+              className="flex items-center gap-2.5 cursor-pointer transition-opacity duration-150 text-left group hover:opacity-85 select-none"
             >
-              <OrbLogo size="sm" animated={true} />
+              <FeesabilityLogo className="w-8 h-8 text-light-text dark:text-white shrink-0 group-hover:scale-105 transition-transform" />
               <div>
-                <h1 className="text-sm font-bold text-light-text dark:text-dark-text tracking-tight flex items-center gap-1.5 transition-colors" style={{ fontFamily: "'DM Serif Display', serif" }}>
-                  <span>FEESABILITY</span>
-                </h1>
-                <p className="text-[11px] text-light-muted dark:text-dark-muted">
-                  Admissions Intelligence
+                <span className="text-xl font-extrabold tracking-[-0.03em] text-light-text dark:text-white block leading-none" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                  feesability<span className="text-white">.</span>
+                </span>
+                <p className="text-[10px] text-light-muted dark:text-dark-muted font-medium tracking-wider uppercase mt-1">
+                  Admissions AI
                 </p>
               </div>
             </button>
@@ -271,6 +273,39 @@ export function Sidebar({
                 </button>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* User Session & Logout in Sidebar */}
+        <div className="px-4 pt-3 pb-1 border-t border-light-border dark:border-dark-border">
+          <div className="p-2.5 rounded-2xl glass-card border border-light-border/60 dark:border-dark-border/60 flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
+                {(candidateName || "C").charAt(0).toUpperCase()}
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs font-semibold text-light-text dark:text-dark-text truncate leading-tight">
+                  {candidateName || "Candidate"}
+                </p>
+                <p className="text-[10px] text-light-muted dark:text-dark-muted truncate">
+                  {typeof window !== "undefined" && localStorage.getItem("campus_ai_is_guest") === "true"
+                    ? "Guest Mode"
+                    : typeof window !== "undefined" && localStorage.getItem("campus_ai_user_email")
+                    ? localStorage.getItem("campus_ai_user_email")
+                    : "Active"}
+                </p>
+              </div>
+            </div>
+            {onLogout && (
+              <button
+                type="button"
+                onClick={onLogout}
+                title="Log Out and return to Home"
+                className="p-1.5 rounded-lg text-light-muted dark:text-dark-muted hover:text-red-500 hover:bg-red-500/10 transition-colors cursor-pointer"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
+            )}
           </div>
         </div>
 

@@ -8,6 +8,7 @@ import {
   Loader2,
   Globe,
 } from "lucide-react";
+import { FeesabilityLogo } from "./FeesabilityLogo";
 
 export const LANGUAGE_OPTIONS = [
   { id: "en", label: "English", display: "English" },
@@ -167,6 +168,7 @@ export function Composer({
             <textarea
               ref={textareaRef}
               rows={1}
+              autoFocus
               value={input}
               disabled={isBusy || isTranscribing}
               onChange={(e) => setInput(e.target.value)}
@@ -312,7 +314,10 @@ export function Composer({
 
       {/* Footer Helper text */}
       <div className="flex items-center justify-between px-2 pt-2 text-[10px] text-light-muted dark:text-dark-muted font-mono">
-        <span>FEESABILITY • Student Helpdesk</span>
+        <span className="flex items-center gap-1.5">
+          <FeesabilityLogo className="w-3.5 h-3.5 text-light-muted dark:text-dark-muted shrink-0" />
+          <span>FEESABILITY • Student Helpdesk</span>
+        </span>
         <span className="hidden sm:inline">
           Press <kbd className="px-1.5 py-0.5 rounded border border-light-border dark:border-dark-border text-[9px] bg-light-surface2 dark:bg-dark-surface2">Enter ↵</kbd>
         </span>
